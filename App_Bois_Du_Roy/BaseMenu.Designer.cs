@@ -29,31 +29,36 @@ namespace App_Bois_Du_Roy
         /// </summary>
         private void InitializeComponent()
         {
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.pnl_Menu = new System.Windows.Forms.Panel();
             this.SuspendLayout();
             // 
-            // panel1
+            // pnl_Menu
             // 
-            this.panel1.BackColor = System.Drawing.Color.Green;
-            this.panel1.Location = new System.Drawing.Point(-4, -1);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1910, 1036);
-            this.panel1.TabIndex = 0;
+            this.pnl_Menu.AutoSize = true;
+            this.pnl_Menu.BackColor = System.Drawing.Color.Green;
+            this.pnl_Menu.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnl_Menu.Location = new System.Drawing.Point(0, 0);
+            this.pnl_Menu.Name = "pnl_Menu";
+            this.pnl_Menu.Size = new System.Drawing.Size(1902, 1033);
+            this.pnl_Menu.TabIndex = 0;
             // 
             // BaseMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1902, 1033);
-            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.pnl_Menu);
             this.Name = "BaseMenu";
             this.Text = "BaseMenu";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
 
-        private System.Windows.Forms.Panel panel1;
+        public System.Windows.Forms.Panel pnl_Menu;
+       
     }
 }

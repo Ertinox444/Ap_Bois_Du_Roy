@@ -33,6 +33,7 @@ namespace App_Bois_Du_Roy
             this.panel_logo = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.btn_connect = new System.Windows.Forms.Button();
             this.tb_mdp = new System.Windows.Forms.TextBox();
             this.tb_login = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -64,7 +65,7 @@ namespace App_Bois_Du_Roy
             // pictureBox1
             // 
             this.pictureBox1.Image = global::App_Bois_Du_Roy.Properties.Resources.Logo;
-            this.pictureBox1.Location = new System.Drawing.Point(3, 6);
+            this.pictureBox1.Location = new System.Drawing.Point(12, 0);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(957, 1032);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -74,6 +75,7 @@ namespace App_Bois_Du_Roy
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(145)))), ((int)(((byte)(199)))), ((int)(((byte)(72)))));
+            this.panel2.Controls.Add(this.btn_connect);
             this.panel2.Controls.Add(this.tb_mdp);
             this.panel2.Controls.Add(this.tb_login);
             this.panel2.Controls.Add(this.label1);
@@ -84,16 +86,28 @@ namespace App_Bois_Du_Roy
             this.panel2.Size = new System.Drawing.Size(683, 760);
             this.panel2.TabIndex = 1;
             // 
+            // btn_connect
+            // 
+            this.btn_connect.Location = new System.Drawing.Point(233, 624);
+            this.btn_connect.Name = "btn_connect";
+            this.btn_connect.Size = new System.Drawing.Size(180, 65);
+            this.btn_connect.TabIndex = 5;
+            this.btn_connect.Text = "Connexion :";
+            this.btn_connect.UseVisualStyleBackColor = true;
+            this.btn_connect.Click += new System.EventHandler(this.btn_connect_Click);
+            // 
             // tb_mdp
             // 
-            this.tb_mdp.Location = new System.Drawing.Point(72, 496);
+            this.tb_mdp.Location = new System.Drawing.Point(81, 497);
             this.tb_mdp.Multiline = true;
             this.tb_mdp.Name = "tb_mdp";
+            this.tb_mdp.PasswordChar = '*';
             this.tb_mdp.Size = new System.Drawing.Size(522, 53);
             this.tb_mdp.TabIndex = 4;
             // 
             // tb_login
             // 
+            this.tb_login.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.15F);
             this.tb_login.Location = new System.Drawing.Point(81, 268);
             this.tb_login.Multiline = true;
             this.tb_login.Name = "tb_login";
@@ -163,6 +177,7 @@ namespace App_Bois_Du_Roy
         private System.Windows.Forms.Label login_lbl;
         private System.Windows.Forms.TextBox tb_mdp;
         private System.Windows.Forms.TextBox tb_login;
+        private System.Windows.Forms.Button btn_connect;
     }
 }
 
