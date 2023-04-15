@@ -1,7 +1,7 @@
 ﻿
 namespace App_Bois_Du_Roy
 {
-    partial class Form1
+    partial class Page_Connection
     {
         /// <summary>
         /// Variable nécessaire au concepteur.

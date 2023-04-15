@@ -13,9 +13,33 @@ namespace App_Bois_Du_Roy
 {
     public partial class Liste_Conge : Form
     {
+        private Connect dtviewConge = new Connect();
+        public DataView dvConge;
+        private void DGV_Liste_Conge_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            if (e.ColumnIndex == DGV_Liste_Conge.Columns["Statut"].Index)
+            {
+                string statut = e.Value.ToString();
+                if (statut == "En attente")
+                {
+                    e.CellStyle.ForeColor = Color.Red;
+                }
+            }
+        }
         public Liste_Conge()
         {
             InitializeComponent();
+            dtviewConge = new Connect();
+            dvConge = new DataView(dtviewConge.GetlisteConge());
+            DGV_Liste_Conge.DataSource = dvConge;
+            DGV_Liste_Conge.Columns["Employe"].Width = 232;
+            DGV_Liste_Conge.Columns["Type Conge"].Width = 232;
+            DGV_Liste_Conge.Columns["Duree"].Width = 232;
+            DGV_Liste_Conge.Columns["Statut"].Width = 232;
+            DGV_Liste_Conge.Columns["Valideur"].Width = 232;
+            DGV_Liste_Conge.EnableHeadersVisualStyles = false;
+            DGV_Liste_Conge.ColumnHeadersDefaultCellStyle.ForeColor = Color.FromArgb(87, 128, 64);
+            DGV_Liste_Conge.CellFormatting += DGV_Liste_Conge_CellFormatting;
         }
 
         private void lbl_Conge_Click(object sender, EventArgs e)

@@ -55,7 +55,7 @@ namespace App_Bois_Du_Roy
         private void lbl_Service_Click(object sender, EventArgs e)
         {
             SousFormulaire SF = new SousFormulaire((System.Windows.Forms.Application.OpenForms["BaseMenu"] as BaseMenu).pnl_Menu);
-            SF.openChildForm(new Liste_Conge());
+            SF.openChildForm(new Liste_Service());
         }
 
      

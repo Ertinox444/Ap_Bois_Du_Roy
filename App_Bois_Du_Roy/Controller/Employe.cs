@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
-
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -9,43 +8,46 @@ using System.Windows.Forms;
 using App_Bois_Du_Roy.Modele;
 using MySql.Data.MySqlClient;
 
-namespace App_Bois_Du_Roy.Modele
+namespace App_Bois_Du_Roy.Controller
 {
-    public class Service
+    class Employe
     {
-       
+
+
         Connexion conn = new Connexion();
 
-        public DataTable GetListeServiceCB()
+        public DataTable GetListeResponsableCB()
         {
-            DataTable dtListeService = new DataTable();
-             dtListeService.Columns.Add("NOMSERVICE");
-            dtListeService.Columns.Add("IDSERVICE");
- 
+            DataTable dtListeResponsable = new DataTable();
+            dtListeResponsable.Columns.Add("RESPONSABLE");
+            dtListeResponsable.Columns.Add("MATRICULE");
+
+
 
             try
             {
                 conn.connection.Open();
 
-                string query = "SELECT SERVICE.ID_SERVICE ,SERVICE.NOM_SERVICE FROM SERVICE; ";
+                string query = "SELECT MATRICULE, concat(EMPLOYE.NOM,' ',EMPLOYE.PRENOM) as Employe FROM EMPLOYE;  ";
                 MySqlCommand cmd = new MySqlCommand(query, conn.connection);
                 MySqlDataReader dataReader = cmd.ExecuteReader();
 
                 while (dataReader.Read())
                 {
-                    DataRow row = dtListeService.NewRow();
-                   
-                    row["NOMSERVICE"] = dataReader["NOM_SERVICE"];
-                    row["IDSERVICE"] = dataReader["ID_SERVICE"];
-                    dtListeService.Rows.Add(row);
+                    DataRow row = dtListeResponsable.NewRow();
+
+                    row["RESPONSABLE"] = dataReader["Employe"];
+                    row["MATRICULE"] = dataReader["MATRICULE"];
+
+                    dtListeResponsable.Rows.Add(row);
 
                 }
 
                 // Ajouter un enregistrement vide pour annuler le tri sur la difficulté
-                DataRow workRow = dtListeService.NewRow();
+                DataRow workRow = dtListeResponsable.NewRow();
 
-             
-                dtListeService.Rows.InsertAt(workRow, 0);
+
+                dtListeResponsable.Rows.InsertAt(workRow, 0);
 
                 dataReader.Close();
                 cmd.Dispose();
@@ -54,10 +56,8 @@ namespace App_Bois_Du_Roy.Modele
             {
                 MessageBox.Show(e.ToString(), "Erreur 3", MessageBoxButtons.OK, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1, MessageBoxOptions.RightAlign, true);
             }
-            return dtListeService;
+            return dtListeResponsable;
         }
 
-        
-        }
     }
-
+}

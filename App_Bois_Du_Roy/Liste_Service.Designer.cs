@@ -29,7 +29,12 @@ namespace App_Bois_Du_Roy
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.DGV_Liste_Service = new System.Windows.Forms.DataGridView();
+            this.lbl_AddEmploye = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.lbl_Service = new System.Windows.Forms.Label();
@@ -37,6 +42,7 @@ namespace App_Bois_Du_Roy
             this.lbl_Employe = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.DGV_Liste_Service)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -44,11 +50,79 @@ namespace App_Bois_Du_Roy
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(247)))), ((int)(((byte)(209)))));
+            this.panel2.Controls.Add(this.DGV_Liste_Service);
+            this.panel2.Controls.Add(this.lbl_AddEmploye);
+            this.panel2.Controls.Add(this.label2);
             this.panel2.Controls.Add(this.label1);
             this.panel2.Location = new System.Drawing.Point(391, 27);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(1635, 1029);
             this.panel2.TabIndex = 4;
+            // 
+            // DGV_Liste_Service
+            // 
+            this.DGV_Liste_Service.AllowUserToAddRows = false;
+            this.DGV_Liste_Service.AllowUserToDeleteRows = false;
+            this.DGV_Liste_Service.AllowUserToOrderColumns = true;
+            this.DGV_Liste_Service.AllowUserToResizeColumns = false;
+            this.DGV_Liste_Service.AllowUserToResizeRows = false;
+            this.DGV_Liste_Service.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(247)))), ((int)(((byte)(209)))));
+            this.DGV_Liste_Service.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.DGV_Liste_Service.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Arial", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(84)))), ((int)(((byte)(128)))), ((int)(((byte)(67)))));
+            dataGridViewCellStyle1.Padding = new System.Windows.Forms.Padding(5);
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(84)))), ((int)(((byte)(128)))), ((int)(((byte)(67)))));
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.DGV_Liste_Service.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.DGV_Liste_Service.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DGV_Liste_Service.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(84)))), ((int)(((byte)(128)))), ((int)(((byte)(67)))));
+            this.DGV_Liste_Service.Location = new System.Drawing.Point(51, 112);
+            this.DGV_Liste_Service.Name = "DGV_Liste_Service";
+            this.DGV_Liste_Service.RowHeadersVisible = false;
+            this.DGV_Liste_Service.RowHeadersWidth = 51;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(84)))), ((int)(((byte)(128)))), ((int)(((byte)(67)))));
+            dataGridViewCellStyle2.Padding = new System.Windows.Forms.Padding(2);
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(84)))), ((int)(((byte)(128)))), ((int)(((byte)(67)))));
+            this.DGV_Liste_Service.RowsDefaultCellStyle = dataGridViewCellStyle2;
+            this.DGV_Liste_Service.RowTemplate.Height = 40;
+            this.DGV_Liste_Service.RowTemplate.ReadOnly = true;
+            this.DGV_Liste_Service.Size = new System.Drawing.Size(1565, 817);
+            this.DGV_Liste_Service.TabIndex = 9;
+            // 
+            // lbl_AddEmploye
+            // 
+            this.lbl_AddEmploye.AutoSize = true;
+            this.lbl_AddEmploye.BackColor = System.Drawing.Color.Transparent;
+            this.lbl_AddEmploye.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.lbl_AddEmploye.Font = new System.Drawing.Font("Arial", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_AddEmploye.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(84)))), ((int)(((byte)(128)))), ((int)(((byte)(67)))));
+            this.lbl_AddEmploye.Location = new System.Drawing.Point(1082, 44);
+            this.lbl_AddEmploye.Name = "lbl_AddEmploye";
+            this.lbl_AddEmploye.Size = new System.Drawing.Size(189, 46);
+            this.lbl_AddEmploye.TabIndex = 7;
+            this.lbl_AddEmploye.Text = "+ Ajouter";
+            this.lbl_AddEmploye.Click += new System.EventHandler(this.lbl_AddEmploye_Click);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.Transparent;
+            this.label2.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.label2.Font = new System.Drawing.Font("Arial", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(84)))), ((int)(((byte)(128)))), ((int)(((byte)(67)))));
+            this.label2.Location = new System.Drawing.Point(1328, 44);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(243, 46);
+            this.label2.TabIndex = 8;
+            this.label2.Text = "- Supprimer";
             // 
             // label1
             // 
@@ -77,6 +151,7 @@ namespace App_Bois_Du_Roy
             // lbl_Service
             // 
             this.lbl_Service.AutoSize = true;
+            this.lbl_Service.Cursor = System.Windows.Forms.Cursors.Hand;
             this.lbl_Service.Font = new System.Drawing.Font("Arial", 24F, System.Drawing.FontStyle.Bold);
             this.lbl_Service.ForeColor = System.Drawing.Color.White;
             this.lbl_Service.Location = new System.Drawing.Point(37, 714);
@@ -89,6 +164,7 @@ namespace App_Bois_Du_Roy
             // lbl_Conge
             // 
             this.lbl_Conge.AutoSize = true;
+            this.lbl_Conge.Cursor = System.Windows.Forms.Cursors.Hand;
             this.lbl_Conge.Font = new System.Drawing.Font("Arial", 24F, System.Drawing.FontStyle.Bold);
             this.lbl_Conge.ForeColor = System.Drawing.Color.White;
             this.lbl_Conge.Location = new System.Drawing.Point(56, 579);
@@ -101,6 +177,7 @@ namespace App_Bois_Du_Roy
             // lbl_Employe
             // 
             this.lbl_Employe.AutoSize = true;
+            this.lbl_Employe.Cursor = System.Windows.Forms.Cursors.Hand;
             this.lbl_Employe.Font = new System.Drawing.Font("Arial", 24F, System.Drawing.FontStyle.Bold);
             this.lbl_Employe.ForeColor = System.Drawing.Color.White;
             this.lbl_Employe.Location = new System.Drawing.Point(37, 439);
@@ -112,6 +189,7 @@ namespace App_Bois_Du_Roy
             // 
             // pictureBox1
             // 
+            this.pictureBox1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureBox1.Image = global::App_Bois_Du_Roy.Properties.Resources.Logo;
             this.pictureBox1.Location = new System.Drawing.Point(75, 46);
             this.pictureBox1.Margin = new System.Windows.Forms.Padding(0);
@@ -134,6 +212,7 @@ namespace App_Bois_Du_Roy
             this.Text = "Liste_Service";
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.DGV_Liste_Service)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
@@ -150,5 +229,8 @@ namespace App_Bois_Du_Roy
         private System.Windows.Forms.Label lbl_Conge;
         private System.Windows.Forms.Label lbl_Employe;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Label lbl_AddEmploye;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.DataGridView DGV_Liste_Service;
     }
 }

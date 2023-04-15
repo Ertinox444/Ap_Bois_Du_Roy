@@ -14,7 +14,7 @@ using BC = BCrypt.Net.BCrypt;
 
 namespace App_Bois_Du_Roy
 {
-    public partial class Form1 : Form
+    public partial class Page_Connection : Form
     {
         public Connect connecte = new Connect();
 
@@ -26,7 +26,7 @@ namespace App_Bois_Du_Roy
         
     
 
-        public Form1()
+        public Page_Connection()
         {
             InitializeComponent();
             

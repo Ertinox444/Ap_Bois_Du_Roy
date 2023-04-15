@@ -62,6 +62,7 @@ namespace App_Bois_Du_Roy
             // lbl_Service
             // 
             this.lbl_Service.AutoSize = true;
+            this.lbl_Service.Cursor = System.Windows.Forms.Cursors.Hand;
             this.lbl_Service.Font = new System.Drawing.Font("Arial", 24F, System.Drawing.FontStyle.Bold);
             this.lbl_Service.ForeColor = System.Drawing.Color.White;
             this.lbl_Service.Location = new System.Drawing.Point(37, 714);
@@ -74,6 +75,7 @@ namespace App_Bois_Du_Roy
             // lbl_Conge
             // 
             this.lbl_Conge.AutoSize = true;
+            this.lbl_Conge.Cursor = System.Windows.Forms.Cursors.Hand;
             this.lbl_Conge.Font = new System.Drawing.Font("Arial", 24F, System.Drawing.FontStyle.Bold);
             this.lbl_Conge.ForeColor = System.Drawing.Color.White;
             this.lbl_Conge.Location = new System.Drawing.Point(56, 579);
@@ -125,6 +127,7 @@ namespace App_Bois_Du_Roy
             // 
             this.label2.AutoSize = true;
             this.label2.BackColor = System.Drawing.Color.Transparent;
+            this.label2.Cursor = System.Windows.Forms.Cursors.Hand;
             this.label2.Font = new System.Drawing.Font("Arial", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(84)))), ((int)(((byte)(128)))), ((int)(((byte)(67)))));
             this.label2.Location = new System.Drawing.Point(1328, 44);
@@ -149,6 +152,11 @@ namespace App_Bois_Du_Roy
             // 
             // DGV_Liste_Employe
             // 
+            this.DGV_Liste_Employe.AllowUserToAddRows = false;
+            this.DGV_Liste_Employe.AllowUserToDeleteRows = false;
+            this.DGV_Liste_Employe.AllowUserToOrderColumns = true;
+            this.DGV_Liste_Employe.AllowUserToResizeColumns = false;
+            this.DGV_Liste_Employe.AllowUserToResizeRows = false;
             this.DGV_Liste_Employe.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(247)))), ((int)(((byte)(209)))));
             this.DGV_Liste_Employe.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.DGV_Liste_Employe.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;

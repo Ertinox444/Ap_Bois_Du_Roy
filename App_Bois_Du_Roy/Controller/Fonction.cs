@@ -15,7 +15,7 @@ namespace App_Bois_Du_Roy.Controller
         
             Connexion conn = new Connexion();
 
-            public DataTable GetListeFonction()
+            public DataTable GetListeFonctionCB()
             {
                 DataTable dtListeFonction = new DataTable();
                 dtListeFonction.Columns.Add("NOMFONCTION");

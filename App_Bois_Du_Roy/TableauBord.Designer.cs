@@ -62,6 +62,7 @@ namespace App_Bois_Du_Roy
             // lbl_Service
             // 
             this.lbl_Service.AutoSize = true;
+            this.lbl_Service.Cursor = System.Windows.Forms.Cursors.Hand;
             this.lbl_Service.Font = new System.Drawing.Font("Arial", 24F, System.Drawing.FontStyle.Bold);
             this.lbl_Service.ForeColor = System.Drawing.Color.White;
             this.lbl_Service.Location = new System.Drawing.Point(37, 714);
@@ -74,6 +75,7 @@ namespace App_Bois_Du_Roy
             // lbl_Conge
             // 
             this.lbl_Conge.AutoSize = true;
+            this.lbl_Conge.Cursor = System.Windows.Forms.Cursors.Hand;
             this.lbl_Conge.Font = new System.Drawing.Font("Arial", 24F, System.Drawing.FontStyle.Bold);
             this.lbl_Conge.ForeColor = System.Drawing.Color.White;
             this.lbl_Conge.Location = new System.Drawing.Point(56, 579);
@@ -168,7 +170,7 @@ namespace App_Bois_Du_Roy
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
             dataGridViewCellStyle3.Font = new System.Drawing.Font("Arial", 20F);
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(84)))), ((int)(((byte)(128)))), ((int)(((byte)(67)))));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.AppWorkspace;
             dataGridViewCellStyle3.Padding = new System.Windows.Forms.Padding(7);
             dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.White;
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(84)))), ((int)(((byte)(128)))), ((int)(((byte)(67)))));

@@ -99,6 +99,12 @@
     <Compile Include="Ajout_Employe.Designer.cs">
       <DependentUpon>Ajout_Employe.cs</DependentUpon>
     </Compile>
+    <Compile Include="Ajout_Service.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ajout_Service.Designer.cs">
+      <DependentUpon>Ajout_Service.cs</DependentUpon>
+    </Compile>
     <Compile Include="BaseMenu.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -106,12 +112,14 @@
       <DependentUpon>BaseMenu.cs</DependentUpon>
     </Compile>
     <Compile Include="Controller\Connect.cs" />
+    <Compile Include="Controller\Employe.cs" />
     <Compile Include="Controller\Fonction.cs" />
-    <Compile Include="Form1.cs">
+    <Compile Include="Controller\Matricule.cs" />
+    <Compile Include="Page_Connection.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="Page_Connection.Designer.cs">
+      <DependentUpon>Page_Connection.cs</DependentUpon>
     </Compile>
     <Compile Include="Liste_Conge.cs">
       <SubType>Form</SubType>
@@ -145,11 +153,14 @@
     <EmbeddedResource Include="Ajout_Employe.resx">
       <DependentUpon>Ajout_Employe.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Ajout_Service.resx">
+      <DependentUpon>Ajout_Service.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="BaseMenu.resx">
       <DependentUpon>BaseMenu.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <EmbeddedResource Include="Page_Connection.resx">
+      <DependentUpon>Page_Connection.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Liste_Conge.resx">
       <DependentUpon>Liste_Conge.cs</DependentUpon>
