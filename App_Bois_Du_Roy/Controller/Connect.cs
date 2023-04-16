@@ -363,7 +363,7 @@ namespace App_Bois_Du_Roy.Controller
             return dtListeConge;
         }
         #endregion
-
+        #region Insertion Service
         public bool InsertService(string nom, string responsable)
         {
             bool reponse = false;
@@ -417,6 +417,37 @@ namespace App_Bois_Du_Roy.Controller
             }
             return reponse;
         }
+        #endregion
+        #region Suppression Service
+        public bool SuppressService(List<string> nomService)
+        {
+            bool reponse = false;
+            try
+            {
+                Connexion conn = new Connexion();
+              
+            foreach (string service in nomService)
+                {
+                    string query = "DELETE FROM SERVICE WHERE NOM_SERVICE = '" + service + "';";
+                    using (MySqlCommand command = new MySqlCommand(query, conn.connection))
+                    {
+                        conn.connection.Open();
+                        command.ExecuteNonQuery();
+
+                        reponse = true;
+                        conn.connection.Close();
+                    }
+                   
+                }
+
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.ToString(), "Erreur 3 ", MessageBoxButtons.OK, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1, MessageBoxOptions.RightAlign, true);
+            }
+            return reponse;
+        }
+        #endregion
     }
 }
 

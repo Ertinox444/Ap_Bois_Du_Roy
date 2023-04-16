@@ -15,7 +15,7 @@ namespace App_Bois_Du_Roy
     public partial class Liste_Service : Form
     {
         private Connect dtviewService = new Connect();
-        public DataView dvService;
+        private DataView dvService;
         public Liste_Service()
         {
             InitializeComponent();
@@ -60,6 +60,12 @@ namespace App_Bois_Du_Roy
         {
             SousFormulaire SF = new SousFormulaire((System.Windows.Forms.Application.OpenForms["BaseMenu"] as BaseMenu).pnl_Menu);
             SF.openChildForm(new Ajout_Service());
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+            SousFormulaire SF = new SousFormulaire((System.Windows.Forms.Application.OpenForms["BaseMenu"] as BaseMenu).pnl_Menu);
+            SF.openChildForm(new Supprime_Service());
         }
     }
 }
