@@ -15,6 +15,9 @@ namespace App_Bois_Du_Roy.Controller
 
 
         Connexion conn = new Connexion();
+        private string NameEmp;
+        private string DateBirthEmp;
+
 
         public DataTable GetListeResponsableCB()
         {
@@ -57,6 +60,60 @@ namespace App_Bois_Du_Roy.Controller
                 MessageBox.Show(e.ToString(), "Erreur 3", MessageBoxButtons.OK, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1, MessageBoxOptions.RightAlign, true);
             }
             return dtListeResponsable;
+        }
+
+        public string RecupNameEmploye(string matricule)
+        {
+            try
+            {
+                using (MySqlCommand cmd = new MySqlCommand("SELECT concat(NOM,' ',PRENOM) FROM EMPLOYE WHERE MATRICULE ='" + matricule + "';", conn.connection))
+                {
+                    conn.connection.Open();
+                    MySqlDataReader reader = cmd.ExecuteReader();
+                    if (reader.HasRows)
+                    {
+                        reader.Read();
+                        NameEmp = reader.GetString(0);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Aucun résultat trouvé", "Erreur 3", MessageBoxButtons.OK, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1, MessageBoxOptions.RightAlign, true);
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.ToString(), "Erreur 3", MessageBoxButtons.OK, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1, MessageBoxOptions.RightAlign, true);
+            }
+            return NameEmp;
+
+        }
+
+        public string RecupBirthEmploye(string matricule)
+        {
+            try
+            {
+                using (MySqlCommand cmd = new MySqlCommand("SELECT DATE_FORMAT(DATE_NAISSANCE, '%d/%m/%Y') FROM EMPLOYE WHERE MATRICULE ='" + matricule + "';", conn.connection))
+                {
+                    conn.connection.Open();
+                    MySqlDataReader reader = cmd.ExecuteReader();
+                    if (reader.HasRows)
+                    {
+                        reader.Read();
+                        DateBirthEmp = reader.GetString(0);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Aucun résultat trouvé", "Erreur 3", MessageBoxButtons.OK, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1, MessageBoxOptions.RightAlign, true);
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.ToString(), "Erreur 3", MessageBoxButtons.OK, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1, MessageBoxOptions.RightAlign, true);
+            }
+            return DateBirthEmp;
+
         }
 
     }

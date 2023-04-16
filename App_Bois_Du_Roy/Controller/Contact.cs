@@ -10,65 +10,24 @@ using MySql.Data.MySqlClient;
 
 namespace App_Bois_Du_Roy.Controller
 {
-    public class Matricule
+    public class Contact
     {
 
         Connexion conn = new Connexion();
-        private string matEmp;
+        private string NumTelEmp, MailEmp;
 
-        public DataTable GetListeMatriculeCB()
-        {
-            DataTable dtListeMatricule = new DataTable();
-            dtListeMatricule.Columns.Add("MATRICULE");
-          
-
-
-            try
-            {
-                conn.connection.Open();
-
-                string query = "SELECT EMPLOYE.MATRICULE as MATRICULE FROM EMPLOYE ORDER BY MATRICULE;  ";
-                MySqlCommand cmd = new MySqlCommand(query, conn.connection);
-                MySqlDataReader dataReader = cmd.ExecuteReader();
-
-                while (dataReader.Read())
-                {
-                    DataRow row = dtListeMatricule.NewRow();
-
-                    row["MATRICULE"] = dataReader["MATRICULE"];
-               
-                    dtListeMatricule.Rows.Add(row);
-
-                }
-
-                // Ajouter un enregistrement vide pour annuler le tri sur la difficulté
-                DataRow workRow = dtListeMatricule.NewRow();
-
-
-                dtListeMatricule.Rows.InsertAt(workRow, 0);
-
-                dataReader.Close();
-                cmd.Dispose();
-            }
-            catch (Exception e)
-            {
-                MessageBox.Show(e.ToString(), "Erreur 3", MessageBoxButtons.OK, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1, MessageBoxOptions.RightAlign, true);
-            }
-            return dtListeMatricule;
-        }
-
-        public string RecupMatEmploye(string matricule)
+        public string RecupNumTelEmploye(string matricule)
         {
             try
             {
-                using (MySqlCommand cmd = new MySqlCommand("SELECT MATRICULE FROM EMPLOYE WHERE MATRICULE ='" + matricule + "';", conn.connection))
+                using (MySqlCommand cmd = new MySqlCommand("SELECT TELEPHONE FROM EMPLOYE  WHERE MATRICULE ='" + matricule + "';", conn.connection))
                 {
                     conn.connection.Open();
                     MySqlDataReader reader = cmd.ExecuteReader();
                     if (reader.HasRows)
                     {
                         reader.Read();
-                        matEmp = reader.GetString(0);
+                        NumTelEmp = reader.GetString(0);
                     }
                     else
                     {
@@ -80,8 +39,35 @@ namespace App_Bois_Du_Roy.Controller
             {
                 MessageBox.Show(e.ToString(), "Erreur 3", MessageBoxButtons.OK, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1, MessageBoxOptions.RightAlign, true);
             }
-            return matEmp;
-            
+            return NumTelEmp;
+
+        }
+
+        public string RecupMailEmploye(string matricule)
+        {
+            try
+            {
+                using (MySqlCommand cmd = new MySqlCommand("SELECT MAIL FROM EMPLOYE  WHERE MATRICULE ='" + matricule + "';", conn.connection))
+                {
+                    conn.connection.Open();
+                    MySqlDataReader reader = cmd.ExecuteReader();
+                    if (reader.HasRows)
+                    {
+                        reader.Read();
+                        MailEmp = reader.GetString(0);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Aucun résultat trouvé", "Erreur 3", MessageBoxButtons.OK, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1, MessageBoxOptions.RightAlign, true);
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.ToString(), "Erreur 3", MessageBoxButtons.OK, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1, MessageBoxOptions.RightAlign, true);
+            }
+            return MailEmp;
+
         }
     }
 }

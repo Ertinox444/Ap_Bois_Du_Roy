@@ -14,6 +14,7 @@ namespace App_Bois_Du_Roy.Controller
     {
         
             Connexion conn = new Connexion();
+            private string foncEmp;
 
             public DataTable GetListeFonctionCB()
             {
@@ -55,7 +56,34 @@ namespace App_Bois_Du_Roy.Controller
                 }
                 return dtListeFonction;
             }
+
+        public string RecupFoncEmploye(string matricule)
+        {
+            try
+            {
+                using (MySqlCommand cmd = new MySqlCommand("SELECT NOM_FONCTION FROM EMPLOYE INNER JOIN FONCTION ON EMPLOYE.ID_FONCTION = FONCTION.ID_FONCTION WHERE MATRICULE ='" + matricule + "';", conn.connection))
+                {
+                    conn.connection.Open();
+                    MySqlDataReader reader = cmd.ExecuteReader();
+                    if (reader.HasRows)
+                    {
+                        reader.Read();
+                        foncEmp = reader.GetString(0);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Aucun résultat trouvé", "Erreur 3", MessageBoxButtons.OK, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1, MessageBoxOptions.RightAlign, true);
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.ToString(), "Erreur 3", MessageBoxButtons.OK, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1, MessageBoxOptions.RightAlign, true);
+            }
+            return foncEmp;
+
         }
+    }
     }
 
 

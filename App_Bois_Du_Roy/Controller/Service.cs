@@ -15,6 +15,7 @@ namespace App_Bois_Du_Roy.Modele
     {
        
         Connexion conn = new Connexion();
+        private string servEmp;
 
         public DataTable GetListeServiceCB()
         {
@@ -56,8 +57,34 @@ namespace App_Bois_Du_Roy.Modele
             }
             return dtListeService;
         }
+        public string RecupServEmploye(string matricule)
+        {
+            try
+            {
+                using (MySqlCommand cmd = new MySqlCommand("SELECT NOM_SERVICE FROM EMPLOYE INNER JOIN SERVICE ON EMPLOYE.ID_SERVICE = SERVICE.ID_SERVICE WHERE MATRICULE ='" + matricule + "';", conn.connection))
+                {
+                    conn.connection.Open();
+                    MySqlDataReader reader = cmd.ExecuteReader();
+                    if (reader.HasRows)
+                    {
+                        reader.Read();
+                        servEmp = reader.GetString(0);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Aucun résultat trouvé", "Erreur 3", MessageBoxButtons.OK, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1, MessageBoxOptions.RightAlign, true);
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.ToString(), "Erreur 3", MessageBoxButtons.OK, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1, MessageBoxOptions.RightAlign, true);
+            }
+            return servEmp;
 
-        
         }
+
+
+    }
     }
 

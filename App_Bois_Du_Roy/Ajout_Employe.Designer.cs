@@ -58,6 +58,9 @@ namespace App_Bois_Du_Roy
             this.tbAddEmp_Prenom = new System.Windows.Forms.TextBox();
             this.tbAddEmp_Nom = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel2.SuspendLayout();
@@ -130,6 +133,9 @@ namespace App_Bois_Du_Roy
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(247)))), ((int)(((byte)(209)))));
+            this.panel2.Controls.Add(this.label13);
+            this.panel2.Controls.Add(this.label12);
+            this.panel2.Controls.Add(this.label11);
             this.panel2.Controls.Add(this.tbAddEmp_LastMat);
             this.panel2.Controls.Add(this.label10);
             this.panel2.Controls.Add(this.label9);
@@ -187,6 +193,7 @@ namespace App_Bois_Du_Roy
             // tbAddEmp_Mat
             // 
             this.tbAddEmp_Mat.Location = new System.Drawing.Point(233, 501);
+            this.tbAddEmp_Mat.MaxLength = 5;
             this.tbAddEmp_Mat.Multiline = true;
             this.tbAddEmp_Mat.Name = "tbAddEmp_Mat";
             this.tbAddEmp_Mat.Size = new System.Drawing.Size(281, 45);
@@ -195,6 +202,7 @@ namespace App_Bois_Du_Roy
             // tbAddEmp_NumTel
             // 
             this.tbAddEmp_NumTel.Location = new System.Drawing.Point(233, 314);
+            this.tbAddEmp_NumTel.MaxLength = 5;
             this.tbAddEmp_NumTel.Multiline = true;
             this.tbAddEmp_NumTel.Name = "tbAddEmp_NumTel";
             this.tbAddEmp_NumTel.Size = new System.Drawing.Size(281, 76);
@@ -262,6 +270,7 @@ namespace App_Bois_Du_Roy
             // tbAddEmp_NumSec
             // 
             this.tbAddEmp_NumSec.Location = new System.Drawing.Point(1250, 158);
+            this.tbAddEmp_NumSec.MaxLength = 15;
             this.tbAddEmp_NumSec.Multiline = true;
             this.tbAddEmp_NumSec.Name = "tbAddEmp_NumSec";
             this.tbAddEmp_NumSec.Size = new System.Drawing.Size(304, 76);
@@ -359,6 +368,33 @@ namespace App_Bois_Du_Roy
             this.label1.TabIndex = 1;
             this.label1.Text = "Ajouter Employé : ";
             // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(759, 463);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(70, 17);
+            this.label11.TabIndex = 26;
+            this.label11.Text = "Fonction :";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(759, 525);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(63, 17);
+            this.label12.TabIndex = 27;
+            this.label12.Text = "Service :";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(759, 587);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(99, 17);
+            this.label13.TabIndex = 28;
+            this.label13.Text = "Responsable :";
+            // 
             // Ajout_Employe
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -409,5 +445,8 @@ namespace App_Bois_Du_Roy
         private System.Windows.Forms.TextBox tbAddEmp_Mat;
         private System.Windows.Forms.TextBox tbAddEmp_LastMat;
         private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Label label11;
     }
 }

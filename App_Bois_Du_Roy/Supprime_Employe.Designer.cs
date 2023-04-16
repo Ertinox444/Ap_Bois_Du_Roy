@@ -1,7 +1,7 @@
 ﻿
 namespace App_Bois_Du_Roy
 {
-    partial class Supprime_Service
+    partial class Supprime_Employe
     {
         /// <summary>
         /// Required designer variable.
@@ -29,33 +29,81 @@ namespace App_Bois_Du_Roy
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.DGV_Liste_Employe = new System.Windows.Forms.DataGridView();
+            this.btnSupprimer_EMP = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.lbl_Service = new System.Windows.Forms.Label();
             this.lbl_Conge = new System.Windows.Forms.Label();
             this.lbl_lsEmploye = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.btnSupprimer = new System.Windows.Forms.Button();
-            this.DGV_Liste_Service = new System.Windows.Forms.DataGridView();
             this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.DGV_Liste_Employe)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.DGV_Liste_Service)).BeginInit();
             this.SuspendLayout();
             // 
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(247)))), ((int)(((byte)(209)))));
-            this.panel2.Controls.Add(this.DGV_Liste_Service);
-            this.panel2.Controls.Add(this.btnSupprimer);
+            this.panel2.Controls.Add(this.DGV_Liste_Employe);
+            this.panel2.Controls.Add(this.btnSupprimer_EMP);
             this.panel2.Controls.Add(this.label1);
             this.panel2.Location = new System.Drawing.Point(391, 27);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(1635, 1029);
-            this.panel2.TabIndex = 5;
+            this.panel2.TabIndex = 6;
+            // 
+            // DGV_Liste_Employe
+            // 
+            this.DGV_Liste_Employe.AllowUserToAddRows = false;
+            this.DGV_Liste_Employe.AllowUserToDeleteRows = false;
+            this.DGV_Liste_Employe.AllowUserToOrderColumns = true;
+            this.DGV_Liste_Employe.AllowUserToResizeColumns = false;
+            this.DGV_Liste_Employe.AllowUserToResizeRows = false;
+            this.DGV_Liste_Employe.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(247)))), ((int)(((byte)(209)))));
+            this.DGV_Liste_Employe.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.DGV_Liste_Employe.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Arial", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(84)))), ((int)(((byte)(128)))), ((int)(((byte)(67)))));
+            dataGridViewCellStyle1.Padding = new System.Windows.Forms.Padding(5);
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(84)))), ((int)(((byte)(128)))), ((int)(((byte)(67)))));
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.DGV_Liste_Employe.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.DGV_Liste_Employe.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DGV_Liste_Employe.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(84)))), ((int)(((byte)(128)))), ((int)(((byte)(67)))));
+            this.DGV_Liste_Employe.Location = new System.Drawing.Point(37, 115);
+            this.DGV_Liste_Employe.Name = "DGV_Liste_Employe";
+            this.DGV_Liste_Employe.RowHeadersVisible = false;
+            this.DGV_Liste_Employe.RowHeadersWidth = 51;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(84)))), ((int)(((byte)(128)))), ((int)(((byte)(67)))));
+            dataGridViewCellStyle2.Padding = new System.Windows.Forms.Padding(2);
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(84)))), ((int)(((byte)(128)))), ((int)(((byte)(67)))));
+            this.DGV_Liste_Employe.RowsDefaultCellStyle = dataGridViewCellStyle2;
+            this.DGV_Liste_Employe.RowTemplate.Height = 40;
+            this.DGV_Liste_Employe.RowTemplate.ReadOnly = true;
+            this.DGV_Liste_Employe.Size = new System.Drawing.Size(1021, 817);
+            this.DGV_Liste_Employe.TabIndex = 10;
+            // 
+            // btnSupprimer_EMP
+            // 
+            this.btnSupprimer_EMP.Location = new System.Drawing.Point(1253, 379);
+            this.btnSupprimer_EMP.Name = "btnSupprimer_EMP";
+            this.btnSupprimer_EMP.Size = new System.Drawing.Size(165, 69);
+            this.btnSupprimer_EMP.TabIndex = 4;
+            this.btnSupprimer_EMP.Text = "Supprimer";
+            this.btnSupprimer_EMP.UseVisualStyleBackColor = true;
+            this.btnSupprimer_EMP.Click += new System.EventHandler(this.btnSupprimer_EMP_Click);
             // 
             // label1
             // 
@@ -65,9 +113,9 @@ namespace App_Bois_Du_Roy
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(84)))), ((int)(((byte)(128)))), ((int)(((byte)(67)))));
             this.label1.Location = new System.Drawing.Point(24, 19);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(687, 78);
+            this.label1.Size = new System.Drawing.Size(726, 78);
             this.label1.TabIndex = 1;
-            this.label1.Text = "Supprimer Service : ";
+            this.label1.Text = "Supprimer Employe : ";
             // 
             // panel1
             // 
@@ -79,7 +127,7 @@ namespace App_Bois_Du_Roy
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(366, 1083);
-            this.panel1.TabIndex = 6;
+            this.panel1.TabIndex = 7;
             // 
             // lbl_Service
             // 
@@ -133,55 +181,7 @@ namespace App_Bois_Du_Roy
             this.pictureBox1.TabStop = false;
             this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
-            // btnSupprimer
-            // 
-            this.btnSupprimer.Location = new System.Drawing.Point(1253, 379);
-            this.btnSupprimer.Name = "btnSupprimer";
-            this.btnSupprimer.Size = new System.Drawing.Size(165, 69);
-            this.btnSupprimer.TabIndex = 4;
-            this.btnSupprimer.Text = "Supprimer";
-            this.btnSupprimer.UseVisualStyleBackColor = true;
-            this.btnSupprimer.Click += new System.EventHandler(this.btnSupprimer_Click_1);
-            // 
-            // DGV_Liste_Service
-            // 
-            this.DGV_Liste_Service.AllowUserToAddRows = false;
-            this.DGV_Liste_Service.AllowUserToDeleteRows = false;
-            this.DGV_Liste_Service.AllowUserToOrderColumns = true;
-            this.DGV_Liste_Service.AllowUserToResizeColumns = false;
-            this.DGV_Liste_Service.AllowUserToResizeRows = false;
-            this.DGV_Liste_Service.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(247)))), ((int)(((byte)(209)))));
-            this.DGV_Liste_Service.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.DGV_Liste_Service.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Arial", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(84)))), ((int)(((byte)(128)))), ((int)(((byte)(67)))));
-            dataGridViewCellStyle5.Padding = new System.Windows.Forms.Padding(5);
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(84)))), ((int)(((byte)(128)))), ((int)(((byte)(67)))));
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.DGV_Liste_Service.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
-            this.DGV_Liste_Service.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.DGV_Liste_Service.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(84)))), ((int)(((byte)(128)))), ((int)(((byte)(67)))));
-            this.DGV_Liste_Service.Location = new System.Drawing.Point(37, 115);
-            this.DGV_Liste_Service.Name = "DGV_Liste_Service";
-            this.DGV_Liste_Service.RowHeadersVisible = false;
-            this.DGV_Liste_Service.RowHeadersWidth = 51;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(84)))), ((int)(((byte)(128)))), ((int)(((byte)(67)))));
-            dataGridViewCellStyle6.Padding = new System.Windows.Forms.Padding(2);
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(84)))), ((int)(((byte)(128)))), ((int)(((byte)(67)))));
-            this.DGV_Liste_Service.RowsDefaultCellStyle = dataGridViewCellStyle6;
-            this.DGV_Liste_Service.RowTemplate.Height = 40;
-            this.DGV_Liste_Service.RowTemplate.ReadOnly = true;
-            this.DGV_Liste_Service.Size = new System.Drawing.Size(1021, 817);
-            this.DGV_Liste_Service.TabIndex = 10;
-            // 
-            // Supprime_Service
+            // Supprime_Employe
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -189,14 +189,14 @@ namespace App_Bois_Du_Roy
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panel2);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "Supprime_Service";
-            this.Text = "Supprime_Service";
+            this.Name = "Supprime_Employe";
+            this.Text = "Supprime_Employe";
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.DGV_Liste_Employe)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.DGV_Liste_Service)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -204,13 +204,13 @@ namespace App_Bois_Du_Roy
         #endregion
 
         private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.DataGridView DGV_Liste_Employe;
+        private System.Windows.Forms.Button btnSupprimer_EMP;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label lbl_Service;
         private System.Windows.Forms.Label lbl_Conge;
         private System.Windows.Forms.Label lbl_lsEmploye;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Button btnSupprimer;
-        private System.Windows.Forms.DataGridView DGV_Liste_Service;
     }
 }

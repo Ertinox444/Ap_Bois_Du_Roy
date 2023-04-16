@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using App_Bois_Du_Roy.Modele;
@@ -274,12 +275,21 @@ namespace App_Bois_Du_Roy.Controller
                 string fullName = nom + " " + prenom;
                 string username = fullName.ToLower().Replace(" ", "");
 
-                // Concaténer la première lettre du prénom avec le nom de famille
-                string[] parts = fullName.Split(' ');
+                // Ajouter la première lettre du prénom au nom de famille
+                string[] parts = prenom.Split('-');
+                string firstName = parts[0];
                 if (parts.Length > 1)
                 {
-                    username = parts[0][0] + parts[1];
+                    firstName = parts[0][0] + parts[1][0].ToString();
                 }
+
+                username = firstName.ToLower() + nom.ToLower();
+
+                // Supprimer les caractères spéciaux du nom d'utilisateur
+                username = new string(username.Where(c => Char.IsLetterOrDigit(c)).ToArray());
+
+
+
 
 
                 string rqtSql = "INSERT INTO COMPTE (MATRICULE, NOM_UTILISATEUR, MOT_DE_PASSE) VALUES ";
@@ -437,7 +447,60 @@ namespace App_Bois_Du_Roy.Controller
                         reponse = true;
                         conn.connection.Close();
                     }
+
+
                    
+                }
+
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.ToString(), "Erreur 3 ", MessageBoxButtons.OK, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1, MessageBoxOptions.RightAlign, true);
+            }
+            return reponse;
+        }
+        #endregion
+
+        #region Suppression Employe
+        public bool SuppressEmploye(List<string> matEmploye)
+        {
+            bool reponse = false;
+            try
+            {
+                Connexion conn = new Connexion();
+
+                foreach (string matricule in matEmploye)
+                {
+                    string query1 = "DELETE FROM COMPTE WHERE MATRICULE = '" + matricule + "';";
+                    using (MySqlCommand command = new MySqlCommand(query1, conn.connection))
+                    {
+                        conn.connection.Open();
+                        command.ExecuteNonQuery();
+
+                        reponse = true;
+                        conn.connection.Close();
+                    }
+
+                    string query2 = "UPDATE EMPLOYE SET MATRICULE_RESPONSABLE = NULL WHERE MATRICULE = '" + matricule + "';";
+                    using (MySqlCommand command = new MySqlCommand(query2, conn.connection))
+                    {
+                        conn.connection.Open();
+                        command.ExecuteNonQuery();
+
+                        reponse = true;
+                        conn.connection.Close();
+                    }
+
+                    string query3 = "DELETE FROM EMPLOYE WHERE MATRICULE = '" + matricule + "';";
+                    using (MySqlCommand command = new MySqlCommand(query3, conn.connection))
+                    {
+                        conn.connection.Open();
+                        command.ExecuteNonQuery();
+
+                        reponse = true;
+                        conn.connection.Close();
+                    }
+
                 }
 
             }

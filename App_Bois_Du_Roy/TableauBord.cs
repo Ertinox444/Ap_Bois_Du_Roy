@@ -26,7 +26,8 @@ namespace App_Bois_Du_Roy
            
             DGV_Last_Request.Columns["EMPLOYE"].Width= 205;
             DGV_Last_Request.Columns["CONGE"].Width = 205;
-
+            DGV_Last_Request.ColumnHeadersDefaultCellStyle.ForeColor = Color.FromArgb(87, 128, 64);
+            DGV_Last_Request.DefaultCellStyle.ForeColor = Color.FromArgb(87, 128, 64);
             date_of_Today = new Connect();
             tb_Today_Date.Text = date_of_Today.TodayDate();
          

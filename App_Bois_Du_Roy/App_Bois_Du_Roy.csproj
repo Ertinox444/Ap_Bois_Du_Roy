@@ -112,9 +112,18 @@
       <DependentUpon>BaseMenu.cs</DependentUpon>
     </Compile>
     <Compile Include="Controller\Connect.cs" />
+    <Compile Include="Controller\Contact.cs" />
     <Compile Include="Controller\Employe.cs" />
     <Compile Include="Controller\Fonction.cs" />
     <Compile Include="Controller\Matricule.cs" />
+    <Compile Include="Controller\photoProfil.cs" />
+    <Compile Include="Details_Employe.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Details_Employe.Designer.cs">
+      <DependentUpon>Details_Employe.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Modele\Detail_Panel.cs" />
     <Compile Include="Page_Connection.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -144,6 +153,17 @@
     <Compile Include="Modele\SousFormulaire.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Supprime_Employe.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Supprime_Employe.Designer.cs">
+      <DependentUpon>Supprime_Employe.cs</DependentUpon>
+    </Compile>
     <Compile Include="Supprime_Service.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -165,6 +185,9 @@
     <EmbeddedResource Include="BaseMenu.resx">
       <DependentUpon>BaseMenu.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Details_Employe.resx">
+      <DependentUpon>Details_Employe.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Page_Connection.resx">
       <DependentUpon>Page_Connection.cs</DependentUpon>
     </EmbeddedResource>
@@ -179,14 +202,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-      <DesignTime>True</DesignTime>
-    </Compile>
+    <EmbeddedResource Include="Supprime_Employe.resx">
+      <DependentUpon>Supprime_Employe.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Supprime_Service.resx">
       <DependentUpon>Supprime_Service.cs</DependentUpon>
     </EmbeddedResource>
@@ -209,6 +230,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Logo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Default_IMG.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cake.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
