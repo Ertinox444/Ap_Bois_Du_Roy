@@ -29,9 +29,13 @@ namespace App_Bois_Du_Roy
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.dataGridView2 = new System.Windows.Forms.DataGridView();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.tb_CongePayeRestant = new System.Windows.Forms.TextBox();
+            this.tb_RTTRestant = new System.Windows.Forms.TextBox();
+            this.DGV_HistoryConge = new System.Windows.Forms.DataGridView();
             this.panel3 = new System.Windows.Forms.Panel();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.tb_TelEmp = new System.Windows.Forms.TextBox();
@@ -48,8 +52,7 @@ namespace App_Bois_Du_Roy
             this.lbl_lsEmploye = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DGV_HistoryConge)).BeginInit();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_PP)).BeginInit();
@@ -60,8 +63,9 @@ namespace App_Bois_Du_Roy
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(247)))), ((int)(((byte)(209)))));
-            this.panel2.Controls.Add(this.dataGridView2);
-            this.panel2.Controls.Add(this.dataGridView1);
+            this.panel2.Controls.Add(this.tb_CongePayeRestant);
+            this.panel2.Controls.Add(this.tb_RTTRestant);
+            this.panel2.Controls.Add(this.DGV_HistoryConge);
             this.panel2.Controls.Add(this.panel3);
             this.panel2.Controls.Add(this.pb_PP);
             this.panel2.Location = new System.Drawing.Point(391, 27);
@@ -69,25 +73,73 @@ namespace App_Bois_Du_Roy
             this.panel2.Size = new System.Drawing.Size(1635, 1029);
             this.panel2.TabIndex = 3;
             // 
-            // dataGridView2
+            // tb_CongePayeRestant
             // 
-            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Location = new System.Drawing.Point(828, 579);
-            this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.RowHeadersWidth = 51;
-            this.dataGridView2.RowTemplate.Height = 24;
-            this.dataGridView2.Size = new System.Drawing.Size(658, 307);
-            this.dataGridView2.TabIndex = 3;
+            this.tb_CongePayeRestant.BackColor = System.Drawing.Color.White;
+            this.tb_CongePayeRestant.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.tb_CongePayeRestant.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.tb_CongePayeRestant.Font = new System.Drawing.Font("Arial", 28.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tb_CongePayeRestant.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(84)))), ((int)(((byte)(128)))), ((int)(((byte)(67)))));
+            this.tb_CongePayeRestant.Location = new System.Drawing.Point(841, 784);
+            this.tb_CongePayeRestant.Multiline = true;
+            this.tb_CongePayeRestant.Name = "tb_CongePayeRestant";
+            this.tb_CongePayeRestant.ReadOnly = true;
+            this.tb_CongePayeRestant.Size = new System.Drawing.Size(702, 69);
+            this.tb_CongePayeRestant.TabIndex = 9;
+            this.tb_CongePayeRestant.Text = "Telephone";
             // 
-            // dataGridView1
+            // tb_RTTRestant
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(46, 579);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(658, 307);
-            this.dataGridView1.TabIndex = 2;
+            this.tb_RTTRestant.BackColor = System.Drawing.Color.White;
+            this.tb_RTTRestant.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.tb_RTTRestant.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.tb_RTTRestant.Font = new System.Drawing.Font("Arial", 28.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tb_RTTRestant.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(84)))), ((int)(((byte)(128)))), ((int)(((byte)(67)))));
+            this.tb_RTTRestant.Location = new System.Drawing.Point(841, 645);
+            this.tb_RTTRestant.Multiline = true;
+            this.tb_RTTRestant.Name = "tb_RTTRestant";
+            this.tb_RTTRestant.ReadOnly = true;
+            this.tb_RTTRestant.Size = new System.Drawing.Size(702, 69);
+            this.tb_RTTRestant.TabIndex = 8;
+            this.tb_RTTRestant.Text = "Telephone";
+            // 
+            // DGV_HistoryConge
+            // 
+            this.DGV_HistoryConge.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(249)))), ((int)(((byte)(207)))));
+            this.DGV_HistoryConge.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(84)))), ((int)(((byte)(128)))), ((int)(((byte)(67)))));
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(84)))), ((int)(((byte)(128)))), ((int)(((byte)(67)))));
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.DGV_HistoryConge.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.DGV_HistoryConge.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(84)))), ((int)(((byte)(128)))), ((int)(((byte)(67)))));
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(84)))), ((int)(((byte)(128)))), ((int)(((byte)(67)))));
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.DGV_HistoryConge.DefaultCellStyle = dataGridViewCellStyle2;
+            this.DGV_HistoryConge.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(84)))), ((int)(((byte)(128)))), ((int)(((byte)(67)))));
+            this.DGV_HistoryConge.Location = new System.Drawing.Point(47, 645);
+            this.DGV_HistoryConge.Name = "DGV_HistoryConge";
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(84)))), ((int)(((byte)(128)))), ((int)(((byte)(67)))));
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(84)))), ((int)(((byte)(128)))), ((int)(((byte)(67)))));
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.DGV_HistoryConge.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            this.DGV_HistoryConge.RowHeadersVisible = false;
+            this.DGV_HistoryConge.RowHeadersWidth = 51;
+            this.DGV_HistoryConge.RowTemplate.Height = 24;
+            this.DGV_HistoryConge.Size = new System.Drawing.Size(658, 307);
+            this.DGV_HistoryConge.TabIndex = 2;
             // 
             // panel3
             // 
@@ -305,8 +357,8 @@ namespace App_Bois_Du_Roy
             this.Name = "Details_Employe";
             this.Text = "Details_Employe";
             this.panel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.DGV_HistoryConge)).EndInit();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
@@ -332,11 +384,12 @@ namespace App_Bois_Du_Roy
         private System.Windows.Forms.TextBox tb_MatEmp;
         private System.Windows.Forms.TextBox tb_ServiceEmp;
         private System.Windows.Forms.TextBox tb_FullNameEmp;
-        private System.Windows.Forms.DataGridView dataGridView2;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView DGV_HistoryConge;
         private System.Windows.Forms.TextBox tb_FonctionEmp;
         private System.Windows.Forms.TextBox tb_TelEmp;
         private System.Windows.Forms.TextBox tb_MailEmp;
         private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.TextBox tb_CongePayeRestant;
+        private System.Windows.Forms.TextBox tb_RTTRestant;
     }
 }

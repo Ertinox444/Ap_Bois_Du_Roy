@@ -111,6 +111,7 @@
     <Compile Include="BaseMenu.Designer.cs">
       <DependentUpon>BaseMenu.cs</DependentUpon>
     </Compile>
+    <Compile Include="Controller\Conge.cs" />
     <Compile Include="Controller\Connect.cs" />
     <Compile Include="Controller\Contact.cs" />
     <Compile Include="Controller\Employe.cs" />

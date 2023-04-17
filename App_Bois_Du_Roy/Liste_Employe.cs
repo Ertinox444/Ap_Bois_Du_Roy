@@ -16,7 +16,7 @@ namespace App_Bois_Du_Roy
     {
 
         private Connect dtviewEmploye = new Connect();
-        public DataView dvEmploye;
+        private DataView dvEmploye;
 
         public Liste_Employe()
         {
@@ -30,6 +30,7 @@ namespace App_Bois_Du_Roy
             DGV_Liste_Employe.Columns["Fonction"].Width = 290;
             DGV_Liste_Employe.EnableHeadersVisualStyles = false;
             DGV_Liste_Employe.ColumnHeadersDefaultCellStyle.ForeColor = Color.FromArgb(87,128,64);
+       
 
         }
         private void DGV_Liste_Employe_CellMouseEnter(object sender, DataGridViewCellEventArgs e)

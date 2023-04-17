@@ -163,7 +163,7 @@ namespace App_Bois_Du_Roy
             this.DGV_Liste_Employe.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Arial", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Arial", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(84)))), ((int)(((byte)(128)))), ((int)(((byte)(67)))));
             dataGridViewCellStyle1.Padding = new System.Windows.Forms.Padding(5);
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.White;
@@ -190,8 +190,8 @@ namespace App_Bois_Du_Roy
             this.DGV_Liste_Employe.Size = new System.Drawing.Size(1565, 817);
             this.DGV_Liste_Employe.TabIndex = 2;
             this.DGV_Liste_Employe.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DGV_Liste_Employe_CellClick);
-            this.DGV_Liste_Employe.CellMouseEnter += new System.Windows.Forms.DataGridViewCellEventHandler(DGV_Liste_Employe_CellMouseEnter);
-            this.DGV_Liste_Employe.CellMouseLeave += new System.Windows.Forms.DataGridViewCellEventHandler(DGV_Liste_Employe_CellMouseLeave);
+            this.DGV_Liste_Employe.CellMouseEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.DGV_Liste_Employe_CellMouseEnter);
+            this.DGV_Liste_Employe.CellMouseLeave += new System.Windows.Forms.DataGridViewCellEventHandler(this.DGV_Liste_Employe_CellMouseLeave);
             // 
             // lbl_TitleEmploye
             // 
