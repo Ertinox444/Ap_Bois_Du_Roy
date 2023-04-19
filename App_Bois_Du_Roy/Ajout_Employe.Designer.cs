@@ -35,6 +35,9 @@ namespace App_Bois_Du_Roy
             this.lbl_Employe = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.label13 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
             this.tbAddEmp_LastMat = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
@@ -58,9 +61,7 @@ namespace App_Bois_Du_Roy
             this.tbAddEmp_Prenom = new System.Windows.Forms.TextBox();
             this.tbAddEmp_Nom = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
+            this.lbl_ListeFonction = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel2.SuspendLayout();
@@ -69,6 +70,7 @@ namespace App_Bois_Du_Roy
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(84)))), ((int)(((byte)(128)))), ((int)(((byte)(67)))));
+            this.panel1.Controls.Add(this.lbl_ListeFonction);
             this.panel1.Controls.Add(this.lbl_Service);
             this.panel1.Controls.Add(this.lbl_Conge);
             this.panel1.Controls.Add(this.lbl_Employe);
@@ -84,7 +86,7 @@ namespace App_Bois_Du_Roy
             this.lbl_Service.Cursor = System.Windows.Forms.Cursors.Hand;
             this.lbl_Service.Font = new System.Drawing.Font("Arial", 24F, System.Drawing.FontStyle.Bold);
             this.lbl_Service.ForeColor = System.Drawing.Color.White;
-            this.lbl_Service.Location = new System.Drawing.Point(37, 714);
+            this.lbl_Service.Location = new System.Drawing.Point(37, 510);
             this.lbl_Service.Name = "lbl_Service";
             this.lbl_Service.Size = new System.Drawing.Size(264, 46);
             this.lbl_Service.TabIndex = 6;
@@ -97,7 +99,7 @@ namespace App_Bois_Du_Roy
             this.lbl_Conge.Cursor = System.Windows.Forms.Cursors.Hand;
             this.lbl_Conge.Font = new System.Drawing.Font("Arial", 24F, System.Drawing.FontStyle.Bold);
             this.lbl_Conge.ForeColor = System.Drawing.Color.White;
-            this.lbl_Conge.Location = new System.Drawing.Point(56, 579);
+            this.lbl_Conge.Location = new System.Drawing.Point(37, 419);
             this.lbl_Conge.Name = "lbl_Conge";
             this.lbl_Conge.Size = new System.Drawing.Size(245, 46);
             this.lbl_Conge.TabIndex = 5;
@@ -110,7 +112,7 @@ namespace App_Bois_Du_Roy
             this.lbl_Employe.Cursor = System.Windows.Forms.Cursors.Hand;
             this.lbl_Employe.Font = new System.Drawing.Font("Arial", 24F, System.Drawing.FontStyle.Bold);
             this.lbl_Employe.ForeColor = System.Drawing.Color.White;
-            this.lbl_Employe.Location = new System.Drawing.Point(37, 439);
+            this.lbl_Employe.Location = new System.Drawing.Point(37, 328);
             this.lbl_Employe.Name = "lbl_Employe";
             this.lbl_Employe.Size = new System.Drawing.Size(289, 46);
             this.lbl_Employe.TabIndex = 4;
@@ -163,6 +165,33 @@ namespace App_Bois_Du_Roy
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(1635, 1029);
             this.panel2.TabIndex = 7;
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(759, 587);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(99, 17);
+            this.label13.TabIndex = 28;
+            this.label13.Text = "Responsable :";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(759, 525);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(63, 17);
+            this.label12.TabIndex = 27;
+            this.label12.Text = "Service :";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(759, 463);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(70, 17);
+            this.label11.TabIndex = 26;
+            this.label11.Text = "Fonction :";
             // 
             // tbAddEmp_LastMat
             // 
@@ -368,32 +397,17 @@ namespace App_Bois_Du_Roy
             this.label1.TabIndex = 1;
             this.label1.Text = "Ajouter Employé : ";
             // 
-            // label11
+            // lbl_ListeFonction
             // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(759, 463);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(70, 17);
-            this.label11.TabIndex = 26;
-            this.label11.Text = "Fonction :";
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(759, 525);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(63, 17);
-            this.label12.TabIndex = 27;
-            this.label12.Text = "Service :";
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(759, 587);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(99, 17);
-            this.label13.TabIndex = 28;
-            this.label13.Text = "Responsable :";
+            this.lbl_ListeFonction.AutoSize = true;
+            this.lbl_ListeFonction.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.lbl_ListeFonction.Font = new System.Drawing.Font("Arial", 24F, System.Drawing.FontStyle.Bold);
+            this.lbl_ListeFonction.ForeColor = System.Drawing.Color.White;
+            this.lbl_ListeFonction.Location = new System.Drawing.Point(37, 601);
+            this.lbl_ListeFonction.Name = "lbl_ListeFonction";
+            this.lbl_ListeFonction.Size = new System.Drawing.Size(287, 46);
+            this.lbl_ListeFonction.TabIndex = 8;
+            this.lbl_ListeFonction.Text = "Liste Fonction";
             // 
             // Ajout_Employe
             // 
@@ -448,5 +462,6 @@ namespace App_Bois_Du_Roy
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label lbl_ListeFonction;
     }
 }

@@ -18,8 +18,9 @@ namespace App_Bois_Du_Roy
         private DataView dvService;
         public Supprime_Service()
         {
-            #region Colonne Principal
+           
             InitializeComponent();
+            #region Colonne Principal
             dtviewService = new Connect();
             dvService = new DataView(dtviewService.GetlisteService());
             DGV_Liste_Service.DataSource = dvService;

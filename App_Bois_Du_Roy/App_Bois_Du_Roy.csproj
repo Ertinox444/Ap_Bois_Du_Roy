@@ -99,6 +99,12 @@
     <Compile Include="Ajout_Employe.Designer.cs">
       <DependentUpon>Ajout_Employe.cs</DependentUpon>
     </Compile>
+    <Compile Include="Ajout_Fonction.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ajout_Fonction.Designer.cs">
+      <DependentUpon>Ajout_Fonction.cs</DependentUpon>
+    </Compile>
     <Compile Include="Ajout_Service.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -123,6 +129,12 @@
     </Compile>
     <Compile Include="Details_Employe.Designer.cs">
       <DependentUpon>Details_Employe.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Liste_Fonction.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Liste_Fonction.Designer.cs">
+      <DependentUpon>Liste_Fonction.cs</DependentUpon>
     </Compile>
     <Compile Include="Modele\Detail_Panel.cs" />
     <Compile Include="Page_Connection.cs">
@@ -165,6 +177,12 @@
     <Compile Include="Supprime_Employe.Designer.cs">
       <DependentUpon>Supprime_Employe.cs</DependentUpon>
     </Compile>
+    <Compile Include="Supprime_Fonction.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Supprime_Fonction.Designer.cs">
+      <DependentUpon>Supprime_Fonction.cs</DependentUpon>
+    </Compile>
     <Compile Include="Supprime_Service.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -180,6 +198,9 @@
     <EmbeddedResource Include="Ajout_Employe.resx">
       <DependentUpon>Ajout_Employe.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Ajout_Fonction.resx">
+      <DependentUpon>Ajout_Fonction.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Ajout_Service.resx">
       <DependentUpon>Ajout_Service.cs</DependentUpon>
     </EmbeddedResource>
@@ -188,6 +209,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Details_Employe.resx">
       <DependentUpon>Details_Employe.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Liste_Fonction.resx">
+      <DependentUpon>Liste_Fonction.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Page_Connection.resx">
       <DependentUpon>Page_Connection.cs</DependentUpon>
@@ -208,6 +232,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Supprime_Employe.resx">
       <DependentUpon>Supprime_Employe.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Supprime_Fonction.resx">
+      <DependentUpon>Supprime_Fonction.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Supprime_Service.resx">
       <DependentUpon>Supprime_Service.cs</DependentUpon>

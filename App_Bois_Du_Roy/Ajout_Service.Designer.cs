@@ -37,11 +37,11 @@ namespace App_Bois_Du_Roy
             this.btn_AddServ = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.lbl_ListeFonction = new System.Windows.Forms.Label();
             this.lbl_Service = new System.Windows.Forms.Label();
             this.lbl_Conge = new System.Windows.Forms.Label();
             this.lbl_Employe = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.testbox = new System.Windows.Forms.TextBox();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -50,7 +50,6 @@ namespace App_Bois_Du_Roy
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(247)))), ((int)(((byte)(209)))));
-            this.panel2.Controls.Add(this.testbox);
             this.panel2.Controls.Add(this.label3);
             this.panel2.Controls.Add(this.cbAddServ_Respo);
             this.panel2.Controls.Add(this.label2);
@@ -121,6 +120,7 @@ namespace App_Bois_Du_Roy
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(84)))), ((int)(((byte)(128)))), ((int)(((byte)(67)))));
+            this.panel1.Controls.Add(this.lbl_ListeFonction);
             this.panel1.Controls.Add(this.lbl_Service);
             this.panel1.Controls.Add(this.lbl_Conge);
             this.panel1.Controls.Add(this.lbl_Employe);
@@ -130,13 +130,25 @@ namespace App_Bois_Du_Roy
             this.panel1.Size = new System.Drawing.Size(366, 1083);
             this.panel1.TabIndex = 10;
             // 
+            // lbl_ListeFonction
+            // 
+            this.lbl_ListeFonction.AutoSize = true;
+            this.lbl_ListeFonction.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.lbl_ListeFonction.Font = new System.Drawing.Font("Arial", 24F, System.Drawing.FontStyle.Bold);
+            this.lbl_ListeFonction.ForeColor = System.Drawing.Color.White;
+            this.lbl_ListeFonction.Location = new System.Drawing.Point(37, 601);
+            this.lbl_ListeFonction.Name = "lbl_ListeFonction";
+            this.lbl_ListeFonction.Size = new System.Drawing.Size(287, 46);
+            this.lbl_ListeFonction.TabIndex = 9;
+            this.lbl_ListeFonction.Text = "Liste Fonction";
+            // 
             // lbl_Service
             // 
             this.lbl_Service.AutoSize = true;
             this.lbl_Service.Cursor = System.Windows.Forms.Cursors.Hand;
             this.lbl_Service.Font = new System.Drawing.Font("Arial", 24F, System.Drawing.FontStyle.Bold);
             this.lbl_Service.ForeColor = System.Drawing.Color.White;
-            this.lbl_Service.Location = new System.Drawing.Point(37, 714);
+            this.lbl_Service.Location = new System.Drawing.Point(37, 510);
             this.lbl_Service.Name = "lbl_Service";
             this.lbl_Service.Size = new System.Drawing.Size(264, 46);
             this.lbl_Service.TabIndex = 6;
@@ -149,7 +161,7 @@ namespace App_Bois_Du_Roy
             this.lbl_Conge.Cursor = System.Windows.Forms.Cursors.Hand;
             this.lbl_Conge.Font = new System.Drawing.Font("Arial", 24F, System.Drawing.FontStyle.Bold);
             this.lbl_Conge.ForeColor = System.Drawing.Color.White;
-            this.lbl_Conge.Location = new System.Drawing.Point(56, 579);
+            this.lbl_Conge.Location = new System.Drawing.Point(37, 419);
             this.lbl_Conge.Name = "lbl_Conge";
             this.lbl_Conge.Size = new System.Drawing.Size(245, 46);
             this.lbl_Conge.TabIndex = 5;
@@ -162,7 +174,7 @@ namespace App_Bois_Du_Roy
             this.lbl_Employe.Cursor = System.Windows.Forms.Cursors.Hand;
             this.lbl_Employe.Font = new System.Drawing.Font("Arial", 24F, System.Drawing.FontStyle.Bold);
             this.lbl_Employe.ForeColor = System.Drawing.Color.White;
-            this.lbl_Employe.Location = new System.Drawing.Point(37, 439);
+            this.lbl_Employe.Location = new System.Drawing.Point(37, 328);
             this.lbl_Employe.Name = "lbl_Employe";
             this.lbl_Employe.Size = new System.Drawing.Size(289, 46);
             this.lbl_Employe.TabIndex = 4;
@@ -181,14 +193,6 @@ namespace App_Bois_Du_Roy
             this.pictureBox1.TabIndex = 3;
             this.pictureBox1.TabStop = false;
             this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
-            // 
-            // testbox
-            // 
-            this.testbox.Location = new System.Drawing.Point(689, 412);
-            this.testbox.Multiline = true;
-            this.testbox.Name = "testbox";
-            this.testbox.Size = new System.Drawing.Size(214, 96);
-            this.testbox.TabIndex = 14;
             // 
             // Ajout_Service
             // 
@@ -223,6 +227,6 @@ namespace App_Bois_Du_Roy
         private System.Windows.Forms.ComboBox cbAddServ_Respo;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox tbAddServ_Nom;
-        private System.Windows.Forms.TextBox testbox;
+        private System.Windows.Forms.Label lbl_ListeFonction;
     }
 }

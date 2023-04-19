@@ -32,6 +32,7 @@ namespace App_Bois_Du_Roy
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.lbl_ListeFonction = new System.Windows.Forms.Label();
             this.lbl_Service = new System.Windows.Forms.Label();
             this.lbl_Conge = new System.Windows.Forms.Label();
             this.lbl_lsEmploye = new System.Windows.Forms.Label();
@@ -50,6 +51,7 @@ namespace App_Bois_Du_Roy
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(84)))), ((int)(((byte)(128)))), ((int)(((byte)(67)))));
+            this.panel1.Controls.Add(this.lbl_ListeFonction);
             this.panel1.Controls.Add(this.lbl_Service);
             this.panel1.Controls.Add(this.lbl_Conge);
             this.panel1.Controls.Add(this.lbl_lsEmploye);
@@ -59,13 +61,25 @@ namespace App_Bois_Du_Roy
             this.panel1.Size = new System.Drawing.Size(366, 1083);
             this.panel1.TabIndex = 1;
             // 
+            // lbl_ListeFonction
+            // 
+            this.lbl_ListeFonction.AutoSize = true;
+            this.lbl_ListeFonction.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.lbl_ListeFonction.Font = new System.Drawing.Font("Arial", 24F, System.Drawing.FontStyle.Bold);
+            this.lbl_ListeFonction.ForeColor = System.Drawing.Color.White;
+            this.lbl_ListeFonction.Location = new System.Drawing.Point(37, 601);
+            this.lbl_ListeFonction.Name = "lbl_ListeFonction";
+            this.lbl_ListeFonction.Size = new System.Drawing.Size(287, 46);
+            this.lbl_ListeFonction.TabIndex = 5;
+            this.lbl_ListeFonction.Text = "Liste Fonction";
+            // 
             // lbl_Service
             // 
             this.lbl_Service.AutoSize = true;
             this.lbl_Service.Cursor = System.Windows.Forms.Cursors.Hand;
             this.lbl_Service.Font = new System.Drawing.Font("Arial", 24F, System.Drawing.FontStyle.Bold);
             this.lbl_Service.ForeColor = System.Drawing.Color.White;
-            this.lbl_Service.Location = new System.Drawing.Point(37, 714);
+            this.lbl_Service.Location = new System.Drawing.Point(37, 510);
             this.lbl_Service.Name = "lbl_Service";
             this.lbl_Service.Size = new System.Drawing.Size(264, 46);
             this.lbl_Service.TabIndex = 6;
@@ -78,7 +92,7 @@ namespace App_Bois_Du_Roy
             this.lbl_Conge.Cursor = System.Windows.Forms.Cursors.Hand;
             this.lbl_Conge.Font = new System.Drawing.Font("Arial", 24F, System.Drawing.FontStyle.Bold);
             this.lbl_Conge.ForeColor = System.Drawing.Color.White;
-            this.lbl_Conge.Location = new System.Drawing.Point(56, 579);
+            this.lbl_Conge.Location = new System.Drawing.Point(37, 419);
             this.lbl_Conge.Name = "lbl_Conge";
             this.lbl_Conge.Size = new System.Drawing.Size(245, 46);
             this.lbl_Conge.TabIndex = 5;
@@ -91,7 +105,7 @@ namespace App_Bois_Du_Roy
             this.lbl_lsEmploye.Cursor = System.Windows.Forms.Cursors.Hand;
             this.lbl_lsEmploye.Font = new System.Drawing.Font("Arial", 24F, System.Drawing.FontStyle.Bold);
             this.lbl_lsEmploye.ForeColor = System.Drawing.Color.White;
-            this.lbl_lsEmploye.Location = new System.Drawing.Point(37, 439);
+            this.lbl_lsEmploye.Location = new System.Drawing.Point(37, 328);
             this.lbl_lsEmploye.Name = "lbl_lsEmploye";
             this.lbl_lsEmploye.Size = new System.Drawing.Size(289, 46);
             this.lbl_lsEmploye.TabIndex = 4;
@@ -237,5 +251,6 @@ namespace App_Bois_Du_Roy
         private System.Windows.Forms.Label lbl_TitleEmploye;
         private System.Windows.Forms.Label lbl_SuppEmploye;
         private System.Windows.Forms.Label lbl_AddEmploye;
+        private System.Windows.Forms.Label lbl_ListeFonction;
     }
 }
