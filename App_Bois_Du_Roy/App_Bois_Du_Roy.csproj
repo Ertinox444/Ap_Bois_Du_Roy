@@ -137,6 +137,12 @@
       <DependentUpon>Liste_Fonction.cs</DependentUpon>
     </Compile>
     <Compile Include="Modele\Detail_Panel.cs" />
+    <Compile Include="ModifyEmp.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ModifyEmp.Designer.cs">
+      <DependentUpon>ModifyEmp.cs</DependentUpon>
+    </Compile>
     <Compile Include="Page_Connection.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -212,6 +218,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Liste_Fonction.resx">
       <DependentUpon>Liste_Fonction.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ModifyEmp.resx">
+      <DependentUpon>ModifyEmp.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Page_Connection.resx">
       <DependentUpon>Page_Connection.cs</DependentUpon>

@@ -93,5 +93,11 @@ namespace App_Bois_Du_Roy
             SousFormulaire SF = new SousFormulaire((System.Windows.Forms.Application.OpenForms["BaseMenu"] as BaseMenu).pnl_Menu);
             SF.openChildForm(new TableauBord());
         }
+
+        private void lbl_ModifEmploye_Click(object sender, EventArgs e)
+        {
+            SousFormulaire SF = new SousFormulaire((System.Windows.Forms.Application.OpenForms["BaseMenu"] as BaseMenu).pnl_Menu);
+            SF.openChildForm(new ModifyEmp(tb_MatEmp.Text));
+        }
     }
 }

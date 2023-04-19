@@ -17,8 +17,12 @@ namespace App_Bois_Du_Roy.Controller
         Connexion conn = new Connexion();
         private string NameEmp;
         private string DateBirthEmp;
+        private string NumSecuEmp;
+        private string MatRespoEmp;
+        private string DateEmbaucheEmp;
 
 
+        #region Recup Liste Responable -> Comobobox
         public DataTable GetListeResponsableCB()
         {
             DataTable dtListeResponsable = new DataTable();
@@ -61,7 +65,9 @@ namespace App_Bois_Du_Roy.Controller
             }
             return dtListeResponsable;
         }
+        #endregion
 
+        #region Recup Nom Employe
         public string RecupNameEmploye(string matricule)
         {
             try
@@ -88,7 +94,8 @@ namespace App_Bois_Du_Roy.Controller
             return NameEmp;
 
         }
-
+        #endregion
+        #region Recup Date Naissance Employe
         public string RecupBirthEmploye(string matricule)
         {
             try
@@ -101,6 +108,7 @@ namespace App_Bois_Du_Roy.Controller
                     {
                         reader.Read();
                         DateBirthEmp = reader.GetString(0);
+                        conn.connection.Close();
                     }
                     else
                     {
@@ -115,6 +123,95 @@ namespace App_Bois_Du_Roy.Controller
             return DateBirthEmp;
 
         }
+        #endregion
+
+        #region Recup Numéro secu employe
+        public string RecupNumSecu(string matricule)
+        {
+            try
+            {
+                using (MySqlCommand cmd = new MySqlCommand("SELECT NUM_SECU FROM EMPLOYE WHERE MATRICULE ='"+matricule+"';", conn.connection))
+                {
+                    conn.connection.Open();
+                    MySqlDataReader reader = cmd.ExecuteReader();
+                    if (reader.HasRows)
+                    {
+                        reader.Read();
+                        NumSecuEmp = reader.GetString(0);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Aucun résultat trouvé", "Erreur 3", MessageBoxButtons.OK, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1, MessageBoxOptions.RightAlign, true);
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.ToString(), "Erreur 3", MessageBoxButtons.OK, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1, MessageBoxOptions.RightAlign, true);
+            }
+            return NumSecuEmp;
+        }
+        #endregion
+
+        #region recup Matricule Responsable employe
+        public string RecupRespoEmp(string matricule)
+        {
+            try
+            {
+                using (MySqlCommand cmd = new MySqlCommand("SELECT EMPLOYE.MATRICULE_RESPONSABLE FROM EMPLOYE WHERE MATRICULE ='" + matricule + "';", conn.connection))
+                {
+                    conn.connection.Open();
+                    MySqlDataReader reader = cmd.ExecuteReader();
+                    if (reader.HasRows)
+                    {
+                        reader.Read();
+                        MatRespoEmp = reader.GetString(0);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Aucun résultat trouvé", "Erreur 3", MessageBoxButtons.OK, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1, MessageBoxOptions.RightAlign, true);
+                        MatRespoEmp = "";
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.ToString(), "Erreur 3", MessageBoxButtons.OK, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1, MessageBoxOptions.RightAlign, true);
+            }
+            return MatRespoEmp;
+        }
+        #endregion
+
+        #region Recup Date Naissance Employe
+        public string RecupEmbaucheEmploye(string matricule)
+        {
+            try
+            {
+                using (MySqlCommand cmd = new MySqlCommand("SELECT DATE_FORMAT(DATE_EMBAUCHE, '%d/%m/%Y') FROM EMPLOYE WHERE MATRICULE ='" + matricule + "';", conn.connection))
+                {
+                    conn.connection.Open();
+                    MySqlDataReader reader = cmd.ExecuteReader();
+                    if (reader.HasRows)
+                    {
+                        reader.Read();
+                        DateEmbaucheEmp = reader.GetString(0);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Aucun résultat trouvé", "Erreur 3", MessageBoxButtons.OK, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1, MessageBoxOptions.RightAlign, true);
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.ToString(), "Erreur 3", MessageBoxButtons.OK, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1, MessageBoxOptions.RightAlign, true);
+            }
+            return DateEmbaucheEmp;
+
+        }
+        #endregion
+
+
 
     }
 }

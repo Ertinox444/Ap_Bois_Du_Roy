@@ -1,7 +1,7 @@
 ﻿
 namespace App_Bois_Du_Roy
 {
-    partial class Ajout_Employe
+    partial class ModifyEmp
     {
         /// <summary>
         /// Required designer variable.
@@ -42,25 +42,25 @@ namespace App_Bois_Du_Roy
             this.tbAddEmp_LastMat = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
-            this.tbAddEmp_Mat = new System.Windows.Forms.TextBox();
-            this.tbAddEmp_NumTel = new System.Windows.Forms.TextBox();
+            this.tbModifEmp_Mat = new System.Windows.Forms.TextBox();
+            this.tbModifEmp_NumTel = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
-            this.cbAddEmp_MatRespo = new System.Windows.Forms.ComboBox();
+            this.cbModifEmp_MatRespo = new System.Windows.Forms.ComboBox();
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.dtP_Embauche = new System.Windows.Forms.DateTimePicker();
             this.dtP_Birth = new System.Windows.Forms.DateTimePicker();
             this.label5 = new System.Windows.Forms.Label();
-            this.tbAddEmp_NumSec = new System.Windows.Forms.TextBox();
+            this.tbModifEmp_NumSec = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.btn_AddEmp = new System.Windows.Forms.Button();
-            this.tbAddEmp_MDP = new System.Windows.Forms.TextBox();
-            this.cbAddEmp_Fonction = new System.Windows.Forms.ComboBox();
-            this.cbAddEmp_Service = new System.Windows.Forms.ComboBox();
-            this.tbAddEmp_Prenom = new System.Windows.Forms.TextBox();
-            this.tbAddEmp_Nom = new System.Windows.Forms.TextBox();
+            this.btn_ModifEmp = new System.Windows.Forms.Button();
+            this.tbModifEmp_MDP = new System.Windows.Forms.TextBox();
+            this.cbModifEmp_Fonction = new System.Windows.Forms.ComboBox();
+            this.cbModifEmp_Service = new System.Windows.Forms.ComboBox();
+            this.tbModifEmp_Prenom = new System.Windows.Forms.TextBox();
+            this.tbModifEmp_Nom = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -78,7 +78,7 @@ namespace App_Bois_Du_Roy
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(366, 1083);
-            this.panel1.TabIndex = 5;
+            this.panel1.TabIndex = 6;
             // 
             // lbl_ListeFonction
             // 
@@ -91,6 +91,7 @@ namespace App_Bois_Du_Roy
             this.lbl_ListeFonction.Size = new System.Drawing.Size(287, 46);
             this.lbl_ListeFonction.TabIndex = 8;
             this.lbl_ListeFonction.Text = "Liste Fonction";
+            this.lbl_ListeFonction.Click += new System.EventHandler(this.lbl_ListeFonction_Click);
             // 
             // lbl_Service
             // 
@@ -111,7 +112,7 @@ namespace App_Bois_Du_Roy
             this.lbl_Conge.Cursor = System.Windows.Forms.Cursors.Hand;
             this.lbl_Conge.Font = new System.Drawing.Font("Arial", 24F, System.Drawing.FontStyle.Bold);
             this.lbl_Conge.ForeColor = System.Drawing.Color.White;
-            this.lbl_Conge.Location = new System.Drawing.Point(37, 419);
+            this.lbl_Conge.Location = new System.Drawing.Point(56, 419);
             this.lbl_Conge.Name = "lbl_Conge";
             this.lbl_Conge.Size = new System.Drawing.Size(245, 46);
             this.lbl_Conge.TabIndex = 5;
@@ -153,30 +154,30 @@ namespace App_Bois_Du_Roy
             this.panel2.Controls.Add(this.tbAddEmp_LastMat);
             this.panel2.Controls.Add(this.label10);
             this.panel2.Controls.Add(this.label9);
-            this.panel2.Controls.Add(this.tbAddEmp_Mat);
-            this.panel2.Controls.Add(this.tbAddEmp_NumTel);
+            this.panel2.Controls.Add(this.tbModifEmp_Mat);
+            this.panel2.Controls.Add(this.tbModifEmp_NumTel);
             this.panel2.Controls.Add(this.label8);
-            this.panel2.Controls.Add(this.cbAddEmp_MatRespo);
+            this.panel2.Controls.Add(this.cbModifEmp_MatRespo);
             this.panel2.Controls.Add(this.label7);
             this.panel2.Controls.Add(this.label6);
             this.panel2.Controls.Add(this.dtP_Embauche);
             this.panel2.Controls.Add(this.dtP_Birth);
             this.panel2.Controls.Add(this.label5);
-            this.panel2.Controls.Add(this.tbAddEmp_NumSec);
+            this.panel2.Controls.Add(this.tbModifEmp_NumSec);
             this.panel2.Controls.Add(this.label4);
             this.panel2.Controls.Add(this.label3);
             this.panel2.Controls.Add(this.label2);
-            this.panel2.Controls.Add(this.btn_AddEmp);
-            this.panel2.Controls.Add(this.tbAddEmp_MDP);
-            this.panel2.Controls.Add(this.cbAddEmp_Fonction);
-            this.panel2.Controls.Add(this.cbAddEmp_Service);
-            this.panel2.Controls.Add(this.tbAddEmp_Prenom);
-            this.panel2.Controls.Add(this.tbAddEmp_Nom);
+            this.panel2.Controls.Add(this.btn_ModifEmp);
+            this.panel2.Controls.Add(this.tbModifEmp_MDP);
+            this.panel2.Controls.Add(this.cbModifEmp_Fonction);
+            this.panel2.Controls.Add(this.cbModifEmp_Service);
+            this.panel2.Controls.Add(this.tbModifEmp_Prenom);
+            this.panel2.Controls.Add(this.tbModifEmp_Nom);
             this.panel2.Controls.Add(this.label1);
             this.panel2.Location = new System.Drawing.Point(397, 27);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(1635, 1029);
-            this.panel2.TabIndex = 7;
+            this.panel2.TabIndex = 8;
             // 
             // label13
             // 
@@ -231,23 +232,23 @@ namespace App_Bois_Du_Roy
             this.label9.TabIndex = 23;
             this.label9.Text = "Matricule :";
             // 
-            // tbAddEmp_Mat
+            // tbModifEmp_Mat
             // 
-            this.tbAddEmp_Mat.Location = new System.Drawing.Point(233, 501);
-            this.tbAddEmp_Mat.MaxLength = 5;
-            this.tbAddEmp_Mat.Multiline = true;
-            this.tbAddEmp_Mat.Name = "tbAddEmp_Mat";
-            this.tbAddEmp_Mat.Size = new System.Drawing.Size(281, 45);
-            this.tbAddEmp_Mat.TabIndex = 22;
+            this.tbModifEmp_Mat.Location = new System.Drawing.Point(233, 501);
+            this.tbModifEmp_Mat.MaxLength = 5;
+            this.tbModifEmp_Mat.Multiline = true;
+            this.tbModifEmp_Mat.Name = "tbModifEmp_Mat";
+            this.tbModifEmp_Mat.Size = new System.Drawing.Size(281, 45);
+            this.tbModifEmp_Mat.TabIndex = 22;
             // 
-            // tbAddEmp_NumTel
+            // tbModifEmp_NumTel
             // 
-            this.tbAddEmp_NumTel.Location = new System.Drawing.Point(233, 314);
-            this.tbAddEmp_NumTel.MaxLength = 5;
-            this.tbAddEmp_NumTel.Multiline = true;
-            this.tbAddEmp_NumTel.Name = "tbAddEmp_NumTel";
-            this.tbAddEmp_NumTel.Size = new System.Drawing.Size(281, 76);
-            this.tbAddEmp_NumTel.TabIndex = 21;
+            this.tbModifEmp_NumTel.Location = new System.Drawing.Point(233, 314);
+            this.tbModifEmp_NumTel.MaxLength = 5;
+            this.tbModifEmp_NumTel.Multiline = true;
+            this.tbModifEmp_NumTel.Name = "tbModifEmp_NumTel";
+            this.tbModifEmp_NumTel.Size = new System.Drawing.Size(281, 76);
+            this.tbModifEmp_NumTel.TabIndex = 21;
             // 
             // label8
             // 
@@ -258,14 +259,14 @@ namespace App_Bois_Du_Roy
             this.label8.TabIndex = 20;
             this.label8.Text = "Num Telephone :";
             // 
-            // cbAddEmp_MatRespo
+            // cbModifEmp_MatRespo
             // 
-            this.cbAddEmp_MatRespo.FormattingEnabled = true;
-            this.cbAddEmp_MatRespo.Location = new System.Drawing.Point(907, 584);
-            this.cbAddEmp_MatRespo.Name = "cbAddEmp_MatRespo";
-            this.cbAddEmp_MatRespo.Size = new System.Drawing.Size(202, 24);
-            this.cbAddEmp_MatRespo.TabIndex = 19;
-            this.cbAddEmp_MatRespo.Text = "Responsable";
+            this.cbModifEmp_MatRespo.FormattingEnabled = true;
+            this.cbModifEmp_MatRespo.Location = new System.Drawing.Point(907, 584);
+            this.cbModifEmp_MatRespo.Name = "cbModifEmp_MatRespo";
+            this.cbModifEmp_MatRespo.Size = new System.Drawing.Size(202, 24);
+            this.cbModifEmp_MatRespo.TabIndex = 19;
+            this.cbModifEmp_MatRespo.Text = "Responsable";
             // 
             // label7
             // 
@@ -308,14 +309,14 @@ namespace App_Bois_Du_Roy
             this.label5.TabIndex = 14;
             this.label5.Text = "Num Sécu : ";
             // 
-            // tbAddEmp_NumSec
+            // tbModifEmp_NumSec
             // 
-            this.tbAddEmp_NumSec.Location = new System.Drawing.Point(1250, 158);
-            this.tbAddEmp_NumSec.MaxLength = 15;
-            this.tbAddEmp_NumSec.Multiline = true;
-            this.tbAddEmp_NumSec.Name = "tbAddEmp_NumSec";
-            this.tbAddEmp_NumSec.Size = new System.Drawing.Size(304, 76);
-            this.tbAddEmp_NumSec.TabIndex = 13;
+            this.tbModifEmp_NumSec.Location = new System.Drawing.Point(1250, 158);
+            this.tbModifEmp_NumSec.MaxLength = 15;
+            this.tbModifEmp_NumSec.Multiline = true;
+            this.tbModifEmp_NumSec.Name = "tbModifEmp_NumSec";
+            this.tbModifEmp_NumSec.Size = new System.Drawing.Size(304, 76);
+            this.tbModifEmp_NumSec.TabIndex = 13;
             // 
             // label4
             // 
@@ -344,58 +345,58 @@ namespace App_Bois_Du_Roy
             this.label2.TabIndex = 10;
             this.label2.Text = "Nom :";
             // 
-            // btn_AddEmp
+            // btn_ModifEmp
             // 
-            this.btn_AddEmp.Location = new System.Drawing.Point(259, 833);
-            this.btn_AddEmp.Name = "btn_AddEmp";
-            this.btn_AddEmp.Size = new System.Drawing.Size(224, 79);
-            this.btn_AddEmp.TabIndex = 9;
-            this.btn_AddEmp.Text = "Ajouter";
-            this.btn_AddEmp.UseVisualStyleBackColor = true;
-            this.btn_AddEmp.Click += new System.EventHandler(this.btn_AddEmp_Click);
+            this.btn_ModifEmp.Location = new System.Drawing.Point(259, 833);
+            this.btn_ModifEmp.Name = "btn_ModifEmp";
+            this.btn_ModifEmp.Size = new System.Drawing.Size(224, 79);
+            this.btn_ModifEmp.TabIndex = 9;
+            this.btn_ModifEmp.Text = "Modifier";
+            this.btn_ModifEmp.UseVisualStyleBackColor = true;
+            this.btn_ModifEmp.Click += new System.EventHandler(this.btn_ModifEmp_Click);
             // 
-            // tbAddEmp_MDP
+            // tbModifEmp_MDP
             // 
-            this.tbAddEmp_MDP.Location = new System.Drawing.Point(233, 699);
-            this.tbAddEmp_MDP.Multiline = true;
-            this.tbAddEmp_MDP.Name = "tbAddEmp_MDP";
-            this.tbAddEmp_MDP.PasswordChar = '*';
-            this.tbAddEmp_MDP.Size = new System.Drawing.Size(242, 53);
-            this.tbAddEmp_MDP.TabIndex = 7;
+            this.tbModifEmp_MDP.Location = new System.Drawing.Point(233, 699);
+            this.tbModifEmp_MDP.Multiline = true;
+            this.tbModifEmp_MDP.Name = "tbModifEmp_MDP";
+            this.tbModifEmp_MDP.PasswordChar = '*';
+            this.tbModifEmp_MDP.Size = new System.Drawing.Size(242, 53);
+            this.tbModifEmp_MDP.TabIndex = 7;
             // 
-            // cbAddEmp_Fonction
+            // cbModifEmp_Fonction
             // 
-            this.cbAddEmp_Fonction.FormattingEnabled = true;
-            this.cbAddEmp_Fonction.Location = new System.Drawing.Point(907, 460);
-            this.cbAddEmp_Fonction.Name = "cbAddEmp_Fonction";
-            this.cbAddEmp_Fonction.Size = new System.Drawing.Size(202, 24);
-            this.cbAddEmp_Fonction.TabIndex = 5;
-            this.cbAddEmp_Fonction.Text = "Fonction";
+            this.cbModifEmp_Fonction.FormattingEnabled = true;
+            this.cbModifEmp_Fonction.Location = new System.Drawing.Point(907, 460);
+            this.cbModifEmp_Fonction.Name = "cbModifEmp_Fonction";
+            this.cbModifEmp_Fonction.Size = new System.Drawing.Size(202, 24);
+            this.cbModifEmp_Fonction.TabIndex = 5;
+            this.cbModifEmp_Fonction.Text = "Fonction";
             // 
-            // cbAddEmp_Service
+            // cbModifEmp_Service
             // 
-            this.cbAddEmp_Service.FormattingEnabled = true;
-            this.cbAddEmp_Service.Location = new System.Drawing.Point(907, 522);
-            this.cbAddEmp_Service.Name = "cbAddEmp_Service";
-            this.cbAddEmp_Service.Size = new System.Drawing.Size(202, 24);
-            this.cbAddEmp_Service.TabIndex = 4;
-            this.cbAddEmp_Service.Text = "Service";
+            this.cbModifEmp_Service.FormattingEnabled = true;
+            this.cbModifEmp_Service.Location = new System.Drawing.Point(907, 522);
+            this.cbModifEmp_Service.Name = "cbModifEmp_Service";
+            this.cbModifEmp_Service.Size = new System.Drawing.Size(202, 24);
+            this.cbModifEmp_Service.TabIndex = 4;
+            this.cbModifEmp_Service.Text = "Service";
             // 
-            // tbAddEmp_Prenom
+            // tbModifEmp_Prenom
             // 
-            this.tbAddEmp_Prenom.Location = new System.Drawing.Point(711, 158);
-            this.tbAddEmp_Prenom.Multiline = true;
-            this.tbAddEmp_Prenom.Name = "tbAddEmp_Prenom";
-            this.tbAddEmp_Prenom.Size = new System.Drawing.Size(304, 76);
-            this.tbAddEmp_Prenom.TabIndex = 3;
+            this.tbModifEmp_Prenom.Location = new System.Drawing.Point(711, 158);
+            this.tbModifEmp_Prenom.Multiline = true;
+            this.tbModifEmp_Prenom.Name = "tbModifEmp_Prenom";
+            this.tbModifEmp_Prenom.Size = new System.Drawing.Size(304, 76);
+            this.tbModifEmp_Prenom.TabIndex = 3;
             // 
-            // tbAddEmp_Nom
+            // tbModifEmp_Nom
             // 
-            this.tbAddEmp_Nom.Location = new System.Drawing.Point(233, 158);
-            this.tbAddEmp_Nom.Multiline = true;
-            this.tbAddEmp_Nom.Name = "tbAddEmp_Nom";
-            this.tbAddEmp_Nom.Size = new System.Drawing.Size(281, 76);
-            this.tbAddEmp_Nom.TabIndex = 2;
+            this.tbModifEmp_Nom.Location = new System.Drawing.Point(233, 158);
+            this.tbModifEmp_Nom.Multiline = true;
+            this.tbModifEmp_Nom.Name = "tbModifEmp_Nom";
+            this.tbModifEmp_Nom.Size = new System.Drawing.Size(281, 76);
+            this.tbModifEmp_Nom.TabIndex = 2;
             // 
             // label1
             // 
@@ -405,20 +406,21 @@ namespace App_Bois_Du_Roy
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(84)))), ((int)(((byte)(128)))), ((int)(((byte)(67)))));
             this.label1.Location = new System.Drawing.Point(24, 19);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(620, 78);
+            this.label1.Size = new System.Drawing.Size(610, 78);
             this.label1.TabIndex = 1;
-            this.label1.Text = "Ajouter Employé : ";
+            this.label1.Text = "Modifier Employé ";
             // 
-            // Ajout_Employe
+            // ModifyEmp
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1902, 1033);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "Ajout_Employe";
-            this.Text = "Ajout_Employe";
+            this.Name = "ModifyEmp";
+            this.Text = "ModifyEmp";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
@@ -431,37 +433,37 @@ namespace App_Bois_Du_Roy
         #endregion
 
         private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Label lbl_ListeFonction;
         private System.Windows.Forms.Label lbl_Service;
         private System.Windows.Forms.Label lbl_Conge;
         private System.Windows.Forms.Label lbl_Employe;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox tbAddEmp_MDP;
-        private System.Windows.Forms.ComboBox cbAddEmp_Fonction;
-        private System.Windows.Forms.ComboBox cbAddEmp_Service;
-        private System.Windows.Forms.TextBox tbAddEmp_Prenom;
-        private System.Windows.Forms.TextBox tbAddEmp_Nom;
-        private System.Windows.Forms.Button btn_AddEmp;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.TextBox tbAddEmp_LastMat;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.TextBox tbModifEmp_Mat;
+        private System.Windows.Forms.TextBox tbModifEmp_NumTel;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.ComboBox cbModifEmp_MatRespo;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.DateTimePicker dtP_Embauche;
         private System.Windows.Forms.DateTimePicker dtP_Birth;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox tbAddEmp_NumSec;
-        private System.Windows.Forms.ComboBox cbAddEmp_MatRespo;
-        private System.Windows.Forms.TextBox tbAddEmp_NumTel;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.TextBox tbAddEmp_Mat;
-        private System.Windows.Forms.TextBox tbAddEmp_LastMat;
-        private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.Label lbl_ListeFonction;
+        private System.Windows.Forms.TextBox tbModifEmp_NumSec;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button btn_ModifEmp;
+        private System.Windows.Forms.TextBox tbModifEmp_MDP;
+        private System.Windows.Forms.ComboBox cbModifEmp_Fonction;
+        private System.Windows.Forms.ComboBox cbModifEmp_Service;
+        private System.Windows.Forms.TextBox tbModifEmp_Prenom;
+        private System.Windows.Forms.TextBox tbModifEmp_Nom;
+        private System.Windows.Forms.Label label1;
     }
 }

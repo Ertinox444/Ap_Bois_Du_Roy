@@ -18,6 +18,7 @@ namespace App_Bois_Du_Roy.Controller
         public string mdp;
         public string todaydate;
         public DataTable dtListeEmploye_User, dtListeCompte_User, dtListeService, dtListeConge, dtListeFonction;
+        public string mdpHash;
         #region recup Login
         public string GetLogin()
         {
@@ -271,7 +272,7 @@ namespace App_Bois_Du_Roy.Controller
             {
                 Connexion conn = new Connexion();
                 conn.connection.Open(); // Ouvrir la connexion ici
-                string mdpHash = BC.HashPassword(mdp);
+                mdpHash = BC.HashPassword(mdp);
                 string fullName = nom + " " + prenom;
                 string username = fullName.ToLower().Replace(" ", "");
 
@@ -608,6 +609,132 @@ namespace App_Bois_Du_Roy.Controller
         }
         #endregion
 
+        public bool ModifyEmploye(string nom, string prenom, string service, string fonction, string matricule_Responsable, string mail, string telephone, string numsecu, string dtBirth, string dtEmbauche, string matricule, string matricule_correspondant)
+        {
+            bool reponse = false;
+            try
+            {
+                Connexion conn = new Connexion();
+
+                int idService = 0;
+                int idFonction = 0;
+
+                // Récupération de l'id correspondant au nom de service sélectionné
+                string query = "SELECT ID_SERVICE FROM SERVICE WHERE NOM_SERVICE = '" + service + "';";
+                using (MySqlCommand command = new MySqlCommand(query, conn.connection))
+                {
+                    conn.connection.Open();
+                    MySqlDataReader reader = command.ExecuteReader();
+                    if (reader.Read())
+                    {
+                        idService = reader.GetInt32(0);
+                    }
+                    reader.Close();
+                }
+
+                // Récupération de l'id correspondant au nom de fonction sélectionné
+                string query2 = "SELECT ID_FONCTION FROM FONCTION WHERE NOM_FONCTION = '" + fonction + "';";
+                using (MySqlCommand command = new MySqlCommand(query2, conn.connection))
+                {
+
+                    MySqlDataReader reader = command.ExecuteReader();
+                    if (reader.Read())
+                    {
+                        idFonction = reader.GetInt32(0);
+                    }
+                    reader.Close();
+                }
+
+
+
+                string rqtSql = "";
+
+                if (nom != "" && prenom != "" && service != "" && fonction != "" && matricule_Responsable != "")
+                {
+                    rqtSql = "UPDATE EMPLOYE SET ";
+                    rqtSql += "NOM ='" + nom + "', PRENOM ='" + prenom + "', NUM_SECU ='" + numsecu + "', TELEPHONE='" + telephone + "', DATE_NAISSANCE = '" + dtBirth + "', DATE_EMBAUCHE ='" + dtEmbauche + "', MATRICULE ='" + matricule + "', ID_FONCTION =" + idFonction + ", ID_SERVICE =" + idService + ", MATRICULE_RESPONSABLE='" + matricule_Responsable + "', MAIL ='"+mail+"'";
+                    rqtSql += " WHERE EMPLOYE.MATRICULE ='" + matricule_correspondant + "';";
+
+                }
+                else if (nom != "" && prenom != "" && service != "" && fonction != "" && matricule_Responsable == "")
+                {
+                    rqtSql = "UPDATE EMPLOYE SET ";
+                    rqtSql += "NOM ='" + nom + "', PRENOM ='" + prenom + "', NUM_SECU ='" + numsecu + "', TELEPHONE='" + telephone + "', DATE_NAISSANCE = '" + dtBirth + "', DATE_EMBAUCHE ='" + dtEmbauche + "', MATRICULE ='" + matricule + "', ID_FONCTION =" + idFonction + ", ID_SERVICE =" + idService + "', MAIL ='" + mail + "'";
+                    rqtSql += " WHERE EMPLOYE.MATRICULE ='" + matricule_correspondant + "';";
+                }
+                dtListeEmploye_User = new DataTable();
+
+
+                using (MySqlCommand cmd = new MySqlCommand(rqtSql, conn.connection))
+                {
+
+                    cmd.ExecuteNonQuery();
+                    reponse = true;
+                }
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.ToString(), "Erreur 3", MessageBoxButtons.OK, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1, MessageBoxOptions.RightAlign, true);
+            }
+            return reponse;
+        }
+        #region Modification Compte
+        public bool Modify_Compte(string mdp, string matricule, string prenom, string nom, string matricule_correspondant)
+        {
+            bool reponse = false;
+            try
+            {
+                Connexion conn = new Connexion();
+                conn.connection.Open(); // Ouvrir la connexion ici
+
+                string fullName = nom + " " + prenom;
+                string username = fullName.ToLower().Replace(" ", "");
+
+                // Ajouter la première lettre du prénom au nom de famille
+                string[] parts = prenom.Split('-');
+                string firstName = parts[0];
+                if (parts.Length > 1)
+                {
+                    firstName = parts[0][0] + parts[1][0].ToString();
+                }
+
+                username = firstName.ToLower().Substring(0, 1) + nom.ToLower();
+
+                // Supprimer les caractères spéciaux du nom d'utilisateur
+                username = new string(username.Where(c => Char.IsLetterOrDigit(c)).ToArray());
+
+                string rqtSql = "";
+
+                if (mdp != "")
+                {
+                    mdpHash = BC.HashPassword(mdp);
+                    rqtSql += "UPDATE COMPTE SET MATRICULE ='" + matricule + "', NOM_UTILISATEUR='" + username + "', MOT_DE_PASSE ='" + mdpHash + "'";
+                    rqtSql += " WHERE MATRICULE ='" + matricule_correspondant + "';";
+                }
+                if (mdp == "")
+                {
+                    rqtSql += "UPDATE COMPTE SET MATRICULE ='" + matricule + "', NOM_UTILISATEUR='" + username + "'";
+                    rqtSql += " WHERE MATRICULE ='" + matricule_correspondant + "';";
+                }
+
+                dtListeCompte_User = new DataTable();
+
+
+                using (MySqlCommand cmd = new MySqlCommand(rqtSql, conn.connection))
+                {
+
+                    cmd.ExecuteNonQuery();
+                    reponse = true;
+                }
+                conn.connection.Close(); // Fermer la connexion ici
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.ToString(), "Erreur 3", MessageBoxButtons.OK, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1, MessageBoxOptions.RightAlign, true);
+            }
+            return reponse;
+        }
+        #endregion
     }
 }
 
