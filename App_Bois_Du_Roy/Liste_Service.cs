@@ -26,10 +26,41 @@ namespace App_Bois_Du_Roy
             DGV_Liste_Service.Columns["Responsable"].Width = 580;
             DGV_Liste_Service.EnableHeadersVisualStyles = false;
             DGV_Liste_Service.ColumnHeadersDefaultCellStyle.ForeColor = Color.FromArgb(87, 128, 64);
+        }
 
-           
+        private void DGV_Liste_Service_CellMouseEnter(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                DataGridViewRow row = this.DGV_Liste_Service.Rows[e.RowIndex];
+                row.DefaultCellStyle.Font = new Font("Arial", 12F, FontStyle.Bold);
+            }
+        }
 
-         
+        private void DGV_Liste_Service_CellMouseLeave(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                DataGridViewRow row = this.DGV_Liste_Service.Rows[e.RowIndex];
+                row.DefaultCellStyle.Font = new Font("Arial", 12F, FontStyle.Regular);
+            }
+        }
+
+        private void DGV_Liste_Service_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            // Vérifier que le clic est sur une cellule valide (et non sur l'en-tête)
+            if (e.RowIndex >= 0 && e.ColumnIndex >= 0)
+            {
+                // Récupérer l'employé correspondant à la ligne cliquée
+                DataGridViewRow row = DGV_Liste_Service.Rows[e.RowIndex];
+                string nomService = row.Cells["Service"].Value.ToString();
+
+
+
+                // Ouvrir le formulaire Details_Employe avec les informations de l'employé
+                SousFormulaire SF = new SousFormulaire((System.Windows.Forms.Application.OpenForms["BaseMenu"] as BaseMenu).pnl_Menu);
+                SF.openChildForm(new Details_Service(nomService));
+            }
         }
 
         private void lbl_Employe_Click(object sender, EventArgs e)

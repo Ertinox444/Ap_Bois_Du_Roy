@@ -112,7 +112,7 @@ namespace App_Bois_Du_Roy
             this.lbl_Conge.Cursor = System.Windows.Forms.Cursors.Hand;
             this.lbl_Conge.Font = new System.Drawing.Font("Arial", 24F, System.Drawing.FontStyle.Bold);
             this.lbl_Conge.ForeColor = System.Drawing.Color.White;
-            this.lbl_Conge.Location = new System.Drawing.Point(56, 419);
+            this.lbl_Conge.Location = new System.Drawing.Point(39, 420);
             this.lbl_Conge.Name = "lbl_Conge";
             this.lbl_Conge.Size = new System.Drawing.Size(245, 46);
             this.lbl_Conge.TabIndex = 5;
@@ -397,6 +397,7 @@ namespace App_Bois_Du_Roy
             this.tbModifEmp_Nom.Name = "tbModifEmp_Nom";
             this.tbModifEmp_Nom.Size = new System.Drawing.Size(281, 76);
             this.tbModifEmp_Nom.TabIndex = 2;
+         
             // 
             // label1
             // 

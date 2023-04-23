@@ -662,7 +662,7 @@ namespace App_Bois_Du_Roy.Controller
                     rqtSql += "NOM ='" + nom + "', PRENOM ='" + prenom + "', NUM_SECU ='" + numsecu + "', TELEPHONE='" + telephone + "', DATE_NAISSANCE = '" + dtBirth + "', DATE_EMBAUCHE ='" + dtEmbauche + "', MATRICULE ='" + matricule + "', ID_FONCTION =" + idFonction + ", ID_SERVICE =" + idService + "', MAIL ='" + mail + "'";
                     rqtSql += " WHERE EMPLOYE.MATRICULE ='" + matricule_correspondant + "';";
                 }
-                dtListeEmploye_User = new DataTable();
+              
 
 
                 using (MySqlCommand cmd = new MySqlCommand(rqtSql, conn.connection))

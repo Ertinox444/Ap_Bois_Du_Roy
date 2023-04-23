@@ -38,7 +38,9 @@ namespace App_Bois_Du_Roy
             if (e.RowIndex >= 0)
             {
                 DataGridViewRow row = this.DGV_Liste_Employe.Rows[e.RowIndex];
-                row.DefaultCellStyle.Font = new Font("Arial", 15, FontStyle.Bold);
+               
+                Font myBoldFont = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+                row.DefaultCellStyle.Font = myBoldFont;
             }
         }
 
@@ -47,7 +49,9 @@ namespace App_Bois_Du_Roy
             if (e.RowIndex >= 0)
             {
                 DataGridViewRow row = this.DGV_Liste_Employe.Rows[e.RowIndex];
-                row.DefaultCellStyle.Font = new Font("Arial", 15, FontStyle.Regular);
+                Font myFont = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+
+                row.DefaultCellStyle.Font = myFont;
             }
         }
 
@@ -62,7 +66,7 @@ namespace App_Bois_Du_Roy
                 string matricule = row.Cells["Matricule"].Value.ToString();
 
 
-
+                this.Cursor = Cursors.WaitCursor;
                 // Ouvrir le formulaire Details_Employe avec les informations de l'employé
                 SousFormulaire SF = new SousFormulaire((System.Windows.Forms.Application.OpenForms["BaseMenu"] as BaseMenu).pnl_Menu);
                 SF.openChildForm(new Details_Employe(matricule));

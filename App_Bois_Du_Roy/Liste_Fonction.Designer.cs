@@ -126,6 +126,9 @@ namespace App_Bois_Du_Roy
             this.DGV_Liste_Fonction.RowTemplate.ReadOnly = true;
             this.DGV_Liste_Fonction.Size = new System.Drawing.Size(1565, 817);
             this.DGV_Liste_Fonction.TabIndex = 2;
+            this.DGV_Liste_Fonction.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DGV_Liste_Fonction_CellClick);
+            this.DGV_Liste_Fonction.CellMouseEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.DGV_Liste_Fonction_CellMouseEnter);
+            this.DGV_Liste_Fonction.CellMouseLeave += new System.Windows.Forms.DataGridViewCellEventHandler(this.DGV_Liste_Fonction_CellMouseLeave);
             // 
             // lbl_TitleEmploye
             // 

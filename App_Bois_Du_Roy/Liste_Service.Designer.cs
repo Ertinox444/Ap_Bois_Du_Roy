@@ -97,6 +97,9 @@ namespace App_Bois_Du_Roy
             this.DGV_Liste_Service.RowTemplate.ReadOnly = true;
             this.DGV_Liste_Service.Size = new System.Drawing.Size(1565, 817);
             this.DGV_Liste_Service.TabIndex = 9;
+            this.DGV_Liste_Service.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DGV_Liste_Service_CellClick);
+            this.DGV_Liste_Service.CellMouseEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.DGV_Liste_Service_CellMouseEnter);
+            this.DGV_Liste_Service.CellMouseLeave += new System.Windows.Forms.DataGridViewCellEventHandler(this.DGV_Liste_Service_CellMouseLeave);
             // 
             // lbl_AddEmploye
             // 
