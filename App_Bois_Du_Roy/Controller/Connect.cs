@@ -355,7 +355,7 @@ namespace App_Bois_Du_Roy.Controller
 
             try
             {
-                using (MySqlCommand cmd = new MySqlCommand("SELECT concat(E.NOM,' ', E.PRENOM) as Employe, T.NOM_TYPE_CONGE AS 'Type Conge', concat(DATEDIFF( D.DATE_FIN,D.DATE_DEBUT ),' ', 'jours') AS Duree, S.libelle_Statut AS Statut, concat(V.NOM,' ',V.PRENOM) AS Valideur FROM DEMANDE_CONGE D JOIN EMPLOYE E ON D.MATRICULE = E.MATRICULE JOIN TYPE_CONGE T ON D.TYPE_CONGE_DEMANDE = T.ID_TYPE_CONGE JOIN STATUT_DEMANDE S ON D.STATUT_DEMANDE_CONGE = S.id_Statut LEFT JOIN EMPLOYE V ON D.VALIDATEUR = V.MATRICULE ; ", conn.connection))
+                using (MySqlCommand cmd = new MySqlCommand("SELECT ID_DEMANDE_CONGE as ID_CONGE, concat(E.NOM,' ', E.PRENOM) as Employe, T.NOM_TYPE_CONGE AS 'Type Conge', concat(DATEDIFF( D.DATE_FIN,D.DATE_DEBUT ),' ', 'jours') AS Duree, S.libelle_Statut AS Statut, concat(V.NOM,' ',V.PRENOM) AS Valideur FROM DEMANDE_CONGE D JOIN EMPLOYE E ON D.MATRICULE = E.MATRICULE JOIN TYPE_CONGE T ON D.TYPE_CONGE_DEMANDE = T.ID_TYPE_CONGE JOIN STATUT_DEMANDE S ON D.STATUT_DEMANDE_CONGE = S.id_Statut LEFT JOIN EMPLOYE V ON D.VALIDATEUR = V.MATRICULE ; ", conn.connection))
                 {
 
                     {

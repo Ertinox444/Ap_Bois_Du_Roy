@@ -37,9 +37,59 @@ namespace App_Bois_Du_Roy
             DGV_Liste_Conge.Columns["Duree"].Width = 232;
             DGV_Liste_Conge.Columns["Statut"].Width = 232;
             DGV_Liste_Conge.Columns["Valideur"].Width = 232;
+            DGV_Liste_Conge.Columns["ID_CONGE"].Visible = false;
             DGV_Liste_Conge.EnableHeadersVisualStyles = false;
             DGV_Liste_Conge.ColumnHeadersDefaultCellStyle.ForeColor = Color.FromArgb(87, 128, 64);
             DGV_Liste_Conge.CellFormatting += DGV_Liste_Conge_CellFormatting;
+        }
+
+        private void DGV_Liste_Conge_CellMouseEnter(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                DataGridViewRow row = this.DGV_Liste_Conge.Rows[e.RowIndex];
+                row.DefaultCellStyle.Font = new Font("Arial", 12F, FontStyle.Bold);
+            }
+            
+        }
+
+        private void DGV_Liste_Conge_CellMouseLeave(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                DataGridViewRow row = this.DGV_Liste_Conge.Rows[e.RowIndex];
+                row.DefaultCellStyle.Font = new Font("Arial", 12F, FontStyle.Regular);
+            }
+        }
+
+        private void DGV_Liste_Conge_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            // Vérifier que le clic est sur une cellule valide (et non sur l'en-tête)
+            if (e.RowIndex >= 0) // Vérifier si l'utilisateur a cliqué sur une ligne valide
+            {
+                DataGridViewRow row = DGV_Liste_Conge.Rows[e.RowIndex];
+                string duree = row.Cells["Duree"].Value.ToString();
+                string employe = row.Cells["Employe"].Value.ToString();
+                string typeConge = row.Cells["Type Conge"].Value.ToString();
+                int idConge = Convert.ToInt32(row.Cells["ID_CONGE"].Value.ToString());
+                bool AlreadyDecision = false;
+                
+
+
+                // Vérifie le statut du congé
+                string statut = row.Cells["Statut"].Value.ToString();
+                if (statut != "En attente")
+                {
+                    AlreadyDecision = true;
+                }
+                else
+                {
+                    AlreadyDecision = false;
+                }
+
+                SousFormulaire SF = new SousFormulaire((System.Windows.Forms.Application.OpenForms["BaseMenu"] as BaseMenu).pnl_Menu);
+                SF.openChildForm(new Details_Conge(employe, duree, typeConge, idConge, AlreadyDecision));
+            }
         }
 
         private void lbl_Conge_Click(object sender, EventArgs e)

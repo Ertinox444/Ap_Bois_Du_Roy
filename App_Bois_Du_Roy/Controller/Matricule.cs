@@ -57,11 +57,11 @@ namespace App_Bois_Du_Roy.Controller
             return dtListeMatricule;
         }
 
-        public string RecupMatEmploye(string matricule)
+        public string RecupMatEmploye(string nomPrenomEmp)
         {
             try
             {
-                using (MySqlCommand cmd = new MySqlCommand("SELECT MATRICULE FROM EMPLOYE WHERE MATRICULE ='" + matricule + "';", conn.connection))
+                using (MySqlCommand cmd = new MySqlCommand("SELECT MATRICULE FROM EMPLOYE WHERE CONCAT(EMPLOYE.NOM,' ',EMPLOYE.PRENOM) ='" + nomPrenomEmp + "';", conn.connection))
                 {
                     conn.connection.Open();
                     MySqlDataReader reader = cmd.ExecuteReader();

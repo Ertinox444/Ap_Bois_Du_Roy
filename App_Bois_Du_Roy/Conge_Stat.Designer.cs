@@ -29,9 +29,14 @@ namespace App_Bois_Du_Roy.Controller
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea4 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend4 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea5 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend5 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
             this.tb_QuatriemeTrmstr = new System.Windows.Forms.TextBox();
             this.tb_TroisiemeTrmstr = new System.Windows.Forms.TextBox();
             this.tb_SecondTrmstr = new System.Windows.Forms.TextBox();
@@ -48,11 +53,6 @@ namespace App_Bois_Du_Roy.Controller
             this.lbl_Conge = new System.Windows.Forms.Label();
             this.lbl_lsEmploye = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ch_StatConge)).BeginInit();
             this.panel1.SuspendLayout();
@@ -81,6 +81,61 @@ namespace App_Bois_Du_Roy.Controller
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(1635, 1029);
             this.panel2.TabIndex = 5;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Arial", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(84)))), ((int)(((byte)(128)))), ((int)(((byte)(67)))));
+            this.label7.Location = new System.Drawing.Point(1355, 766);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(160, 30);
+            this.label7.TabIndex = 18;
+            this.label7.Text = "4e Trimestre";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Arial", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(84)))), ((int)(((byte)(128)))), ((int)(((byte)(67)))));
+            this.label6.Location = new System.Drawing.Point(937, 766);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(160, 30);
+            this.label6.TabIndex = 17;
+            this.label6.Text = "3e Trimestre";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Arial", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(84)))), ((int)(((byte)(128)))), ((int)(((byte)(67)))));
+            this.label5.Location = new System.Drawing.Point(520, 766);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(160, 30);
+            this.label5.TabIndex = 16;
+            this.label5.Text = "2e Trimestre";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Arial", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(84)))), ((int)(((byte)(128)))), ((int)(((byte)(67)))));
+            this.label4.Location = new System.Drawing.Point(108, 766);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(170, 30);
+            this.label4.TabIndex = 15;
+            this.label4.Text = "1er Trimestre";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Arial", 22.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(84)))), ((int)(((byte)(128)))), ((int)(((byte)(67)))));
+            this.label3.Location = new System.Drawing.Point(46, 673);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(631, 45);
+            this.label3.TabIndex = 14;
+            this.label3.Text = "Pourcentage Congé par Trimestre";
             // 
             // tb_QuatriemeTrmstr
             // 
@@ -185,10 +240,10 @@ namespace App_Bois_Du_Roy.Controller
             // ch_StatConge
             // 
             this.ch_StatConge.BorderSkin.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(84)))), ((int)(((byte)(128)))), ((int)(((byte)(67)))));
-            chartArea4.Name = "ChartArea1";
-            this.ch_StatConge.ChartAreas.Add(chartArea4);
-            legend4.Name = "Legend1";
-            this.ch_StatConge.Legends.Add(legend4);
+            chartArea5.Name = "ChartArea1";
+            this.ch_StatConge.ChartAreas.Add(chartArea5);
+            legend5.Name = "Legend1";
+            this.ch_StatConge.Legends.Add(legend5);
             this.ch_StatConge.Location = new System.Drawing.Point(104, 159);
             this.ch_StatConge.Name = "ch_StatConge";
             this.ch_StatConge.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Excel;
@@ -232,6 +287,7 @@ namespace App_Bois_Du_Roy.Controller
             this.lbl_ListeFonction.Size = new System.Drawing.Size(287, 46);
             this.lbl_ListeFonction.TabIndex = 7;
             this.lbl_ListeFonction.Text = "Liste Fonction";
+            this.lbl_ListeFonction.Click += new System.EventHandler(this.lbl_ListeFonction_Click);
             // 
             // lbl_Service
             // 
@@ -244,6 +300,7 @@ namespace App_Bois_Du_Roy.Controller
             this.lbl_Service.Size = new System.Drawing.Size(264, 46);
             this.lbl_Service.TabIndex = 6;
             this.lbl_Service.Text = "Liste Service";
+            this.lbl_Service.Click += new System.EventHandler(this.lbl_Service_Click);
             // 
             // lbl_Conge
             // 
@@ -256,6 +313,7 @@ namespace App_Bois_Du_Roy.Controller
             this.lbl_Conge.Size = new System.Drawing.Size(245, 46);
             this.lbl_Conge.TabIndex = 5;
             this.lbl_Conge.Text = "Liste Congé";
+            this.lbl_Conge.Click += new System.EventHandler(this.lbl_Conge_Click);
             // 
             // lbl_lsEmploye
             // 
@@ -268,6 +326,7 @@ namespace App_Bois_Du_Roy.Controller
             this.lbl_lsEmploye.Size = new System.Drawing.Size(289, 46);
             this.lbl_lsEmploye.TabIndex = 4;
             this.lbl_lsEmploye.Text = "Liste Employé";
+            this.lbl_lsEmploye.Click += new System.EventHandler(this.lbl_lsEmploye_Click);
             // 
             // pictureBox1
             // 
@@ -280,61 +339,7 @@ namespace App_Bois_Du_Roy.Controller
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 3;
             this.pictureBox1.TabStop = false;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Arial", 22.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(84)))), ((int)(((byte)(128)))), ((int)(((byte)(67)))));
-            this.label3.Location = new System.Drawing.Point(46, 673);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(631, 45);
-            this.label3.TabIndex = 14;
-            this.label3.Text = "Pourcentage Congé par Trimestre";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Arial", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(84)))), ((int)(((byte)(128)))), ((int)(((byte)(67)))));
-            this.label4.Location = new System.Drawing.Point(108, 766);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(170, 30);
-            this.label4.TabIndex = 15;
-            this.label4.Text = "1er Trimestre";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Arial", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(84)))), ((int)(((byte)(128)))), ((int)(((byte)(67)))));
-            this.label5.Location = new System.Drawing.Point(520, 766);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(160, 30);
-            this.label5.TabIndex = 16;
-            this.label5.Text = "2e Trimestre";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Arial", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(84)))), ((int)(((byte)(128)))), ((int)(((byte)(67)))));
-            this.label6.Location = new System.Drawing.Point(937, 766);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(160, 30);
-            this.label6.TabIndex = 17;
-            this.label6.Text = "3e Trimestre";
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Arial", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(84)))), ((int)(((byte)(128)))), ((int)(((byte)(67)))));
-            this.label7.Location = new System.Drawing.Point(1355, 766);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(160, 30);
-            this.label7.TabIndex = 18;
-            this.label7.Text = "4e Trimestre";
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // Conge_Stat
             // 

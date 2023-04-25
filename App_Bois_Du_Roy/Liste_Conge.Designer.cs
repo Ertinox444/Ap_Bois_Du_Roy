@@ -95,6 +95,9 @@ namespace App_Bois_Du_Roy
             this.DGV_Liste_Conge.RowTemplate.ReadOnly = true;
             this.DGV_Liste_Conge.Size = new System.Drawing.Size(1565, 817);
             this.DGV_Liste_Conge.TabIndex = 5;
+            this.DGV_Liste_Conge.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DGV_Liste_Conge_CellClick);
+            this.DGV_Liste_Conge.CellMouseEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.DGV_Liste_Conge_CellMouseEnter);
+            this.DGV_Liste_Conge.CellMouseLeave += new System.Windows.Forms.DataGridViewCellEventHandler(this.DGV_Liste_Conge_CellMouseLeave);
             // 
             // label1
             // 
