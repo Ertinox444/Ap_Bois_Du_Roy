@@ -14,14 +14,14 @@ namespace App_Bois_Du_Roy
 {
     public partial class Supprime_Service : Form
     {
-        private Connect dtviewService = new Connect();
+       
         private DataView dvService;
         public Supprime_Service()
         {
            
             InitializeComponent();
             #region Colonne Principal
-            dtviewService = new Connect();
+            Service dtviewService = new Service();
             dvService = new DataView(dtviewService.GetlisteService());
             DGV_Liste_Service.DataSource = dvService;
             DGV_Liste_Service.Columns["Service"].Width = 200;
@@ -29,7 +29,6 @@ namespace App_Bois_Du_Roy
             DGV_Liste_Service.EnableHeadersVisualStyles = false;
             DGV_Liste_Service.ColumnHeadersDefaultCellStyle.ForeColor = Color.FromArgb(87, 128, 64);
             #endregion
-
             #region ajout colonne checkbox
             DataGridViewCheckBoxColumn chkbox = new DataGridViewCheckBoxColumn();
             chkbox.HeaderText = "Sélectionner";
@@ -39,6 +38,19 @@ namespace App_Bois_Du_Roy
             DGV_Liste_Service.CellContentClick += new DataGridViewCellEventHandler(DGV_Liste_Service_CellContentClick);
 
             #endregion
+
+            Misc Notif = new Misc();
+            if (Notif.CheckCongesEnAttente() > 0)
+            {
+                pb_Notif.Visible = true;
+                lbl_Notif.Visible = true;
+                lbl_Notif.Text = Convert.ToString(Notif.CheckCongesEnAttente());
+            }
+            if (Notif.CheckCongesEnAttente() == 0)
+            {
+                pb_Notif.Visible = false;
+                lbl_Notif.Visible = false;
+            }
         }
         #region gestion des checkbox
         private void DGV_Liste_Service_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -52,7 +64,7 @@ namespace App_Bois_Du_Roy
         #endregion 
         private void btnSupprimer_Click_1(object sender, EventArgs e)
         {
-            Connect Supp = new Connect();
+            Service Supp = new Service();
 
             List<string> servicesSelectionnes = new List<string>();
             foreach (DataGridViewRow row in DGV_Liste_Service.Rows)
@@ -67,6 +79,7 @@ namespace App_Bois_Du_Roy
             }
 
             Supp.SuppressService(servicesSelectionnes);
+            this.Cursor = Cursors.WaitCursor;
             SousFormulaire SF = new SousFormulaire((System.Windows.Forms.Application.OpenForms["BaseMenu"] as BaseMenu).pnl_Menu);
             SF.openChildForm(new Liste_Service());
         }
@@ -76,28 +89,37 @@ namespace App_Bois_Du_Roy
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
+            this.Cursor = Cursors.WaitCursor;
             SousFormulaire SF = new SousFormulaire((System.Windows.Forms.Application.OpenForms["BaseMenu"] as BaseMenu).pnl_Menu);
             SF.openChildForm(new TableauBord());
         }
 
         private void lbl_lsEmploye_Click(object sender, EventArgs e)
         {
+            this.Cursor = Cursors.WaitCursor;
             SousFormulaire SF = new SousFormulaire((System.Windows.Forms.Application.OpenForms["BaseMenu"] as BaseMenu).pnl_Menu);
             SF.openChildForm(new Liste_Employe());
         }
 
         private void lbl_Conge_Click(object sender, EventArgs e)
         {
+            this.Cursor = Cursors.WaitCursor;
             SousFormulaire SF = new SousFormulaire((System.Windows.Forms.Application.OpenForms["BaseMenu"] as BaseMenu).pnl_Menu);
             SF.openChildForm(new Liste_Conge());
         }
 
         private void lbl_Service_Click(object sender, EventArgs e)
         {
+            this.Cursor = Cursors.WaitCursor;
             SousFormulaire SF = new SousFormulaire((System.Windows.Forms.Application.OpenForms["BaseMenu"] as BaseMenu).pnl_Menu);
             SF.openChildForm(new Liste_Service());
         }
 
-        
+        private void pb_LogOut_Click(object sender, EventArgs e)
+        {
+            this.Cursor = Cursors.WaitCursor;
+            SousFormulaire SF = new SousFormulaire((System.Windows.Forms.Application.OpenForms["BaseMenu"] as BaseMenu).pnl_Menu);
+            SF.openChildForm(new Page_Connection());
+        }
     }
 }

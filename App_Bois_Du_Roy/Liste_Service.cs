@@ -14,18 +14,31 @@ namespace App_Bois_Du_Roy
 {
     public partial class Liste_Service : Form
     {
-        private Connect dtviewService = new Connect();
+ 
         private DataView dvService;
         public Liste_Service()
         {
             InitializeComponent();
-            dtviewService = new Connect();
+            Service dtviewService = new Service();
             dvService = new DataView(dtviewService.GetlisteService());
             DGV_Liste_Service.DataSource = dvService;
             DGV_Liste_Service.Columns["Service"].Width = 580;
             DGV_Liste_Service.Columns["Responsable"].Width = 580;
             DGV_Liste_Service.EnableHeadersVisualStyles = false;
             DGV_Liste_Service.ColumnHeadersDefaultCellStyle.ForeColor = Color.FromArgb(87, 128, 64);
+
+            Misc Notif = new Misc();
+            if (Notif.CheckCongesEnAttente() > 0)
+            {
+                pb_Notif.Visible = true;
+                lbl_Notif.Visible = true;
+                lbl_Notif.Text = Convert.ToString(Notif.CheckCongesEnAttente());
+            }
+            if (Notif.CheckCongesEnAttente() == 0)
+            {
+                pb_Notif.Visible = false;
+                lbl_Notif.Visible = false;
+            }
         }
 
         private void DGV_Liste_Service_CellMouseEnter(object sender, DataGridViewCellEventArgs e)
@@ -58,6 +71,7 @@ namespace App_Bois_Du_Roy
 
 
                 // Ouvrir le formulaire Details_Employe avec les informations de l'employé
+                this.Cursor = Cursors.WaitCursor;
                 SousFormulaire SF = new SousFormulaire((System.Windows.Forms.Application.OpenForms["BaseMenu"] as BaseMenu).pnl_Menu);
                 SF.openChildForm(new Details_Service(nomService));
             }
@@ -65,38 +79,58 @@ namespace App_Bois_Du_Roy
 
         private void lbl_Employe_Click(object sender, EventArgs e)
         {
+            this.Cursor = Cursors.WaitCursor;
             SousFormulaire SF = new SousFormulaire((System.Windows.Forms.Application.OpenForms["BaseMenu"] as BaseMenu).pnl_Menu);
             SF.openChildForm(new Liste_Employe());
         }
 
         private void lbl_Conge_Click(object sender, EventArgs e)
         {
+            this.Cursor = Cursors.WaitCursor;
             SousFormulaire SF = new SousFormulaire((System.Windows.Forms.Application.OpenForms["BaseMenu"] as BaseMenu).pnl_Menu);
             SF.openChildForm(new Liste_Conge());
         }
 
         private void lbl_Service_Click(object sender, EventArgs e)
         {
+            this.Cursor = Cursors.WaitCursor;
             SousFormulaire SF = new SousFormulaire((System.Windows.Forms.Application.OpenForms["BaseMenu"] as BaseMenu).pnl_Menu);
             SF.openChildForm(new Liste_Service());
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
+            this.Cursor = Cursors.WaitCursor;
             SousFormulaire SF = new SousFormulaire((System.Windows.Forms.Application.OpenForms["BaseMenu"] as BaseMenu).pnl_Menu);
             SF.openChildForm(new TableauBord());
         }
 
         private void lbl_AddEmploye_Click(object sender, EventArgs e)
         {
+            this.Cursor = Cursors.WaitCursor;
             SousFormulaire SF = new SousFormulaire((System.Windows.Forms.Application.OpenForms["BaseMenu"] as BaseMenu).pnl_Menu);
             SF.openChildForm(new Ajout_Service());
         }
 
         private void label2_Click(object sender, EventArgs e)
         {
+            this.Cursor = Cursors.WaitCursor;
             SousFormulaire SF = new SousFormulaire((System.Windows.Forms.Application.OpenForms["BaseMenu"] as BaseMenu).pnl_Menu);
             SF.openChildForm(new Supprime_Service());
+        }
+
+        private void pb_LogOut_Click(object sender, EventArgs e)
+        {
+            this.Cursor = Cursors.WaitCursor;
+            SousFormulaire SF = new SousFormulaire((System.Windows.Forms.Application.OpenForms["BaseMenu"] as BaseMenu).pnl_Menu);
+            SF.openChildForm(new Page_Connection());
+        }
+
+        private void lbl_ListeFonction_Click(object sender, EventArgs e)
+        {
+            this.Cursor = Cursors.WaitCursor;
+            SousFormulaire SF = new SousFormulaire((System.Windows.Forms.Application.OpenForms["BaseMenu"] as BaseMenu).pnl_Menu);
+            SF.openChildForm(new Liste_Fonction());
         }
     }
 }

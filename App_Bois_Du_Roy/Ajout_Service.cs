@@ -23,24 +23,40 @@ namespace App_Bois_Du_Roy
             cbAddServ_Respo.DataSource = dt_Employe.GetListeResponsableCB();
             cbAddServ_Respo.DisplayMember = "RESPONSABLE";
             cbAddServ_Respo.ValueMember = "MATRICULE";
+
+            Misc Notif = new Misc();
+            if (Notif.CheckCongesEnAttente() > 0)
+            {
+                pb_Notif.Visible = true;
+                lbl_Notif.Visible = true;
+                lbl_Notif.Text = Convert.ToString(Notif.CheckCongesEnAttente());
+            }
+            if (Notif.CheckCongesEnAttente() == 0)
+            {
+                pb_Notif.Visible = false;
+                lbl_Notif.Visible = false;
+            }
         }
 
         
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
+            this.Cursor = Cursors.WaitCursor;
             SousFormulaire SF = new SousFormulaire((System.Windows.Forms.Application.OpenForms["BaseMenu"] as BaseMenu).pnl_Menu);
             SF.openChildForm(new TableauBord());
         }
 
         private void lbl_Employe_Click(object sender, EventArgs e)
         {
+            this.Cursor = Cursors.WaitCursor;
             SousFormulaire SF = new SousFormulaire((System.Windows.Forms.Application.OpenForms["BaseMenu"] as BaseMenu).pnl_Menu);
             SF.openChildForm(new Liste_Employe());
         }
 
         private void lbl_Conge_Click(object sender, EventArgs e)
         {
+            this.Cursor = Cursors.WaitCursor;
             SousFormulaire SF = new SousFormulaire((System.Windows.Forms.Application.OpenForms["BaseMenu"] as BaseMenu).pnl_Menu);
             SF.openChildForm(new Liste_Conge());
         }
@@ -48,6 +64,7 @@ namespace App_Bois_Du_Roy
         
         private void lbl_Service_Click(object sender, EventArgs e)
         {
+            this.Cursor = Cursors.WaitCursor;
             SousFormulaire SF = new SousFormulaire((System.Windows.Forms.Application.OpenForms["BaseMenu"] as BaseMenu).pnl_Menu);
             SF.openChildForm(new Liste_Service());
         }
@@ -61,13 +78,20 @@ namespace App_Bois_Du_Roy
             else
             {
 
-                Connect Envoie = new Connect();
+                Service Envoie = new Service();
           
                 Envoie.InsertService(tbAddServ_Nom.Text, cbAddServ_Respo.Text);
-               
+                this.Cursor = Cursors.WaitCursor;
                 SousFormulaire SF = new SousFormulaire((System.Windows.Forms.Application.OpenForms["BaseMenu"] as BaseMenu).pnl_Menu);
                 SF.openChildForm(new Liste_Service());
             }
+        }
+
+        private void pb_LogOut_Click(object sender, EventArgs e)
+        {
+            this.Cursor = Cursors.WaitCursor;
+            SousFormulaire SF = new SousFormulaire((System.Windows.Forms.Application.OpenForms["BaseMenu"] as BaseMenu).pnl_Menu);
+            SF.openChildForm(new Page_Connection());
         }
     }
 }

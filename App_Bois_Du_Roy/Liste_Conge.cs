@@ -13,7 +13,7 @@ namespace App_Bois_Du_Roy
 {
     public partial class Liste_Conge : Form
     {
-        private Connect dtviewConge = new Connect();
+        private Conge dtviewConge = new Conge();
         public DataView dvConge;
         private void DGV_Liste_Conge_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
@@ -29,7 +29,7 @@ namespace App_Bois_Du_Roy
         public Liste_Conge()
         {
             InitializeComponent();
-            dtviewConge = new Connect();
+            dtviewConge = new Conge();
             dvConge = new DataView(dtviewConge.GetlisteConge());
             DGV_Liste_Conge.DataSource = dvConge;
             DGV_Liste_Conge.Columns["Employe"].Width = 232;
@@ -38,9 +38,23 @@ namespace App_Bois_Du_Roy
             DGV_Liste_Conge.Columns["Statut"].Width = 232;
             DGV_Liste_Conge.Columns["Valideur"].Width = 232;
             DGV_Liste_Conge.Columns["ID_CONGE"].Visible = false;
+            DGV_Liste_Conge.Columns["DATE_DEBUT"].Visible = false;
             DGV_Liste_Conge.EnableHeadersVisualStyles = false;
             DGV_Liste_Conge.ColumnHeadersDefaultCellStyle.ForeColor = Color.FromArgb(87, 128, 64);
             DGV_Liste_Conge.CellFormatting += DGV_Liste_Conge_CellFormatting;
+
+            Misc Notif = new Misc();
+            if (Notif.CheckCongesEnAttente() > 0)
+            {
+                pb_Notif.Visible = true;
+                lbl_Notif.Visible = true;
+                lbl_Notif.Text = Convert.ToString(Notif.CheckCongesEnAttente());
+            }
+            if (Notif.CheckCongesEnAttente() == 0)
+            {
+                pb_Notif.Visible = false;
+                lbl_Notif.Visible = false;
+            }
         }
 
         private void DGV_Liste_Conge_CellMouseEnter(object sender, DataGridViewCellEventArgs e)
@@ -86,7 +100,7 @@ namespace App_Bois_Du_Roy
                 {
                     AlreadyDecision = false;
                 }
-
+                this.Cursor = Cursors.WaitCursor;
                 SousFormulaire SF = new SousFormulaire((System.Windows.Forms.Application.OpenForms["BaseMenu"] as BaseMenu).pnl_Menu);
                 SF.openChildForm(new Details_Conge(employe, duree, typeConge, idConge, AlreadyDecision));
             }
@@ -94,32 +108,44 @@ namespace App_Bois_Du_Roy
 
         private void lbl_Conge_Click(object sender, EventArgs e)
         {
+            this.Cursor = Cursors.WaitCursor;
             SousFormulaire SF = new SousFormulaire((System.Windows.Forms.Application.OpenForms["BaseMenu"] as BaseMenu).pnl_Menu);
             SF.openChildForm(new Liste_Conge());
         }
 
         private void lbl_Employe_Click(object sender, EventArgs e)
         {
+            this.Cursor = Cursors.WaitCursor;
             SousFormulaire SF = new SousFormulaire((System.Windows.Forms.Application.OpenForms["BaseMenu"] as BaseMenu).pnl_Menu);
             SF.openChildForm(new Liste_Employe());
         }
 
         private void lbl_Service_Click(object sender, EventArgs e)
         {
+            this.Cursor = Cursors.WaitCursor;
             SousFormulaire SF = new SousFormulaire((System.Windows.Forms.Application.OpenForms["BaseMenu"] as BaseMenu).pnl_Menu);
             SF.openChildForm(new Liste_Service());
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
+            this.Cursor = Cursors.WaitCursor;
             SousFormulaire SF = new SousFormulaire((System.Windows.Forms.Application.OpenForms["BaseMenu"] as BaseMenu).pnl_Menu);
             SF.openChildForm(new TableauBord());
         }
 
         private void lbl_StatConge_Click(object sender, EventArgs e)
         {
+            this.Cursor = Cursors.WaitCursor;
             SousFormulaire SF = new SousFormulaire((System.Windows.Forms.Application.OpenForms["BaseMenu"] as BaseMenu).pnl_Menu);
             SF.openChildForm(new Conge_Stat());
+        }
+
+        private void pb_LogOut_Click(object sender, EventArgs e)
+        {
+            this.Cursor = Cursors.WaitCursor;
+            SousFormulaire SF = new SousFormulaire((System.Windows.Forms.Application.OpenForms["BaseMenu"] as BaseMenu).pnl_Menu);
+            SF.openChildForm(new Page_Connection());
         }
     }
 }

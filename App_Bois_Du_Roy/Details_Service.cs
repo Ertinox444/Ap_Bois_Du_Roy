@@ -44,38 +44,62 @@ namespace App_Bois_Du_Roy
             DGV_Liste_EmployeService.Columns["Nom"].Width = 150;
             DGV_Liste_EmployeService.EnableHeadersVisualStyles = false;
             DGV_Liste_EmployeService.ColumnHeadersDefaultCellStyle.ForeColor = Color.FromArgb(87, 128, 64);
+
+            Misc Notif = new Misc();
+            if (Notif.CheckCongesEnAttente() > 0)
+            {
+                pb_Notif.Visible = true;
+                lbl_Notif.Visible = true;
+                lbl_Notif.Text = Convert.ToString(Notif.CheckCongesEnAttente());
+            }
+            if (Notif.CheckCongesEnAttente() == 0)
+            {
+                pb_Notif.Visible = false;
+                lbl_Notif.Visible = false;
+            }
         }
 
         private void lbl_lsEmploye_Click(object sender, EventArgs e)
         {
+            this.Cursor = Cursors.WaitCursor;
             SousFormulaire SF = new SousFormulaire((System.Windows.Forms.Application.OpenForms["BaseMenu"] as BaseMenu).pnl_Menu);
             SF.openChildForm(new Liste_Employe());
         }
 
         private void lbl_Conge_Click(object sender, EventArgs e)
         {
+            this.Cursor = Cursors.WaitCursor;
             SousFormulaire SF = new SousFormulaire((System.Windows.Forms.Application.OpenForms["BaseMenu"] as BaseMenu).pnl_Menu);
             SF.openChildForm(new Liste_Conge());
         }
 
         private void lbl_Service_Click(object sender, EventArgs e)
         {
+            this.Cursor = Cursors.WaitCursor;
             SousFormulaire SF = new SousFormulaire((System.Windows.Forms.Application.OpenForms["BaseMenu"] as BaseMenu).pnl_Menu);
             SF.openChildForm(new Liste_Service());
         }
 
         private void lbl_ListeFonction_Click(object sender, EventArgs e)
         {
+            this.Cursor = Cursors.WaitCursor;
             SousFormulaire SF = new SousFormulaire((System.Windows.Forms.Application.OpenForms["BaseMenu"] as BaseMenu).pnl_Menu);
             SF.openChildForm(new Liste_Fonction());
         }
 
         private void lbl_ModifEmploye_Click(object sender, EventArgs e)
         {
-            
+            this.Cursor = Cursors.WaitCursor;
             string NomService = tb_ServiceName.Text.Replace("Service ", "");
             SousFormulaire SF = new SousFormulaire((System.Windows.Forms.Application.OpenForms["BaseMenu"] as BaseMenu).pnl_Menu);
             SF.openChildForm(new ModifyServ(NomService));
+        }
+
+        private void pb_LogOut_Click(object sender, EventArgs e)
+        {
+            this.Cursor = Cursors.WaitCursor;
+            SousFormulaire SF = new SousFormulaire((System.Windows.Forms.Application.OpenForms["BaseMenu"] as BaseMenu).pnl_Menu);
+            SF.openChildForm(new Page_Connection());
         }
     }
 }

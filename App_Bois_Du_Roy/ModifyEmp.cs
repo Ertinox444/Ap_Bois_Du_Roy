@@ -76,34 +76,52 @@ namespace App_Bois_Du_Roy
             cbModifEmp_Service.Text = Serv.RecupServEmploye(matricule);
             cbModifEmp_MatRespo.Text = MatRespo.RecupRespoEmp(matricule);
 
+
+            Misc Notif = new Misc();
+            if (Notif.CheckCongesEnAttente() > 0)
+            {
+                pb_Notif.Visible = true;
+                lbl_Notif.Visible = true;
+                lbl_Notif.Text = Convert.ToString(Notif.CheckCongesEnAttente());
+            }
+            if (Notif.CheckCongesEnAttente() == 0)
+            {
+                pb_Notif.Visible = false;
+                lbl_Notif.Visible = false;
+            }
         }
 
         private void lbl_Employe_Click(object sender, EventArgs e)
         {
+            this.Cursor = Cursors.WaitCursor;
             SousFormulaire SF = new SousFormulaire((System.Windows.Forms.Application.OpenForms["BaseMenu"] as BaseMenu).pnl_Menu);
             SF.openChildForm(new Liste_Employe());
         }
 
         private void lbl_Conge_Click(object sender, EventArgs e)
         {
+            this.Cursor = Cursors.WaitCursor;
             SousFormulaire SF = new SousFormulaire((System.Windows.Forms.Application.OpenForms["BaseMenu"] as BaseMenu).pnl_Menu);
             SF.openChildForm(new Liste_Conge());
         }
 
         private void lbl_Service_Click(object sender, EventArgs e)
         {
+            this.Cursor = Cursors.WaitCursor;
             SousFormulaire SF = new SousFormulaire((System.Windows.Forms.Application.OpenForms["BaseMenu"] as BaseMenu).pnl_Menu);
             SF.openChildForm(new Liste_Service());
         }
 
         private void lbl_ListeFonction_Click(object sender, EventArgs e)
         {
+            this.Cursor = Cursors.WaitCursor;
             SousFormulaire SF = new SousFormulaire((System.Windows.Forms.Application.OpenForms["BaseMenu"] as BaseMenu).pnl_Menu);
             SF.openChildForm(new Liste_Fonction());
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
+            this.Cursor = Cursors.WaitCursor;
             SousFormulaire SF = new SousFormulaire((System.Windows.Forms.Application.OpenForms["BaseMenu"] as BaseMenu).pnl_Menu);
             SF.openChildForm(new TableauBord());
         }
@@ -149,15 +167,21 @@ namespace App_Bois_Du_Roy
             else
             {
 
-                Connect Envoie = new Connect();
+                Employe Envoie = new Employe();
                 
                 Envoie.ModifyEmploye(tbModifEmp_Nom.Text, tbModifEmp_Prenom.Text, cbModifEmp_Service.Text, cbModifEmp_Fonction.Text, cbModifEmp_MatRespo.Text, adresseEmail, tbModifEmp_NumTel.Text, tbModifEmp_NumSec.Text, formattedDate_Birth, formattedDate_Embauche, tbModifEmp_Mat.Text, mat_recup);
                 Envoie.Modify_Compte(tbModifEmp_MDP.Text, tbModifEmp_Mat.Text, tbModifEmp_Nom.Text, tbModifEmp_Prenom.Text, mat_recup);
+                this.Cursor = Cursors.WaitCursor;
                 SousFormulaire SF = new SousFormulaire((System.Windows.Forms.Application.OpenForms["BaseMenu"] as BaseMenu).pnl_Menu);
                 SF.openChildForm(new Liste_Employe());
             }
         }
 
-      
+        private void pb_LogOut_Click(object sender, EventArgs e)
+        {
+            this.Cursor = Cursors.WaitCursor;
+            SousFormulaire SF = new SousFormulaire((System.Windows.Forms.Application.OpenForms["BaseMenu"] as BaseMenu).pnl_Menu);
+            SF.openChildForm(new Page_Connection());
+        }
     }
 }

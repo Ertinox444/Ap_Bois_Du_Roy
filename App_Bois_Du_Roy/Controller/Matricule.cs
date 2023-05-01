@@ -16,6 +16,7 @@ namespace App_Bois_Du_Roy.Controller
         Connexion conn = new Connexion();
         private string matEmp;
 
+        #region Recup Liste Matricule -> ComboBox
         public DataTable GetListeMatriculeCB()
         {
             DataTable dtListeMatricule = new DataTable();
@@ -56,7 +57,8 @@ namespace App_Bois_Du_Roy.Controller
             }
             return dtListeMatricule;
         }
-
+        #endregion
+        #region Recup Matricule Employe
         public string RecupMatEmploye(string nomPrenomEmp)
         {
             try
@@ -83,5 +85,33 @@ namespace App_Bois_Du_Roy.Controller
             return matEmp;
             
         }
+        #endregion
+        #region Recup dernier Matricule
+        public string GetDernierMatricule()
+        {
+            string dernierMatricule = "";
+
+            Connexion conn = new Connexion();
+
+            try
+            {
+                using (MySqlCommand cmd = new MySqlCommand("SELECT MAX(MATRICULE) FROM EMPLOYE", conn.connection))
+                {
+                    conn.connection.Open();
+                    object result = cmd.ExecuteScalar();
+                    if (result != null && result != DBNull.Value)
+                    {
+                        dernierMatricule = result.ToString();
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.ToString(), "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1, MessageBoxOptions.RightAlign, true);
+            }
+
+            return dernierMatricule;
+        }
+        #endregion 
     }
 }

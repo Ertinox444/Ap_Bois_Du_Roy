@@ -58,7 +58,6 @@ namespace App_Bois_Du_Roy.Controller
             return dtListeFonction;
         }
         #endregion
-
         #region Recup Fonction d'un employe
         public string RecupFoncEmploye(string matricule)
         {
@@ -87,7 +86,6 @@ namespace App_Bois_Du_Roy.Controller
 
         }
         #endregion
-
         #region Modifier fonction
 
         public bool ModifyFonction(string nomFonction, string nomServiceCorrespondant)
@@ -124,6 +122,100 @@ namespace App_Bois_Du_Roy.Controller
             return reponse;
 
 
+        }
+        #endregion
+        #region Liste Fonction
+        public DataTable GetListeFonction()
+        {
+            DataTable dt_Fonction_List = new DataTable();
+
+            Connexion conn = new Connexion();
+
+            try
+            {
+                using (MySqlCommand cmd = new MySqlCommand("SELECT FONCTION.NOM_FONCTION as Fonction FROM FONCTION ORDER BY ID_FONCTION;  ", conn.connection))
+                {
+
+                    {
+                        conn.connection.Open();
+                        MySqlDataReader reader = cmd.ExecuteReader();
+                        dt_Fonction_List.Load(reader);
+                    }
+
+                }
+
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.ToString(), "Erreur 3", MessageBoxButtons.OK, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1, MessageBoxOptions.RightAlign, true);
+            }
+            return dt_Fonction_List;
+        }
+        #endregion
+        #region Suppression Fonction
+        public bool SuppressFonction(List<string> nomFonction)
+        {
+            bool reponse = false;
+            try
+            {
+                Connexion conn = new Connexion();
+
+                foreach (string fonction in nomFonction)
+                {
+                    string query = "DELETE FROM FONCTION WHERE NOM_FONCTION = '" + fonction + "';";
+                    using (MySqlCommand command = new MySqlCommand(query, conn.connection))
+                    {
+                        conn.connection.Open();
+                        command.ExecuteNonQuery();
+
+                        reponse = true;
+                        conn.connection.Close();
+                    }
+
+
+
+                }
+
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.ToString(), "Erreur 3 ", MessageBoxButtons.OK, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1, MessageBoxOptions.RightAlign, true);
+            }
+            return reponse;
+        }
+        #endregion
+        #region Insertion fonction
+        public bool InsertFonction(string nom)
+        {
+            bool reponse = false;
+            try
+            {
+                Connexion conn = new Connexion();
+                conn.connection.Open(); // Ouvrir la connexion ici
+
+                string rqtSql = "INSERT INTO FONCTION (NOM_FONCTION) VALUES ";
+
+                if (nom != "")
+                {
+                    rqtSql += "('" + nom + "');";
+
+                }
+                DataTable dtListeFonction = new DataTable();
+
+
+                using (MySqlCommand cmd = new MySqlCommand(rqtSql, conn.connection))
+                {
+
+                    cmd.ExecuteNonQuery();
+                    reponse = true;
+                }
+                conn.connection.Close(); // Fermer la connexion ici
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.ToString(), "Erreur 3", MessageBoxButtons.OK, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1, MessageBoxOptions.RightAlign, true);
+            }
+            return reponse;
         }
         #endregion
     }

@@ -63,7 +63,6 @@ namespace App_Bois_Du_Roy.Modele
             return dtListeService;
         }
         #endregion
-
         #region recup servic employe
         public string RecupServEmploye(string matricule)
         {
@@ -92,7 +91,6 @@ namespace App_Bois_Du_Roy.Modele
 
         }
         #endregion
-
         #region Recup Responsable Service
         public string RecupNameResponsable(string nomService)
         {
@@ -118,7 +116,6 @@ namespace App_Bois_Du_Roy.Modele
 
         }
         #endregion
-
         #region Recup Nombre employé dans un service
         public int RecupNbEmployeService(string nomService)
         {
@@ -147,7 +144,6 @@ namespace App_Bois_Du_Roy.Modele
 
         }
         #endregion
-
         #region recup liste employe d'un service
         public DataTable GetlisteEmployeService(string nomService)
         {
@@ -176,7 +172,6 @@ namespace App_Bois_Du_Roy.Modele
             return dtListeEmployeService;
         }
         #endregion
-
         #region Recup liste employe d'un service -> combobox
         public DataTable GetListeEmployeServiceCB(string nomService)
         {
@@ -219,7 +214,7 @@ namespace App_Bois_Du_Roy.Modele
             return dtListeService;
         }
         #endregion
-
+        #region Modifier un service
         public bool ModifyService(string nomService, string employe, string nomServiceCorrespondant)
         {
             bool reponse = false;
@@ -273,6 +268,122 @@ namespace App_Bois_Du_Roy.Modele
             }
             return reponse;
         }
+        #endregion
+        #region Insertion Service
+        public bool InsertService(string nom, string responsable)
+        {
+            bool reponse = false;
+            try
+            {
+                Connexion conn = new Connexion();
+                string matriculeRespo = "";
+
+                string query = "SELECT MATRICULE FROM EMPLOYE WHERE CONCAT(NOM, ' ', PRENOM) = '" + responsable + "';";
+                using (MySqlCommand command = new MySqlCommand(query, conn.connection))
+                {
+                    conn.connection.Open();
+                    MySqlDataReader reader = command.ExecuteReader();
+                    if (reader.Read())
+                    {
+                        matriculeRespo = reader.GetString(0);
+                    }
+                    reader.Close();
+                }
+                string rqtSql = "";
+
+
+
+                if (nom != "" && responsable != "")
+                {
+                    rqtSql = "INSERT INTO SERVICE (NOM_SERVICE, MATRICULE_RESPONSABLE) VALUES (";
+                    rqtSql += "'" + nom + "', '" + matriculeRespo + "');";
+
+                }
+                else if (nom != "" && responsable == "")
+                {
+                    rqtSql = "INSERT INTO SERVICE (NOM_SERVICE) VALUES (";
+                    rqtSql += "'" + nom + "');";
+                }
+                dtListeService = new DataTable();
+
+
+
+
+
+                using (MySqlCommand cmd = new MySqlCommand(rqtSql, conn.connection))
+                {
+
+                    cmd.ExecuteNonQuery();
+                    reponse = true;
+                }
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.ToString(), "Erreur 3 ", MessageBoxButtons.OK, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1, MessageBoxOptions.RightAlign, true);
+            }
+            return reponse;
+        }
+        #endregion
+        #region Suppression Service
+        public bool SuppressService(List<string> nomService)
+        {
+            bool reponse = false;
+            try
+            {
+                Connexion conn = new Connexion();
+
+                foreach (string service in nomService)
+                {
+                    string query = "DELETE FROM SERVICE WHERE NOM_SERVICE = '" + service + "';";
+                    using (MySqlCommand command = new MySqlCommand(query, conn.connection))
+                    {
+                        conn.connection.Open();
+                        command.ExecuteNonQuery();
+
+                        reponse = true;
+                        conn.connection.Close();
+                    }
+
+
+
+                }
+
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.ToString(), "Erreur 3 ", MessageBoxButtons.OK, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1, MessageBoxOptions.RightAlign, true);
+            }
+            return reponse;
+        }
+        #endregion
+        #region Liste Service
+        public DataTable GetlisteService()
+        {
+            DataTable dtListeService = new DataTable();
+
+            Connexion conn = new Connexion();
+
+            try
+            {
+                using (MySqlCommand cmd = new MySqlCommand("SELECT s.NOM_SERVICE as Service, concat(e.NOM,' ', e.PRENOM) as Responsable FROM SERVICE s LEFT JOIN EMPLOYE e ON s.MATRICULE_RESPONSABLE = e.MATRICULE; ", conn.connection))
+                {
+
+                    {
+                        conn.connection.Open();
+                        MySqlDataReader reader = cmd.ExecuteReader();
+                        dtListeService.Load(reader);
+                    }
+
+                }
+
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.ToString(), "Erreur 3", MessageBoxButtons.OK, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1, MessageBoxOptions.RightAlign, true);
+            }
+            return dtListeService;
+        }
+        #endregion
     }
 }
 

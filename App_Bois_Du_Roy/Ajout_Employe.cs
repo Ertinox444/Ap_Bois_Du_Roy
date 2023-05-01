@@ -15,10 +15,10 @@ namespace App_Bois_Du_Roy
     public partial class Ajout_Employe : Form
     {
         public DataView dvService, dvFonction, dvMatricule;
-        public Connect Envoie, lastMat;
+        public Misc Envoie;
         private Service dt_Service;
         private Fonction dt_Fonction;
-        private Matricule dt_Matricule;
+        private Employe dt_Matricule;
         public Ajout_Employe()
         {
             InitializeComponent();
@@ -33,30 +33,53 @@ namespace App_Bois_Du_Roy
             cbAddEmp_Fonction.DisplayMember = "NOMFONCTION";
             cbAddEmp_Fonction.ValueMember = "IDFONCTION";
 
-            dt_Matricule = new Matricule();
-            cbAddEmp_MatRespo.DataSource = dt_Matricule.GetListeMatriculeCB();
-            cbAddEmp_MatRespo.DisplayMember = "MATRICULE";
+            dt_Matricule = new Employe();
+            cbAddEmp_MatRespo.DataSource = dt_Matricule.GetListeResponsableCB();
+            cbAddEmp_MatRespo.DisplayMember = "RESPONSABLE";
             cbAddEmp_MatRespo.ValueMember = "MATRICULE";
 
-            lastMat = new Connect();
+            Matricule lastMat = new Matricule();
             tbAddEmp_LastMat.Text = lastMat.GetDernierMatricule();
+
+            Misc Notif = new Misc();
+            if (Notif.CheckCongesEnAttente() > 0)
+            {
+                pb_Notif.Visible = true;
+                lbl_Notif.Visible = true;
+                lbl_Notif.Text = Convert.ToString(Notif.CheckCongesEnAttente());
+            }
+            if (Notif.CheckCongesEnAttente() == 0)
+            {
+                pb_Notif.Visible = false;
+                lbl_Notif.Visible = false;
+            }
 
         }
 
         private void lbl_Employe_Click(object sender, EventArgs e)
         {
+            this.Cursor = Cursors.WaitCursor;
             SousFormulaire SF = new SousFormulaire((System.Windows.Forms.Application.OpenForms["BaseMenu"] as BaseMenu).pnl_Menu);
             SF.openChildForm(new Liste_Employe());
         }
 
         private void lbl_Conge_Click(object sender, EventArgs e)
         {
+            this.Cursor = Cursors.WaitCursor;
             SousFormulaire SF = new SousFormulaire((System.Windows.Forms.Application.OpenForms["BaseMenu"] as BaseMenu).pnl_Menu);
             SF.openChildForm(new Liste_Conge());
         }
 
+        private void pb_LogOut_Click(object sender, EventArgs e)
+        {
+            this.Cursor = Cursors.WaitCursor;
+            SousFormulaire SF = new SousFormulaire((System.Windows.Forms.Application.OpenForms["BaseMenu"] as BaseMenu).pnl_Menu);
+            SF.openChildForm(new Page_Connection());
+        }
+
         private void lbl_Service_Click(object sender, EventArgs e)
         {
+            this.Cursor = Cursors.WaitCursor;
             SousFormulaire SF = new SousFormulaire((System.Windows.Forms.Application.OpenForms["BaseMenu"] as BaseMenu).pnl_Menu);
             SF.openChildForm(new Liste_Service());
         }
@@ -107,10 +130,11 @@ namespace App_Bois_Du_Roy
             else
             {
 
-                Connect Envoie = new Connect();
+                Employe Envoie = new Employe();
 
                 Envoie.InsertEmploye(tbAddEmp_Nom.Text, tbAddEmp_Prenom.Text, cbAddEmp_Service.Text, cbAddEmp_Fonction.Text, cbAddEmp_MatRespo.Text, adresseEmail, tbAddEmp_NumTel.Text, tbAddEmp_NumSec.Text, formattedDate_Birth, formattedDate_Embauche, tbAddEmp_Mat.Text);
                 Envoie.Insert_Compte(tbAddEmp_MDP.Text, tbAddEmp_Mat.Text, tbAddEmp_Nom.Text, tbAddEmp_Prenom.Text);
+                this.Cursor = Cursors.WaitCursor;
                 SousFormulaire SF = new SousFormulaire((System.Windows.Forms.Application.OpenForms["BaseMenu"] as BaseMenu).pnl_Menu);
                 SF.openChildForm(new Liste_Employe());
             }
@@ -120,6 +144,7 @@ namespace App_Bois_Du_Roy
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
+            this.Cursor = Cursors.WaitCursor;
             SousFormulaire SF = new SousFormulaire((System.Windows.Forms.Application.OpenForms["BaseMenu"] as BaseMenu).pnl_Menu);
             SF.openChildForm(new TableauBord());
         }

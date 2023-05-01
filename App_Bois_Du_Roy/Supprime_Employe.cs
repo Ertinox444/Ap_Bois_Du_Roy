@@ -14,13 +14,13 @@ namespace App_Bois_Du_Roy
 {
     public partial class Supprime_Employe : Form
     {
-        private Connect dtviewEmploye = new Connect();
+        
         private DataView dvEmploye;
         public Supprime_Employe()
         {
             InitializeComponent();
             #region Colonne Principale
-            dtviewEmploye = new Connect();
+            Employe dtviewEmploye = new Employe();
             dvEmploye = new DataView(dtviewEmploye.GetlisteEmploye());
             DGV_Liste_Employe.DataSource = dvEmploye;
             DGV_Liste_Employe.Columns["Matricule"].Width = 265;
@@ -40,7 +40,18 @@ namespace App_Bois_Du_Roy
             DGV_Liste_Employe.CellContentClick += new DataGridViewCellEventHandler(DGV_Liste_Employe_CellContentClick);
 
             #endregion
-            
+            Misc Notif = new Misc();
+            if (Notif.CheckCongesEnAttente() > 0)
+            {
+                pb_Notif.Visible = true;
+                lbl_Notif.Visible = true;
+                lbl_Notif.Text = Convert.ToString(Notif.CheckCongesEnAttente());
+            }
+            if (Notif.CheckCongesEnAttente() == 0)
+            {
+                pb_Notif.Visible = false;
+                lbl_Notif.Visible = false;
+            }
         }
         #region gestion des checkbox
         private void DGV_Liste_Employe_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -54,7 +65,7 @@ namespace App_Bois_Du_Roy
         #endregion
         private void btnSupprimer_EMP_Click(object sender, EventArgs e)
         {
-            Connect Supp = new Connect();
+            Employe Supp = new Employe();
 
             List<string> employeSelectionnes = new List<string>();
             foreach (DataGridViewRow row in DGV_Liste_Employe.Rows)
@@ -69,33 +80,43 @@ namespace App_Bois_Du_Roy
             }
 
             Supp.SuppressEmploye(employeSelectionnes);
+            this.Cursor = Cursors.WaitCursor;
             SousFormulaire SF = new SousFormulaire((System.Windows.Forms.Application.OpenForms["BaseMenu"] as BaseMenu).pnl_Menu);
             SF.openChildForm(new Liste_Employe());
         }
         private void lbl_lsEmploye_Click(object sender, EventArgs e)
         {
+            this.Cursor = Cursors.WaitCursor;
             SousFormulaire SF = new SousFormulaire((System.Windows.Forms.Application.OpenForms["BaseMenu"] as BaseMenu).pnl_Menu);
             SF.openChildForm(new Liste_Employe());
         }
 
         private void lbl_Conge_Click(object sender, EventArgs e)
         {
+            this.Cursor = Cursors.WaitCursor;
             SousFormulaire SF = new SousFormulaire((System.Windows.Forms.Application.OpenForms["BaseMenu"] as BaseMenu).pnl_Menu);
             SF.openChildForm(new Liste_Conge());
         }
 
         private void lbl_Service_Click(object sender, EventArgs e)
         {
+            this.Cursor = Cursors.WaitCursor;
             SousFormulaire SF = new SousFormulaire((System.Windows.Forms.Application.OpenForms["BaseMenu"] as BaseMenu).pnl_Menu);
             SF.openChildForm(new Liste_Service());
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
+            this.Cursor = Cursors.WaitCursor;
             SousFormulaire SF = new SousFormulaire((System.Windows.Forms.Application.OpenForms["BaseMenu"] as BaseMenu).pnl_Menu);
             SF.openChildForm(new TableauBord());
         }
 
-        
+        private void pb_LogOut_Click(object sender, EventArgs e)
+        {
+            this.Cursor = Cursors.WaitCursor;
+            SousFormulaire SF = new SousFormulaire((System.Windows.Forms.Application.OpenForms["BaseMenu"] as BaseMenu).pnl_Menu);
+            SF.openChildForm(new Page_Connection());
+        }
     }
 }

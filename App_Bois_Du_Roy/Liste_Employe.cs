@@ -15,21 +15,37 @@ namespace App_Bois_Du_Roy
     public partial class Liste_Employe : Form
     {
 
-        private Connect dtviewEmploye = new Connect();
+    
         private DataView dvEmploye;
 
         public Liste_Employe()
         {
             InitializeComponent();
-            dtviewEmploye = new Connect();
+            Employe dtviewEmploye = new Employe();
+
             dvEmploye = new DataView(dtviewEmploye.GetlisteEmploye());
+            
+
             DGV_Liste_Employe.DataSource = dvEmploye;
-            DGV_Liste_Employe.Columns["Matricule"].Width = 290;
-            DGV_Liste_Employe.Columns["Nom"].Width = 290;
-            DGV_Liste_Employe.Columns["Service"].Width = 290;
-            DGV_Liste_Employe.Columns["Fonction"].Width = 290;
+            DGV_Liste_Employe.Columns["Matricule"].Width = 200;
+            DGV_Liste_Employe.Columns["Nom"].Width = 200;
+            DGV_Liste_Employe.Columns["Service"].Width = 200;
+            DGV_Liste_Employe.Columns["Fonction"].Width = 200;
+            DGV_Liste_Employe.Columns["Congé en attente"].Width = 200;
             DGV_Liste_Employe.EnableHeadersVisualStyles = false;
             DGV_Liste_Employe.ColumnHeadersDefaultCellStyle.ForeColor = Color.FromArgb(87,128,64);
+            Misc Notif = new Misc();
+            if (Notif.CheckCongesEnAttente() > 0)
+            {
+                pb_Notif.Visible = true;
+                lbl_Notif.Visible = true;
+                lbl_Notif.Text = Convert.ToString(Notif.CheckCongesEnAttente());
+            }
+            if (Notif.CheckCongesEnAttente() == 0)
+            {
+                pb_Notif.Visible = false;
+                lbl_Notif.Visible = false;
+            }
        
 
         }
@@ -43,6 +59,9 @@ namespace App_Bois_Du_Roy
                 row.DefaultCellStyle.Font = myBoldFont;
             }
         }
+
+        
+
 
         private void DGV_Liste_Employe_CellMouseLeave(object sender, DataGridViewCellEventArgs e)
         {
@@ -74,40 +93,74 @@ namespace App_Bois_Du_Roy
         }
         private void pictureBox1_Click(object sender, EventArgs e)
         {
+            this.Cursor = Cursors.WaitCursor;
             SousFormulaire SF = new SousFormulaire((System.Windows.Forms.Application.OpenForms["BaseMenu"] as BaseMenu).pnl_Menu);
             SF.openChildForm(new TableauBord());
         }
 
         private void lbl_Conge_Click(object sender, EventArgs e)
         {
+            this.Cursor = Cursors.WaitCursor;
             SousFormulaire SF = new SousFormulaire((System.Windows.Forms.Application.OpenForms["BaseMenu"] as BaseMenu).pnl_Menu);
             SF.openChildForm(new Liste_Conge());
         }
 
         private void lbl_Service_Click(object sender, EventArgs e)
         {
+            this.Cursor = Cursors.WaitCursor;
             SousFormulaire SF = new SousFormulaire((System.Windows.Forms.Application.OpenForms["BaseMenu"] as BaseMenu).pnl_Menu);
             SF.openChildForm(new Liste_Service());
         }
 
         private void lbl_lsEmploye_Click(object sender, EventArgs e)
         {
+            this.Cursor = Cursors.WaitCursor;
             SousFormulaire SF = new SousFormulaire((System.Windows.Forms.Application.OpenForms["BaseMenu"] as BaseMenu).pnl_Menu);
             SF.openChildForm(new Liste_Employe());
         }
 
         private void lbl_AddEmploye_Click(object sender, EventArgs e)
         {
+            this.Cursor = Cursors.WaitCursor;
             SousFormulaire SF = new SousFormulaire((System.Windows.Forms.Application.OpenForms["BaseMenu"] as BaseMenu).pnl_Menu);
             SF.openChildForm(new Ajout_Employe());
         }
 
         private void lbl_SuppEmploye_Click(object sender, EventArgs e)
         {
+            this.Cursor = Cursors.WaitCursor;
             SousFormulaire SF = new SousFormulaire((System.Windows.Forms.Application.OpenForms["BaseMenu"] as BaseMenu).pnl_Menu);
             SF.openChildForm(new Supprime_Employe());
         }
 
-        
+        private void pb_LogOut_Click(object sender, EventArgs e)
+        {
+            this.Cursor = Cursors.WaitCursor;
+            SousFormulaire SF = new SousFormulaire((System.Windows.Forms.Application.OpenForms["BaseMenu"] as BaseMenu).pnl_Menu);
+            SF.openChildForm(new Page_Connection());
+        }
+
+        private void DGV_Liste_Employe_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            
+                // Vérifier si la cellule correspond à la colonne "Conge"
+                if (e.ColumnIndex == DGV_Liste_Employe.Columns["Congé en attente"].Index && e.Value != null)
+                {
+                    string value = e.Value.ToString();
+                    if (!value.Contains("Aucun"))
+                    {
+                        // Appliquer la couleur rouge à la police de caractères
+                        e.CellStyle.ForeColor = Color.White;
+                        e.CellStyle.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+
+                    // Ajouter une pastille de couleur
+                        e.CellStyle.Padding = new Padding(2);
+                        e.CellStyle.BackColor = Color.Red;
+                        e.CellStyle.SelectionBackColor = Color.Red;
+                        e.CellStyle.SelectionForeColor = Color.Red;
+                    }
+                }
+            }
+        }
     }
-}
+

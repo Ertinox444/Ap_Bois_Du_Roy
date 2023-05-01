@@ -16,7 +16,7 @@ namespace App_Bois_Du_Roy
 {
     public partial class Page_Connection : Form
     {
-        public Connect connecte = new Connect();
+        public Misc connecte = new Misc();
 
 
         public string mdp;
@@ -47,7 +47,7 @@ namespace App_Bois_Du_Roy
 
             if ((login == login1)&& BC.Verify(mdp,mdp1))
             {
-               
+                this.Cursor = Cursors.WaitCursor;
                 SousFormulaire SF = new SousFormulaire((System.Windows.Forms.Application.OpenForms["BaseMenu"] as BaseMenu).pnl_Menu);
                 SF.openChildForm(new TableauBord());
    

@@ -47,57 +47,109 @@ namespace App_Bois_Du_Roy
             DGV_HistoryConge.Columns["Type"].Width = 150;
             DGV_HistoryConge.Columns["Duree"].Width = 150;
             DGV_HistoryConge.Columns["Statut"].Width = 150;
+            DGV_HistoryConge.EnableHeadersVisualStyles = false;
+            DGV_HistoryConge.ColumnHeadersDefaultCellStyle.BackColor = Color.White;
             DGV_HistoryConge.ColumnHeadersDefaultCellStyle.ForeColor = Color.FromArgb(87, 128, 64);
+            DGV_HistoryConge.GridColor = Color.FromArgb(87, 128, 64);
+            DGV_HistoryConge.CellBorderStyle = DataGridViewCellBorderStyle.Single;
 
 
 
+            string name = Emp.RecupNameEmploye(matricule);
             tb_MatEmp.Text = matricule;
             tb_ServiceEmp.Text = "Service : " + Serv.RecupServEmploye(matricule); 
             tb_FonctionEmp.Text = "- " + Fonc.RecupFoncEmploye(matricule);
-            tb_FullNameEmp.Text = Emp.RecupNameEmploye(matricule);
+            tb_FullNameEmp.Text = name;
             tb_MailEmp.Text = "Mail : " + Mail.RecupMailEmploye(matricule);
             tb_TelEmp.Text = "Tel : " + Tel.RecupNumTelEmploye(matricule);
             tb_BirthEmp.Text = Birth.RecupBirthEmploye(matricule);
-            tb_RTTRestant.Text = "RTT restant : " + CongeRestant.RecupCongeRestantEmploye(matricule, "RTT");
-            tb_CongePayeRestant.Text = "Conge payé restant : " + CongeRestant.RecupCongeRestantEmploye(matricule,"Congé Payé");
+            tb_RTTRestant.Text = "RTT restant : " + CongeRestant.RecupCongeRestantEmploye(matricule, "RTT")+ " jours";
+            tb_CongePayeRestant.Text = "Conge payé restant : " + CongeRestant.RecupCongeRestantEmploye(matricule,"Congé Payé") + " jours";
+
             
+            string[] nameParts = name.Split(' '); // Séparation du nom complet en parties (prénom et nom)
+            string initials = ""; // Initialisation de la variable contenant les initiales
+            foreach (string part in nameParts)
+            {
+                if (part.Contains("-")) // Si le nom contient un trait d'union (prénom composé)
+                {
+                    string[] hyphenatedParts = part.Split('-'); // Séparation du nom en parties (par exemple "Jean-Michel" devient ["Jean", "Michel"])
+                    foreach (string hyphenatedPart in hyphenatedParts)
+                    {
+                        initials += hyphenatedPart.Substring(0, 1).ToUpper(); // Ajout de la première lettre de chaque partie séparée par un trait d'union
+                    }
+                }
+                else // Si le nom ne contient pas de trait d'union
+                {
+                    initials += part.Substring(0, 1).ToUpper(); // Ajout de la première lettre
+                }
+            }
+
+            lbl_PP.Text = initials;
 
             if (PP.GetImage(matricule) != null)
           
             {
+                lbl_PP.Text = "";
                 pb_PP.Image = PP.Convertir(PP.GetImage(matricule));
             }
 
+            Misc Notif = new Misc();
+            if (Notif.CheckCongesEnAttente() > 0)
+            {
+                pb_Notif.Visible = true;
+                lbl_Notif.Visible = true;
+                lbl_Notif.Text = Convert.ToString(Notif.CheckCongesEnAttente());
+            }
+            if (Notif.CheckCongesEnAttente() == 0)
+            {
+                pb_Notif.Visible = false;
+                lbl_Notif.Visible = false;
+            }
         }
 
         private void lbl_lsEmploye_Click(object sender, EventArgs e)
         {
+            this.Cursor = Cursors.WaitCursor;
             SousFormulaire SF = new SousFormulaire((System.Windows.Forms.Application.OpenForms["BaseMenu"] as BaseMenu).pnl_Menu);
             SF.openChildForm(new Liste_Employe());
         }
 
         private void lbl_Conge_Click(object sender, EventArgs e)
         {
+            this.Cursor = Cursors.WaitCursor;
             SousFormulaire SF = new SousFormulaire((System.Windows.Forms.Application.OpenForms["BaseMenu"] as BaseMenu).pnl_Menu);
             SF.openChildForm(new Liste_Conge());
         }
 
         private void lbl_Service_Click(object sender, EventArgs e)
         {
+            this.Cursor = Cursors.WaitCursor;
             SousFormulaire SF = new SousFormulaire((System.Windows.Forms.Application.OpenForms["BaseMenu"] as BaseMenu).pnl_Menu);
             SF.openChildForm(new Liste_Service());
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
+            this.Cursor = Cursors.WaitCursor;
             SousFormulaire SF = new SousFormulaire((System.Windows.Forms.Application.OpenForms["BaseMenu"] as BaseMenu).pnl_Menu);
             SF.openChildForm(new TableauBord());
         }
 
         private void lbl_ModifEmploye_Click(object sender, EventArgs e)
         {
+            this.Cursor = Cursors.WaitCursor;
             SousFormulaire SF = new SousFormulaire((System.Windows.Forms.Application.OpenForms["BaseMenu"] as BaseMenu).pnl_Menu);
             SF.openChildForm(new ModifyEmp(tb_MatEmp.Text));
         }
+
+        private void pb_LogOut_Click(object sender, EventArgs e)
+        {
+            this.Cursor = Cursors.WaitCursor;
+            SousFormulaire SF = new SousFormulaire((System.Windows.Forms.Application.OpenForms["BaseMenu"] as BaseMenu).pnl_Menu);
+            SF.openChildForm(new Page_Connection());
+        }
+
+        
     }
 }

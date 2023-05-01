@@ -29,14 +29,18 @@ namespace App_Bois_Du_Roy
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.lbl_PP = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.lbl_ModifEmploye = new System.Windows.Forms.Label();
             this.tb_CongePayeRestant = new System.Windows.Forms.TextBox();
             this.tb_RTTRestant = new System.Windows.Forms.TextBox();
             this.DGV_HistoryConge = new System.Windows.Forms.DataGridView();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.tb_TelEmp = new System.Windows.Forms.TextBox();
             this.tb_MailEmp = new System.Windows.Forms.TextBox();
             this.tb_FonctionEmp = new System.Windows.Forms.TextBox();
@@ -44,27 +48,32 @@ namespace App_Bois_Du_Roy
             this.tb_MatEmp = new System.Windows.Forms.TextBox();
             this.tb_ServiceEmp = new System.Windows.Forms.TextBox();
             this.tb_FullNameEmp = new System.Windows.Forms.TextBox();
+            this.pb_PP = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.pb_LogOut = new System.Windows.Forms.PictureBox();
             this.lbl_ListeFonction = new System.Windows.Forms.Label();
             this.lbl_Service = new System.Windows.Forms.Label();
             this.lbl_Conge = new System.Windows.Forms.Label();
             this.lbl_lsEmploye = new System.Windows.Forms.Label();
-            this.lbl_ModifEmploye = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.pb_PP = new System.Windows.Forms.PictureBox();
+            this.lbl_Notif = new System.Windows.Forms.Label();
+            this.pb_Notif = new System.Windows.Forms.PictureBox();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DGV_HistoryConge)).BeginInit();
             this.panel3.SuspendLayout();
-            this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_PP)).BeginInit();
+            this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_LogOut)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_Notif)).BeginInit();
             this.SuspendLayout();
             // 
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(247)))), ((int)(((byte)(209)))));
+            this.panel2.Controls.Add(this.lbl_PP);
+            this.panel2.Controls.Add(this.label1);
             this.panel2.Controls.Add(this.lbl_ModifEmploye);
             this.panel2.Controls.Add(this.tb_CongePayeRestant);
             this.panel2.Controls.Add(this.tb_RTTRestant);
@@ -76,6 +85,46 @@ namespace App_Bois_Du_Roy
             this.panel2.Size = new System.Drawing.Size(1635, 1029);
             this.panel2.TabIndex = 3;
             // 
+            // lbl_PP
+            // 
+            this.lbl_PP.AutoSize = true;
+            this.lbl_PP.BackColor = System.Drawing.Color.White;
+            this.lbl_PP.Cursor = System.Windows.Forms.Cursors.Default;
+            this.lbl_PP.Font = new System.Drawing.Font("Arial", 90F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_PP.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(84)))), ((int)(((byte)(128)))), ((int)(((byte)(67)))));
+            this.lbl_PP.Location = new System.Drawing.Point(205, 185);
+            this.lbl_PP.Name = "lbl_PP";
+            this.lbl_PP.Size = new System.Drawing.Size(273, 173);
+            this.lbl_PP.TabIndex = 12;
+            this.lbl_PP.Text = "PP";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.Transparent;
+            this.label1.Cursor = System.Windows.Forms.Cursors.Default;
+            this.label1.Font = new System.Drawing.Font("Arial", 28.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(84)))), ((int)(((byte)(128)))), ((int)(((byte)(67)))));
+            this.label1.Location = new System.Drawing.Point(148, 567);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(423, 56);
+            this.label1.TabIndex = 11;
+            this.label1.Text = "Historique Conge";
+            // 
+            // lbl_ModifEmploye
+            // 
+            this.lbl_ModifEmploye.AutoSize = true;
+            this.lbl_ModifEmploye.BackColor = System.Drawing.Color.Transparent;
+            this.lbl_ModifEmploye.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.lbl_ModifEmploye.Font = new System.Drawing.Font("Arial", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_ModifEmploye.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(84)))), ((int)(((byte)(128)))), ((int)(((byte)(67)))));
+            this.lbl_ModifEmploye.Location = new System.Drawing.Point(3, 2);
+            this.lbl_ModifEmploye.Name = "lbl_ModifEmploye";
+            this.lbl_ModifEmploye.Size = new System.Drawing.Size(196, 46);
+            this.lbl_ModifEmploye.TabIndex = 10;
+            this.lbl_ModifEmploye.Text = "/ Modifier";
+            this.lbl_ModifEmploye.Click += new System.EventHandler(this.lbl_ModifEmploye_Click);
+            // 
             // tb_CongePayeRestant
             // 
             this.tb_CongePayeRestant.BackColor = System.Drawing.Color.White;
@@ -83,11 +132,11 @@ namespace App_Bois_Du_Roy
             this.tb_CongePayeRestant.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.tb_CongePayeRestant.Font = new System.Drawing.Font("Arial", 28.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tb_CongePayeRestant.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(84)))), ((int)(((byte)(128)))), ((int)(((byte)(67)))));
-            this.tb_CongePayeRestant.Location = new System.Drawing.Point(841, 784);
+            this.tb_CongePayeRestant.Location = new System.Drawing.Point(777, 784);
             this.tb_CongePayeRestant.Multiline = true;
             this.tb_CongePayeRestant.Name = "tb_CongePayeRestant";
             this.tb_CongePayeRestant.ReadOnly = true;
-            this.tb_CongePayeRestant.Size = new System.Drawing.Size(702, 69);
+            this.tb_CongePayeRestant.Size = new System.Drawing.Size(766, 69);
             this.tb_CongePayeRestant.TabIndex = 9;
             this.tb_CongePayeRestant.Text = "Telephone";
             // 
@@ -98,11 +147,11 @@ namespace App_Bois_Du_Roy
             this.tb_RTTRestant.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.tb_RTTRestant.Font = new System.Drawing.Font("Arial", 28.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tb_RTTRestant.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(84)))), ((int)(((byte)(128)))), ((int)(((byte)(67)))));
-            this.tb_RTTRestant.Location = new System.Drawing.Point(841, 645);
+            this.tb_RTTRestant.Location = new System.Drawing.Point(777, 645);
             this.tb_RTTRestant.Multiline = true;
             this.tb_RTTRestant.Name = "tb_RTTRestant";
             this.tb_RTTRestant.ReadOnly = true;
-            this.tb_RTTRestant.Size = new System.Drawing.Size(702, 69);
+            this.tb_RTTRestant.Size = new System.Drawing.Size(766, 69);
             this.tb_RTTRestant.TabIndex = 8;
             this.tb_RTTRestant.Text = "Telephone";
             // 
@@ -110,34 +159,34 @@ namespace App_Bois_Du_Roy
             // 
             this.DGV_HistoryConge.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(249)))), ((int)(((byte)(207)))));
             this.DGV_HistoryConge.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle7.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(84)))), ((int)(((byte)(128)))), ((int)(((byte)(67)))));
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(84)))), ((int)(((byte)(128)))), ((int)(((byte)(67)))));
-            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.DGV_HistoryConge.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(84)))), ((int)(((byte)(128)))), ((int)(((byte)(67)))));
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(84)))), ((int)(((byte)(128)))), ((int)(((byte)(67)))));
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.DGV_HistoryConge.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.DGV_HistoryConge.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(84)))), ((int)(((byte)(128)))), ((int)(((byte)(67)))));
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(84)))), ((int)(((byte)(128)))), ((int)(((byte)(67)))));
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.DGV_HistoryConge.DefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(84)))), ((int)(((byte)(128)))), ((int)(((byte)(67)))));
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(84)))), ((int)(((byte)(128)))), ((int)(((byte)(67)))));
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.DGV_HistoryConge.DefaultCellStyle = dataGridViewCellStyle2;
             this.DGV_HistoryConge.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(84)))), ((int)(((byte)(128)))), ((int)(((byte)(67)))));
             this.DGV_HistoryConge.Location = new System.Drawing.Point(47, 645);
             this.DGV_HistoryConge.Name = "DGV_HistoryConge";
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle9.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle9.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(84)))), ((int)(((byte)(128)))), ((int)(((byte)(67)))));
-            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(84)))), ((int)(((byte)(128)))), ((int)(((byte)(67)))));
-            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.DGV_HistoryConge.RowHeadersDefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(84)))), ((int)(((byte)(128)))), ((int)(((byte)(67)))));
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(84)))), ((int)(((byte)(128)))), ((int)(((byte)(67)))));
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.DGV_HistoryConge.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.DGV_HistoryConge.RowHeadersVisible = false;
             this.DGV_HistoryConge.RowHeadersWidth = 51;
             this.DGV_HistoryConge.RowTemplate.Height = 24;
@@ -159,6 +208,16 @@ namespace App_Bois_Du_Roy
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(979, 520);
             this.panel3.TabIndex = 1;
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = global::App_Bois_Du_Roy.Properties.Resources.cake;
+            this.pictureBox2.Location = new System.Drawing.Point(659, 431);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(70, 57);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox2.TabIndex = 7;
+            this.pictureBox2.TabStop = false;
             // 
             // tb_TelEmp
             // 
@@ -265,9 +324,22 @@ namespace App_Bois_Du_Roy
             this.tb_FullNameEmp.TabIndex = 0;
             this.tb_FullNameEmp.Text = "Nom complet";
             // 
+            // pb_PP
+            // 
+            this.pb_PP.Image = global::App_Bois_Du_Roy.Properties.Resources.cercle_vide_pp;
+            this.pb_PP.Location = new System.Drawing.Point(103, 51);
+            this.pb_PP.Name = "pb_PP";
+            this.pb_PP.Size = new System.Drawing.Size(456, 456);
+            this.pb_PP.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pb_PP.TabIndex = 0;
+            this.pb_PP.TabStop = false;
+            // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(84)))), ((int)(((byte)(128)))), ((int)(((byte)(67)))));
+            this.panel1.Controls.Add(this.lbl_Notif);
+            this.panel1.Controls.Add(this.pb_Notif);
+            this.panel1.Controls.Add(this.pb_LogOut);
             this.panel1.Controls.Add(this.lbl_ListeFonction);
             this.panel1.Controls.Add(this.lbl_Service);
             this.panel1.Controls.Add(this.lbl_Conge);
@@ -277,6 +349,18 @@ namespace App_Bois_Du_Roy
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(366, 1083);
             this.panel1.TabIndex = 4;
+            // 
+            // pb_LogOut
+            // 
+            this.pb_LogOut.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pb_LogOut.Image = global::App_Bois_Du_Roy.Properties.Resources.log_out;
+            this.pb_LogOut.Location = new System.Drawing.Point(12, 12);
+            this.pb_LogOut.Name = "pb_LogOut";
+            this.pb_LogOut.Size = new System.Drawing.Size(50, 57);
+            this.pb_LogOut.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pb_LogOut.TabIndex = 32;
+            this.pb_LogOut.TabStop = false;
+            this.pb_LogOut.Click += new System.EventHandler(this.pb_LogOut_Click);
             // 
             // lbl_ListeFonction
             // 
@@ -329,20 +413,6 @@ namespace App_Bois_Du_Roy
             this.lbl_lsEmploye.Text = "Liste Employé";
             this.lbl_lsEmploye.Click += new System.EventHandler(this.lbl_lsEmploye_Click);
             // 
-            // lbl_ModifEmploye
-            // 
-            this.lbl_ModifEmploye.AutoSize = true;
-            this.lbl_ModifEmploye.BackColor = System.Drawing.Color.Transparent;
-            this.lbl_ModifEmploye.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.lbl_ModifEmploye.Font = new System.Drawing.Font("Arial", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_ModifEmploye.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(84)))), ((int)(((byte)(128)))), ((int)(((byte)(67)))));
-            this.lbl_ModifEmploye.Location = new System.Drawing.Point(3, 2);
-            this.lbl_ModifEmploye.Name = "lbl_ModifEmploye";
-            this.lbl_ModifEmploye.Size = new System.Drawing.Size(196, 46);
-            this.lbl_ModifEmploye.TabIndex = 10;
-            this.lbl_ModifEmploye.Text = "/ Modifier";
-            this.lbl_ModifEmploye.Click += new System.EventHandler(this.lbl_ModifEmploye_Click);
-            // 
             // pictureBox1
             // 
             this.pictureBox1.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -356,25 +426,27 @@ namespace App_Bois_Du_Roy
             this.pictureBox1.TabStop = false;
             this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
-            // pictureBox2
+            // lbl_Notif
             // 
-            this.pictureBox2.Image = global::App_Bois_Du_Roy.Properties.Resources.cake;
-            this.pictureBox2.Location = new System.Drawing.Point(659, 431);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(70, 57);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox2.TabIndex = 7;
-            this.pictureBox2.TabStop = false;
+            this.lbl_Notif.AutoSize = true;
+            this.lbl_Notif.BackColor = System.Drawing.Color.Red;
+            this.lbl_Notif.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_Notif.ForeColor = System.Drawing.Color.White;
+            this.lbl_Notif.Location = new System.Drawing.Point(317, 436);
+            this.lbl_Notif.Name = "lbl_Notif";
+            this.lbl_Notif.Size = new System.Drawing.Size(31, 19);
+            this.lbl_Notif.TabIndex = 39;
+            this.lbl_Notif.Text = "Nb";
             // 
-            // pb_PP
+            // pb_Notif
             // 
-            this.pb_PP.Image = global::App_Bois_Du_Roy.Properties.Resources.Default_IMG;
-            this.pb_PP.Location = new System.Drawing.Point(103, 51);
-            this.pb_PP.Name = "pb_PP";
-            this.pb_PP.Size = new System.Drawing.Size(456, 456);
-            this.pb_PP.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pb_PP.TabIndex = 0;
-            this.pb_PP.TabStop = false;
+            this.pb_Notif.Image = global::App_Bois_Du_Roy.Properties.Resources.notif_icon;
+            this.pb_Notif.Location = new System.Drawing.Point(308, 425);
+            this.pb_Notif.Name = "pb_Notif";
+            this.pb_Notif.Size = new System.Drawing.Size(38, 40);
+            this.pb_Notif.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pb_Notif.TabIndex = 38;
+            this.pb_Notif.TabStop = false;
             // 
             // Details_Employe
             // 
@@ -391,11 +463,13 @@ namespace App_Bois_Du_Roy
             ((System.ComponentModel.ISupportInitialize)(this.DGV_HistoryConge)).EndInit();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_PP)).EndInit();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_LogOut)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_Notif)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -409,7 +483,6 @@ namespace App_Bois_Du_Roy
         private System.Windows.Forms.Label lbl_lsEmploye;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.PictureBox pb_PP;
         private System.Windows.Forms.TextBox tb_BirthEmp;
         private System.Windows.Forms.TextBox tb_MatEmp;
         private System.Windows.Forms.TextBox tb_ServiceEmp;
@@ -423,5 +496,11 @@ namespace App_Bois_Du_Roy
         private System.Windows.Forms.TextBox tb_RTTRestant;
         private System.Windows.Forms.Label lbl_ListeFonction;
         private System.Windows.Forms.Label lbl_ModifEmploye;
+        private System.Windows.Forms.PictureBox pb_LogOut;
+        private System.Windows.Forms.PictureBox pb_PP;
+        private System.Windows.Forms.Label lbl_PP;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lbl_Notif;
+        private System.Windows.Forms.PictureBox pb_Notif;
     }
 }

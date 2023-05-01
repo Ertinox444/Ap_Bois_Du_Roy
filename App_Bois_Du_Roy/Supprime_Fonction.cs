@@ -14,13 +14,13 @@ namespace App_Bois_Du_Roy
 {
     public partial class Supprime_Fonction : Form
     {
-        private Connect dtviewFonction = new Connect();
+       
         private DataView dvFonction;
         public Supprime_Fonction()
         {
             InitializeComponent();
             #region Colonne Principal
-            dtviewFonction = new Connect();
+            Fonction dtviewFonction = new Fonction();
             dvFonction = new DataView(dtviewFonction.GetListeFonction());
             DGV_Liste_Fonction.DataSource = dvFonction;
             DGV_Liste_Fonction.Columns["fonction"].Width = 200;
@@ -38,6 +38,18 @@ namespace App_Bois_Du_Roy
             DGV_Liste_Fonction.CellContentClick += new DataGridViewCellEventHandler(DGV_Liste_Fonction_CellContentClick);
 
             #endregion
+            Misc Notif = new Misc();
+            if (Notif.CheckCongesEnAttente() > 0)
+            {
+                pb_Notif.Visible = true;
+                lbl_Notif.Visible = true;
+                lbl_Notif.Text = Convert.ToString(Notif.CheckCongesEnAttente());
+            }
+            if (Notif.CheckCongesEnAttente() == 0)
+            {
+                pb_Notif.Visible = false;
+                lbl_Notif.Visible = false;
+            }
         }
 
         #region gestion des checkbox
@@ -53,7 +65,7 @@ namespace App_Bois_Du_Roy
 
         private void btnSupprimer_Click(object sender, EventArgs e)
         {
-            Connect Supp = new Connect();
+            Fonction Supp = new Fonction();
 
             List<string> fonctionSelectionnes = new List<string>();
             foreach (DataGridViewRow row in DGV_Liste_Fonction.Rows)
@@ -68,8 +80,51 @@ namespace App_Bois_Du_Roy
             }
 
             Supp.SuppressFonction(fonctionSelectionnes);
+            this.Cursor = Cursors.WaitCursor;
             SousFormulaire SF = new SousFormulaire((System.Windows.Forms.Application.OpenForms["BaseMenu"] as BaseMenu).pnl_Menu);
             SF.openChildForm(new Liste_Fonction());
+        }
+
+        private void pb_LogOut_Click(object sender, EventArgs e)
+        {
+            this.Cursor = Cursors.WaitCursor;
+            SousFormulaire SF = new SousFormulaire((System.Windows.Forms.Application.OpenForms["BaseMenu"] as BaseMenu).pnl_Menu);
+            SF.openChildForm(new Page_Connection());
+        }
+
+        private void lbl_lsEmploye_Click(object sender, EventArgs e)
+        {
+            this.Cursor = Cursors.WaitCursor;
+            SousFormulaire SF = new SousFormulaire((System.Windows.Forms.Application.OpenForms["BaseMenu"] as BaseMenu).pnl_Menu);
+            SF.openChildForm(new Liste_Employe());
+        }
+
+        private void lbl_Conge_Click(object sender, EventArgs e)
+        {
+            this.Cursor = Cursors.WaitCursor;
+            SousFormulaire SF = new SousFormulaire((System.Windows.Forms.Application.OpenForms["BaseMenu"] as BaseMenu).pnl_Menu);
+            SF.openChildForm(new Liste_Conge());
+        }
+
+        private void lbl_Service_Click(object sender, EventArgs e)
+        {
+            this.Cursor = Cursors.WaitCursor;
+            SousFormulaire SF = new SousFormulaire((System.Windows.Forms.Application.OpenForms["BaseMenu"] as BaseMenu).pnl_Menu);
+            SF.openChildForm(new Liste_Service());
+        }
+
+        private void lbl_ListeFonction_Click(object sender, EventArgs e)
+        {
+            this.Cursor = Cursors.WaitCursor;
+            SousFormulaire SF = new SousFormulaire((System.Windows.Forms.Application.OpenForms["BaseMenu"] as BaseMenu).pnl_Menu);
+            SF.openChildForm(new Liste_Fonction());
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            this.Cursor = Cursors.WaitCursor;
+            SousFormulaire SF = new SousFormulaire((System.Windows.Forms.Application.OpenForms["BaseMenu"] as BaseMenu).pnl_Menu);
+            SF.openChildForm(new TableauBord());
         }
     }
 }

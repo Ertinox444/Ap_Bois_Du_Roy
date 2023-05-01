@@ -30,6 +30,7 @@ namespace App_Bois_Du_Roy
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.pb_LogOut = new System.Windows.Forms.PictureBox();
             this.lbl_ListeFonction = new System.Windows.Forms.Label();
             this.lbl_Service = new System.Windows.Forms.Label();
             this.lbl_Conge = new System.Windows.Forms.Label();
@@ -62,14 +63,21 @@ namespace App_Bois_Du_Roy
             this.tbModifEmp_Prenom = new System.Windows.Forms.TextBox();
             this.tbModifEmp_Nom = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.lbl_Notif = new System.Windows.Forms.Label();
+            this.pb_Notif = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_LogOut)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_Notif)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(84)))), ((int)(((byte)(128)))), ((int)(((byte)(67)))));
+            this.panel1.Controls.Add(this.lbl_Notif);
+            this.panel1.Controls.Add(this.pb_Notif);
+            this.panel1.Controls.Add(this.pb_LogOut);
             this.panel1.Controls.Add(this.lbl_ListeFonction);
             this.panel1.Controls.Add(this.lbl_Service);
             this.panel1.Controls.Add(this.lbl_Conge);
@@ -79,6 +87,18 @@ namespace App_Bois_Du_Roy
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(366, 1083);
             this.panel1.TabIndex = 6;
+            // 
+            // pb_LogOut
+            // 
+            this.pb_LogOut.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pb_LogOut.Image = global::App_Bois_Du_Roy.Properties.Resources.log_out;
+            this.pb_LogOut.Location = new System.Drawing.Point(12, 12);
+            this.pb_LogOut.Name = "pb_LogOut";
+            this.pb_LogOut.Size = new System.Drawing.Size(50, 57);
+            this.pb_LogOut.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pb_LogOut.TabIndex = 38;
+            this.pb_LogOut.TabStop = false;
+            this.pb_LogOut.Click += new System.EventHandler(this.pb_LogOut_Click);
             // 
             // lbl_ListeFonction
             // 
@@ -397,7 +417,6 @@ namespace App_Bois_Du_Roy
             this.tbModifEmp_Nom.Name = "tbModifEmp_Nom";
             this.tbModifEmp_Nom.Size = new System.Drawing.Size(281, 76);
             this.tbModifEmp_Nom.TabIndex = 2;
-         
             // 
             // label1
             // 
@@ -410,6 +429,28 @@ namespace App_Bois_Du_Roy
             this.label1.Size = new System.Drawing.Size(610, 78);
             this.label1.TabIndex = 1;
             this.label1.Text = "Modifier Employé ";
+            // 
+            // lbl_Notif
+            // 
+            this.lbl_Notif.AutoSize = true;
+            this.lbl_Notif.BackColor = System.Drawing.Color.Red;
+            this.lbl_Notif.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_Notif.ForeColor = System.Drawing.Color.White;
+            this.lbl_Notif.Location = new System.Drawing.Point(317, 436);
+            this.lbl_Notif.Name = "lbl_Notif";
+            this.lbl_Notif.Size = new System.Drawing.Size(31, 19);
+            this.lbl_Notif.TabIndex = 39;
+            this.lbl_Notif.Text = "Nb";
+            // 
+            // pb_Notif
+            // 
+            this.pb_Notif.Image = global::App_Bois_Du_Roy.Properties.Resources.notif_icon;
+            this.pb_Notif.Location = new System.Drawing.Point(308, 425);
+            this.pb_Notif.Name = "pb_Notif";
+            this.pb_Notif.Size = new System.Drawing.Size(38, 40);
+            this.pb_Notif.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pb_Notif.TabIndex = 38;
+            this.pb_Notif.TabStop = false;
             // 
             // ModifyEmp
             // 
@@ -424,9 +465,11 @@ namespace App_Bois_Du_Roy
             this.Text = "ModifyEmp";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_LogOut)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_Notif)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -466,5 +509,8 @@ namespace App_Bois_Du_Roy
         private System.Windows.Forms.TextBox tbModifEmp_Prenom;
         private System.Windows.Forms.TextBox tbModifEmp_Nom;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.PictureBox pb_LogOut;
+        private System.Windows.Forms.Label lbl_Notif;
+        private System.Windows.Forms.PictureBox pb_Notif;
     }
 }

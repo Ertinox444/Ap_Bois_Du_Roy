@@ -17,7 +17,7 @@ namespace App_Bois_Du_Roy.Controller
 
         Connexion conn = new Connexion();
         private Int32 CongeRestant;
-        private string motifConge;
+        private string motifConge, dateDebutConge, dateFinConge;
 
         #region Recup Historique Conge
         public DataTable GetHistoriqueConge(string matricule)
@@ -193,7 +193,6 @@ namespace App_Bois_Du_Roy.Controller
 
         }
         #endregion
-
         #region Recup Pourcentage conge pris par trimestre
         public double RecupPourcentageCongePris(List<Int32> mois)
         {
@@ -250,7 +249,6 @@ namespace App_Bois_Du_Roy.Controller
 
         }
         #endregion
-
         #region Recup Motif demande Conge
         public String RecupMotifDemandeConge(int idConge)
         {
@@ -346,35 +344,36 @@ namespace App_Bois_Du_Roy.Controller
 
         }
         #endregion
-
+        #region Recup motif decision conge
         public string RecupMotifDecisionConge(int idConge)
         {
             string motif = "";
             try
             {
                 conn.connection.Open();
-                using (MySqlCommand cmd = new MySqlCommand("SELECT DEMANDE_CONGE.MOTIF_DECISION FROM DEMANDE_CONGE WHERE ID_DEMANDE_CONGE ="+ idConge + ";", conn.connection))
+                using (MySqlCommand cmd = new MySqlCommand("SELECT DEMANDE_CONGE.MOTIF_DECISION FROM DEMANDE_CONGE WHERE ID_DEMANDE_CONGE ="+idConge+";", conn.connection))
                 {
-
+                    cmd.Parameters.AddWithValue("@idConge", idConge);
                     MySqlDataReader reader = cmd.ExecuteReader();
-                    if (reader.HasRows)
+                    if (reader.HasRows && reader.Read())
                     {
-                        reader.Read();
-                        motif = reader.GetString(0);
-
-
+                        if (!reader.IsDBNull(0))
+                        {
+                            motif = reader.GetString(0);
+                        }
                     }
-
+                    reader.Close();
                 }
-                conn.connection.Close();
             }
             catch (Exception e)
             {
                 MessageBox.Show(e.ToString(), "Erreur 3", MessageBoxButtons.OK, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1, MessageBoxOptions.RightAlign, true);
             }
+           
             return motif;
         }
-
+        #endregion
+        #region Recup statut demande de conge (La décision)
         public int RecupDecisionConge(int idConge)
         {
             int idDecision = 1;
@@ -402,6 +401,117 @@ namespace App_Bois_Du_Roy.Controller
             }
             return idDecision;
         }
+        #endregion
+        #region Recup date debut demande conge
+        public String RecupDateDebutDemandeConge(int idConge)
+        {
+            try
+            {
+                conn.connection.Open();
+                using (MySqlCommand cmd = new MySqlCommand("SELECT DEMANDE_CONGE.DATE_DEBUT FROM DEMANDE_CONGE WHERE ID_DEMANDE_CONGE =" + idConge + ";", conn.connection))
+                {
+
+                    MySqlDataReader reader = cmd.ExecuteReader();
+                    if (reader.HasRows)
+                    {
+                        reader.Read();
+                        dateDebutConge = reader.GetString(0);
+
+
+                    }
+
+                }
+                conn.connection.Close();
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.ToString(), "Erreur 3", MessageBoxButtons.OK, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1, MessageBoxOptions.RightAlign, true);
+            }
+            return dateDebutConge;
+
+        }
+        #endregion
+        #region Recup Date Fin Demande Conge
+        public String RecupDateFinDemandeConge(int idConge)
+        {
+            try
+            {
+                conn.connection.Open();
+                using (MySqlCommand cmd = new MySqlCommand("SELECT DEMANDE_CONGE.DATE_FIN FROM DEMANDE_CONGE WHERE ID_DEMANDE_CONGE =" + idConge + ";", conn.connection))
+                {
+
+                    MySqlDataReader reader = cmd.ExecuteReader();
+                    if (reader.HasRows)
+                    {
+                        reader.Read();
+                        dateFinConge = reader.GetString(0);
+
+
+                    }
+
+                }
+                conn.connection.Close();
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.ToString(), "Erreur 3", MessageBoxButtons.OK, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1, MessageBoxOptions.RightAlign, true);
+            }
+            return dateFinConge;
+
+        }
+        #endregion
+        #region Liste Conge
+        public DataTable GetlisteConge()
+        {
+            DataTable dtListeConge = new DataTable();
+
+            Connexion conn = new Connexion();
+
+            try
+            {
+                using (MySqlCommand cmd = new MySqlCommand("SELECT D.DATE_DEBUT,ID_DEMANDE_CONGE as ID_CONGE, concat(E.NOM,' ', E.PRENOM) as Employe, T.NOM_TYPE_CONGE AS 'Type Conge', concat(DATEDIFF( D.DATE_FIN,D.DATE_DEBUT ),' ', 'jours') AS Duree, S.libelle_Statut AS Statut, concat(V.NOM,' ',V.PRENOM) AS Valideur FROM DEMANDE_CONGE D JOIN EMPLOYE E ON D.MATRICULE = E.MATRICULE JOIN TYPE_CONGE T ON D.TYPE_CONGE_DEMANDE = T.ID_TYPE_CONGE JOIN STATUT_DEMANDE S ON D.STATUT_DEMANDE_CONGE = S.id_Statut LEFT JOIN EMPLOYE V ON D.VALIDATEUR = V.MATRICULE ORDER BY CASE WHEN S.libelle_Statut = 'En attente' THEN 1 ELSE 2 END, ID_DEMANDE_CONGE DESC; ", conn.connection))
+                {
+
+                    {
+                        conn.connection.Open();
+                        MySqlDataReader reader = cmd.ExecuteReader();
+                        dtListeConge.Load(reader);
+                    }
+
+                }
+
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.ToString(), "Erreur 3", MessageBoxButtons.OK, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1, MessageBoxOptions.RightAlign, true);
+            }
+            return dtListeConge;
+        }
+        #endregion
+        #region Derniere demande de conge
+        public DataTable LastRequest()
+        {
+            DataTable dt_Last_Request = new DataTable();
+
+
+            Connexion conn = new Connexion();
+            try
+            {
+                using (MySqlCommand cmd = new MySqlCommand("SELECT concat(EMPLOYE.NOM,' ',EMPLOYE.PRENOM) AS EMPLOYE, TYPE_CONGE.NOM_TYPE_CONGE CONGE from DEMANDE_CONGE inner join TYPE_CONGE on DEMANDE_CONGE.TYPE_CONGE_DEMANDE = TYPE_CONGE.ID_TYPE_CONGE inner join EMPLOYE on DEMANDE_CONGE.MATRICULE = EMPLOYE.MATRICULE;", conn.connection))
+                {
+                    conn.connection.Open();
+                    MySqlDataReader reader = cmd.ExecuteReader();
+                    dt_Last_Request.Load(reader);
+                }
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.ToString(), "Erreur 3", MessageBoxButtons.OK, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1, MessageBoxOptions.RightAlign, true);
+            }
+
+            return dt_Last_Request;
+        }
+        #endregion
 
     }
 }

@@ -29,11 +29,14 @@ namespace App_Bois_Du_Roy
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.btn_Return = new System.Windows.Forms.Button();
             this.btn_ValidDecision = new System.Windows.Forms.Button();
             this.panel5 = new System.Windows.Forms.Panel();
+            this.mc_DemandeConge = new System.Windows.Forms.MonthCalendar();
+            this.label3 = new System.Windows.Forms.Label();
             this.rtb_MotifDemande = new System.Windows.Forms.RichTextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.pnl_Decision = new System.Windows.Forms.Panel();
@@ -46,24 +49,28 @@ namespace App_Bois_Du_Roy
             this.panel3 = new System.Windows.Forms.Panel();
             this.lbl_CRestant = new System.Windows.Forms.Label();
             this.lbl_CongeDemande = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
+            this.lbl_MatDemandeur = new System.Windows.Forms.Label();
             this.lbl_NomService = new System.Windows.Forms.Label();
             this.lbl_NomPrenom = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.lbl_Title_Conge = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.lbl_Notif = new System.Windows.Forms.Label();
+            this.pb_LogOut = new System.Windows.Forms.PictureBox();
+            this.pb_Notif = new System.Windows.Forms.PictureBox();
             this.lbl_ListeFonction = new System.Windows.Forms.Label();
             this.lbl_Service = new System.Windows.Forms.Label();
             this.lbl_Conge = new System.Windows.Forms.Label();
             this.lbl_Employe = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.btn_Return = new System.Windows.Forms.Button();
             this.panel2.SuspendLayout();
             this.panel5.SuspendLayout();
             this.pnl_Decision.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DGV_Historique_Conge)).BeginInit();
             this.panel3.SuspendLayout();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_LogOut)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_Notif)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -82,6 +89,18 @@ namespace App_Bois_Du_Roy
             this.panel2.Size = new System.Drawing.Size(1635, 1029);
             this.panel2.TabIndex = 4;
             // 
+            // btn_Return
+            // 
+            this.btn_Return.Font = new System.Drawing.Font("Arial", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_Return.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(84)))), ((int)(((byte)(126)))), ((int)(((byte)(67)))));
+            this.btn_Return.Location = new System.Drawing.Point(1230, 10);
+            this.btn_Return.Name = "btn_Return";
+            this.btn_Return.Size = new System.Drawing.Size(252, 42);
+            this.btn_Return.TabIndex = 9;
+            this.btn_Return.Text = "Retour à la liste";
+            this.btn_Return.UseVisualStyleBackColor = true;
+            this.btn_Return.Click += new System.EventHandler(this.btn_Return_Click);
+            // 
             // btn_ValidDecision
             // 
             this.btn_ValidDecision.Location = new System.Drawing.Point(1369, 863);
@@ -95,12 +114,38 @@ namespace App_Bois_Du_Roy
             // panel5
             // 
             this.panel5.BackColor = System.Drawing.Color.White;
+            this.panel5.Controls.Add(this.mc_DemandeConge);
+            this.panel5.Controls.Add(this.label3);
             this.panel5.Controls.Add(this.rtb_MotifDemande);
             this.panel5.Controls.Add(this.label5);
-            this.panel5.Location = new System.Drawing.Point(898, 87);
+            this.panel5.Location = new System.Drawing.Point(895, 62);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(612, 363);
+            this.panel5.Size = new System.Drawing.Size(612, 388);
             this.panel5.TabIndex = 7;
+            // 
+            // mc_DemandeConge
+            // 
+            this.mc_DemandeConge.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(84)))), ((int)(((byte)(128)))), ((int)(((byte)(67)))));
+            this.mc_DemandeConge.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.mc_DemandeConge.ForeColor = System.Drawing.Color.White;
+            this.mc_DemandeConge.Location = new System.Drawing.Point(155, 172);
+            this.mc_DemandeConge.Name = "mc_DemandeConge";
+            this.mc_DemandeConge.TabIndex = 16;
+            this.mc_DemandeConge.TitleBackColor = System.Drawing.Color.White;
+            this.mc_DemandeConge.TitleForeColor = System.Drawing.Color.White;
+            this.mc_DemandeConge.TrailingForeColor = System.Drawing.Color.White;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.BackColor = System.Drawing.Color.Transparent;
+            this.label3.Font = new System.Drawing.Font("Arial", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(84)))), ((int)(((byte)(128)))), ((int)(((byte)(67)))));
+            this.label3.Location = new System.Drawing.Point(12, 202);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(107, 38);
+            this.label3.TabIndex = 15;
+            this.label3.Text = "Date :";
             // 
             // rtb_MotifDemande
             // 
@@ -109,7 +154,7 @@ namespace App_Bois_Du_Roy
             this.rtb_MotifDemande.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(84)))), ((int)(((byte)(128)))), ((int)(((byte)(67)))));
             this.rtb_MotifDemande.Location = new System.Drawing.Point(19, 64);
             this.rtb_MotifDemande.Name = "rtb_MotifDemande";
-            this.rtb_MotifDemande.Size = new System.Drawing.Size(556, 272);
+            this.rtb_MotifDemande.Size = new System.Drawing.Size(590, 84);
             this.rtb_MotifDemande.TabIndex = 14;
             this.rtb_MotifDemande.Text = "";
             // 
@@ -208,29 +253,29 @@ namespace App_Bois_Du_Roy
             this.DGV_Historique_Conge.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(247)))), ((int)(((byte)(209)))));
             this.DGV_Historique_Conge.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.DGV_Historique_Conge.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Arial", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(84)))), ((int)(((byte)(128)))), ((int)(((byte)(67)))));
-            dataGridViewCellStyle3.Padding = new System.Windows.Forms.Padding(5);
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(84)))), ((int)(((byte)(128)))), ((int)(((byte)(67)))));
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.DGV_Historique_Conge.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Arial", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(84)))), ((int)(((byte)(128)))), ((int)(((byte)(67)))));
+            dataGridViewCellStyle1.Padding = new System.Windows.Forms.Padding(5);
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(84)))), ((int)(((byte)(128)))), ((int)(((byte)(67)))));
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.DGV_Historique_Conge.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.DGV_Historique_Conge.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DGV_Historique_Conge.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(84)))), ((int)(((byte)(128)))), ((int)(((byte)(67)))));
             this.DGV_Historique_Conge.Location = new System.Drawing.Point(971, 114);
             this.DGV_Historique_Conge.Name = "DGV_Historique_Conge";
             this.DGV_Historique_Conge.RowHeadersVisible = false;
             this.DGV_Historique_Conge.RowHeadersWidth = 51;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(84)))), ((int)(((byte)(128)))), ((int)(((byte)(67)))));
-            dataGridViewCellStyle4.Padding = new System.Windows.Forms.Padding(2);
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(84)))), ((int)(((byte)(128)))), ((int)(((byte)(67)))));
-            this.DGV_Historique_Conge.RowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(84)))), ((int)(((byte)(128)))), ((int)(((byte)(67)))));
+            dataGridViewCellStyle2.Padding = new System.Windows.Forms.Padding(2);
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(84)))), ((int)(((byte)(128)))), ((int)(((byte)(67)))));
+            this.DGV_Historique_Conge.RowsDefaultCellStyle = dataGridViewCellStyle2;
             this.DGV_Historique_Conge.RowTemplate.Height = 40;
             this.DGV_Historique_Conge.RowTemplate.ReadOnly = true;
             this.DGV_Historique_Conge.Size = new System.Drawing.Size(661, 363);
@@ -241,13 +286,13 @@ namespace App_Bois_Du_Roy
             this.panel3.BackColor = System.Drawing.Color.White;
             this.panel3.Controls.Add(this.lbl_CRestant);
             this.panel3.Controls.Add(this.lbl_CongeDemande);
-            this.panel3.Controls.Add(this.label3);
+            this.panel3.Controls.Add(this.lbl_MatDemandeur);
             this.panel3.Controls.Add(this.lbl_NomService);
             this.panel3.Controls.Add(this.lbl_NomPrenom);
             this.panel3.Controls.Add(this.label1);
-            this.panel3.Location = new System.Drawing.Point(16, 87);
+            this.panel3.Location = new System.Drawing.Point(16, 62);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(829, 363);
+            this.panel3.Size = new System.Drawing.Size(829, 388);
             this.panel3.TabIndex = 2;
             // 
             // lbl_CRestant
@@ -273,17 +318,17 @@ namespace App_Bois_Du_Roy
             this.lbl_CongeDemande.TabIndex = 11;
             this.lbl_CongeDemande.Text = "Type Conge + Temps demande";
             // 
-            // label3
+            // lbl_MatDemandeur
             // 
-            this.label3.AutoSize = true;
-            this.label3.BackColor = System.Drawing.Color.Transparent;
-            this.label3.Font = new System.Drawing.Font("Arial", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(84)))), ((int)(((byte)(128)))), ((int)(((byte)(67)))));
-            this.label3.Location = new System.Drawing.Point(234, 10);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(162, 38);
-            this.label3.TabIndex = 10;
-            this.label3.Text = "Matricule";
+            this.lbl_MatDemandeur.AutoSize = true;
+            this.lbl_MatDemandeur.BackColor = System.Drawing.Color.Transparent;
+            this.lbl_MatDemandeur.Font = new System.Drawing.Font("Arial", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_MatDemandeur.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(84)))), ((int)(((byte)(128)))), ((int)(((byte)(67)))));
+            this.lbl_MatDemandeur.Location = new System.Drawing.Point(234, 10);
+            this.lbl_MatDemandeur.Name = "lbl_MatDemandeur";
+            this.lbl_MatDemandeur.Size = new System.Drawing.Size(162, 38);
+            this.lbl_MatDemandeur.TabIndex = 10;
+            this.lbl_MatDemandeur.Text = "Matricule";
             // 
             // lbl_NomService
             // 
@@ -325,17 +370,20 @@ namespace App_Bois_Du_Roy
             // 
             this.lbl_Title_Conge.AutoSize = true;
             this.lbl_Title_Conge.BackColor = System.Drawing.Color.Transparent;
-            this.lbl_Title_Conge.Font = new System.Drawing.Font("Arial", 40F, System.Drawing.FontStyle.Bold);
+            this.lbl_Title_Conge.Font = new System.Drawing.Font("Arial", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_Title_Conge.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(84)))), ((int)(((byte)(128)))), ((int)(((byte)(67)))));
-            this.lbl_Title_Conge.Location = new System.Drawing.Point(3, 0);
+            this.lbl_Title_Conge.Location = new System.Drawing.Point(9, 9);
             this.lbl_Title_Conge.Name = "lbl_Title_Conge";
-            this.lbl_Title_Conge.Size = new System.Drawing.Size(442, 78);
+            this.lbl_Title_Conge.Size = new System.Drawing.Size(216, 38);
             this.lbl_Title_Conge.TabIndex = 1;
             this.lbl_Title_Conge.Text = "Detail Conge";
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(84)))), ((int)(((byte)(128)))), ((int)(((byte)(67)))));
+            this.panel1.Controls.Add(this.lbl_Notif);
+            this.panel1.Controls.Add(this.pb_LogOut);
+            this.panel1.Controls.Add(this.pb_Notif);
             this.panel1.Controls.Add(this.lbl_ListeFonction);
             this.panel1.Controls.Add(this.lbl_Service);
             this.panel1.Controls.Add(this.lbl_Conge);
@@ -345,6 +393,40 @@ namespace App_Bois_Du_Roy
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(366, 1083);
             this.panel1.TabIndex = 5;
+            // 
+            // lbl_Notif
+            // 
+            this.lbl_Notif.AutoSize = true;
+            this.lbl_Notif.BackColor = System.Drawing.Color.Red;
+            this.lbl_Notif.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_Notif.ForeColor = System.Drawing.Color.White;
+            this.lbl_Notif.Location = new System.Drawing.Point(317, 436);
+            this.lbl_Notif.Name = "lbl_Notif";
+            this.lbl_Notif.Size = new System.Drawing.Size(31, 19);
+            this.lbl_Notif.TabIndex = 39;
+            this.lbl_Notif.Text = "Nb";
+            // 
+            // pb_LogOut
+            // 
+            this.pb_LogOut.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pb_LogOut.Image = global::App_Bois_Du_Roy.Properties.Resources.log_out;
+            this.pb_LogOut.Location = new System.Drawing.Point(12, 12);
+            this.pb_LogOut.Name = "pb_LogOut";
+            this.pb_LogOut.Size = new System.Drawing.Size(50, 57);
+            this.pb_LogOut.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pb_LogOut.TabIndex = 9;
+            this.pb_LogOut.TabStop = false;
+            this.pb_LogOut.Click += new System.EventHandler(this.pb_LogOut_Click);
+            // 
+            // pb_Notif
+            // 
+            this.pb_Notif.Image = global::App_Bois_Du_Roy.Properties.Resources.notif_icon;
+            this.pb_Notif.Location = new System.Drawing.Point(308, 425);
+            this.pb_Notif.Name = "pb_Notif";
+            this.pb_Notif.Size = new System.Drawing.Size(38, 40);
+            this.pb_Notif.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pb_Notif.TabIndex = 38;
+            this.pb_Notif.TabStop = false;
             // 
             // lbl_ListeFonction
             // 
@@ -410,18 +492,6 @@ namespace App_Bois_Du_Roy
             this.pictureBox1.TabStop = false;
             this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
-            // btn_Return
-            // 
-            this.btn_Return.Font = new System.Drawing.Font("Arial", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_Return.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(84)))), ((int)(((byte)(126)))), ((int)(((byte)(67)))));
-            this.btn_Return.Location = new System.Drawing.Point(1104, 19);
-            this.btn_Return.Name = "btn_Return";
-            this.btn_Return.Size = new System.Drawing.Size(252, 42);
-            this.btn_Return.TabIndex = 9;
-            this.btn_Return.Text = "Retour à la liste";
-            this.btn_Return.UseVisualStyleBackColor = true;
-            this.btn_Return.Click += new System.EventHandler(this.btn_Return_Click);
-            // 
             // Details_Conge
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -444,6 +514,8 @@ namespace App_Bois_Du_Roy
             this.panel3.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_LogOut)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_Notif)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
@@ -466,7 +538,7 @@ namespace App_Bois_Du_Roy
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label lbl_CRestant;
         private System.Windows.Forms.Label lbl_CongeDemande;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label lbl_MatDemandeur;
         private System.Windows.Forms.Label lbl_NomService;
         private System.Windows.Forms.Label lbl_NomPrenom;
         private System.Windows.Forms.Label label1;
@@ -478,5 +550,10 @@ namespace App_Bois_Du_Roy
         private System.Windows.Forms.RadioButton rb_Refuse;
         private System.Windows.Forms.RadioButton rb_Accept;
         private System.Windows.Forms.Button btn_Return;
+        private System.Windows.Forms.MonthCalendar mc_DemandeConge;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.PictureBox pb_LogOut;
+        private System.Windows.Forms.Label lbl_Notif;
+        private System.Windows.Forms.PictureBox pb_Notif;
     }
 }
