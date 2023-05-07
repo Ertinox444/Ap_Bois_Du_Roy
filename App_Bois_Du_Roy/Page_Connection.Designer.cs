@@ -31,7 +31,6 @@ namespace App_Bois_Du_Roy
         {
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel_logo = new System.Windows.Forms.Panel();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.btn_connect = new System.Windows.Forms.Button();
             this.tb_mdp = new System.Windows.Forms.TextBox();
@@ -39,9 +38,12 @@ namespace App_Bois_Du_Roy
             this.label1 = new System.Windows.Forms.Label();
             this.login_lbl = new System.Windows.Forms.Label();
             this.title_login = new System.Windows.Forms.Label();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel_logo.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -56,21 +58,12 @@ namespace App_Bois_Du_Roy
             // 
             this.panel_logo.BackColor = System.Drawing.Color.White;
             this.panel_logo.Controls.Add(this.pictureBox1);
+            this.panel_logo.Controls.Add(this.pictureBox2);
             this.panel_logo.Controls.Add(this.panel1);
             this.panel_logo.Location = new System.Drawing.Point(0, -4);
             this.panel_logo.Name = "panel_logo";
             this.panel_logo.Size = new System.Drawing.Size(960, 1080);
             this.panel_logo.TabIndex = 0;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::App_Bois_Du_Roy.Properties.Resources.Logo;
-            this.pictureBox1.Location = new System.Drawing.Point(12, 0);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(957, 1032);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 2;
-            this.pictureBox1.TabStop = false;
             // 
             // panel2
             // 
@@ -98,6 +91,9 @@ namespace App_Bois_Du_Roy
             // 
             // tb_mdp
             // 
+            this.tb_mdp.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.tb_mdp.Font = new System.Drawing.Font("Arial", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tb_mdp.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(84)))), ((int)(((byte)(128)))), ((int)(((byte)(67)))));
             this.tb_mdp.Location = new System.Drawing.Point(81, 497);
             this.tb_mdp.Multiline = true;
             this.tb_mdp.Name = "tb_mdp";
@@ -107,7 +103,9 @@ namespace App_Bois_Du_Roy
             // 
             // tb_login
             // 
-            this.tb_login.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.15F);
+            this.tb_login.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.tb_login.Font = new System.Drawing.Font("Arial Narrow", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tb_login.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(84)))), ((int)(((byte)(128)))), ((int)(((byte)(67)))));
             this.tb_login.Location = new System.Drawing.Point(81, 268);
             this.tb_login.Multiline = true;
             this.tb_login.Name = "tb_login";
@@ -147,7 +145,27 @@ namespace App_Bois_Du_Roy
             this.title_login.TabIndex = 0;
             this.title_login.Text = "Connexion au Portail :";
             // 
-            // Form1
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = global::App_Bois_Du_Roy.Properties.Resources.Brand_System;
+            this.pictureBox2.Location = new System.Drawing.Point(56, 654);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(803, 167);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox2.TabIndex = 3;
+            this.pictureBox2.TabStop = false;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::App_Bois_Du_Roy.Properties.Resources.Logo;
+            this.pictureBox1.Location = new System.Drawing.Point(187, 50);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(574, 623);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 2;
+            this.pictureBox1.TabStop = false;
+            // 
+            // Page_Connection
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -156,12 +174,13 @@ namespace App_Bois_Du_Roy
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel_logo);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "Form1";
+            this.Name = "Page_Connection";
             this.Text = "Form1";
             this.panel_logo.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -178,6 +197,7 @@ namespace App_Bois_Du_Roy
         private System.Windows.Forms.TextBox tb_mdp;
         private System.Windows.Forms.TextBox tb_login;
         private System.Windows.Forms.Button btn_connect;
+        private System.Windows.Forms.PictureBox pictureBox2;
     }
 }
 

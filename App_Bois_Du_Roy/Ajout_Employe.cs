@@ -39,7 +39,10 @@ namespace App_Bois_Du_Roy
             cbAddEmp_MatRespo.ValueMember = "MATRICULE";
 
             Matricule lastMat = new Matricule();
-            tbAddEmp_LastMat.Text = lastMat.GetDernierMatricule();
+            string derniermatricule = lastMat.GetDernierMatricule();
+            tbAddEmp_LastMat.Text = derniermatricule;
+            int nombre = int.Parse(derniermatricule.Substring(1)) + 1;
+            tbAddEmp_Mat.Text = derniermatricule[0] + nombre.ToString().PadLeft(derniermatricule.Length - 1, '0');
 
             Misc Notif = new Misc();
             if (Notif.CheckCongesEnAttente() > 0)
@@ -129,11 +132,15 @@ namespace App_Bois_Du_Roy
             }
             else
             {
-
+                int IsResponsable = 0;
+                if (checkB_IsRespo.Checked)
+                {
+                    IsResponsable = 1;
+                }
                 Employe Envoie = new Employe();
 
                 Envoie.InsertEmploye(tbAddEmp_Nom.Text, tbAddEmp_Prenom.Text, cbAddEmp_Service.Text, cbAddEmp_Fonction.Text, cbAddEmp_MatRespo.Text, adresseEmail, tbAddEmp_NumTel.Text, tbAddEmp_NumSec.Text, formattedDate_Birth, formattedDate_Embauche, tbAddEmp_Mat.Text);
-                Envoie.Insert_Compte(tbAddEmp_MDP.Text, tbAddEmp_Mat.Text, tbAddEmp_Nom.Text, tbAddEmp_Prenom.Text);
+                Envoie.Insert_Compte(tbAddEmp_MDP.Text, tbAddEmp_Mat.Text, tbAddEmp_Nom.Text, tbAddEmp_Prenom.Text,IsResponsable);
                 this.Cursor = Cursors.WaitCursor;
                 SousFormulaire SF = new SousFormulaire((System.Windows.Forms.Application.OpenForms["BaseMenu"] as BaseMenu).pnl_Menu);
                 SF.openChildForm(new Liste_Employe());

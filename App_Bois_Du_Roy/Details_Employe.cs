@@ -66,24 +66,21 @@ namespace App_Bois_Du_Roy
             tb_RTTRestant.Text = "RTT restant : " + CongeRestant.RecupCongeRestantEmploye(matricule, "RTT")+ " jours";
             tb_CongePayeRestant.Text = "Conge payé restant : " + CongeRestant.RecupCongeRestantEmploye(matricule,"Congé Payé") + " jours";
 
-            
-            string[] nameParts = name.Split(' '); // Séparation du nom complet en parties (prénom et nom)
+
+            string[] nameParts = name.Split(' '); // Sépare le nom et le prénom en utilisant l'espace comme délimiteur
             string initials = ""; // Initialisation de la variable contenant les initiales
+
             foreach (string part in nameParts)
             {
-                if (part.Contains("-")) // Si le nom contient un trait d'union (prénom composé)
+                if (part.Length >= 1) // Vérification que la chaîne a une longueur suffisante
                 {
-                    string[] hyphenatedParts = part.Split('-'); // Séparation du nom en parties (par exemple "Jean-Michel" devient ["Jean", "Michel"])
-                    foreach (string hyphenatedPart in hyphenatedParts)
-                    {
-                        initials += hyphenatedPart.Substring(0, 1).ToUpper(); // Ajout de la première lettre de chaque partie séparée par un trait d'union
-                    }
-                }
-                else // Si le nom ne contient pas de trait d'union
-                {
-                    initials += part.Substring(0, 1).ToUpper(); // Ajout de la première lettre
+                    initials += part.Substring(0, 1).ToUpper(); // Ajout de la première lettre en majuscule
                 }
             }
+
+            lbl_PP.Text = initials; // Affiche "CM"
+
+
 
             lbl_PP.Text = initials;
 

@@ -21,6 +21,7 @@ namespace App_Bois_Du_Roy.Controller
         private string NumSecuEmp;
         private string MatRespoEmp;
         private string DateEmbaucheEmp;
+        private bool IsRespo = false;
 
         #region Méthode Employé
         #region Recup Liste Responable -> Comobobox
@@ -36,7 +37,7 @@ namespace App_Bois_Du_Roy.Controller
             {
                 conn.connection.Open();
 
-                string query = "SELECT MATRICULE, concat(EMPLOYE.NOM,' ',EMPLOYE.PRENOM) as Employe FROM EMPLOYE;  ";
+                string query = "SELECT EMPLOYE.MATRICULE, concat(EMPLOYE.NOM,' ',EMPLOYE.PRENOM) as Employe FROM EMPLOYE INNER JOIN COMPTE ON EMPLOYE.MATRICULE = COMPTE.MATRICULE WHERE COMPTE.EST_RESPONSABLE = 1;   ";
                 MySqlCommand cmd = new MySqlCommand(query, conn.connection);
                 MySqlDataReader dataReader = cmd.ExecuteReader();
 
@@ -163,7 +164,14 @@ namespace App_Bois_Du_Roy.Controller
                     if (reader.HasRows)
                     {
                         reader.Read();
-                        MatRespoEmp = reader.GetString(0);
+                        if (!reader.IsDBNull(0)) // Vérifie que la valeur n'est pas NULL
+                        {
+                            MatRespoEmp = reader.GetString(0);
+                        }
+                        else
+                        {
+                            MatRespoEmp = "";
+                        }
                     }
                     else
                     {
@@ -178,6 +186,7 @@ namespace App_Bois_Du_Roy.Controller
             }
             return MatRespoEmp;
         }
+
         #endregion
         #region Recup Date Naissance Employe
         public string RecupEmbaucheEmploye(string matricule)
@@ -205,6 +214,50 @@ namespace App_Bois_Du_Roy.Controller
             }
             return DateEmbaucheEmp;
 
+        }
+        #endregion
+        #region Recup Liste Employe -> ComboBox
+        public DataTable GetListeEmployeCB()
+        {
+            DataTable dtListeResponsable = new DataTable();
+            dtListeResponsable.Columns.Add("EMPLOYE");
+            dtListeResponsable.Columns.Add("MATRICULE");
+
+
+
+            try
+            {
+                conn.connection.Open();
+
+                string query = "SELECT EMPLOYE.MATRICULE, concat(EMPLOYE.NOM,' ',EMPLOYE.PRENOM) as Employe FROM EMPLOYE ;   ";
+                MySqlCommand cmd = new MySqlCommand(query, conn.connection);
+                MySqlDataReader dataReader = cmd.ExecuteReader();
+
+                while (dataReader.Read())
+                {
+                    DataRow row = dtListeResponsable.NewRow();
+
+                    row["EMPLOYE"] = dataReader["Employe"];
+                    row["MATRICULE"] = dataReader["MATRICULE"];
+
+                    dtListeResponsable.Rows.Add(row);
+
+                }
+
+                // Ajouter un enregistrement vide pour annuler le tri sur la difficulté
+                DataRow workRow = dtListeResponsable.NewRow();
+
+
+                dtListeResponsable.Rows.InsertAt(workRow, 0);
+
+                dataReader.Close();
+                cmd.Dispose();
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.ToString(), "Erreur 3", MessageBoxButtons.OK, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1, MessageBoxOptions.RightAlign, true);
+            }
+            return dtListeResponsable;
         }
         #endregion
         #region Liste Employe
@@ -239,6 +292,8 @@ namespace App_Bois_Du_Roy.Controller
             return dt_Employee_List;
         }
         #endregion
+
+
         #region Insertion Employe
         public bool InsertEmploye(string nom, string prenom, string service, string fonction, string nom_Responsable, string mail, string telephone, string numsecu, string dtBirth, string dtEmbauche, string matricule)
         {
@@ -445,11 +500,42 @@ namespace App_Bois_Du_Roy.Controller
             return reponse;
         }
         #endregion
+
+
+        #region Recup Etat Respo Employe
+        public bool RecupIsRespoEmp(string matricule)
+        {
+            try
+            {
+                using (MySqlCommand cmd = new MySqlCommand("SELECT COMPTE.EST_RESPONSABLE FROM COMPTE WHERE COMPTE.MATRICULE ='" + matricule + "';", conn.connection))
+                {
+                    conn.connection.Open();
+                    MySqlDataReader reader = cmd.ExecuteReader();
+                    if (reader.HasRows)
+                    {
+                        reader.Read();
+                        IsRespo = reader.GetBoolean(0);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Aucun résultat trouvé", "Erreur 3", MessageBoxButtons.OK, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1, MessageBoxOptions.RightAlign, true);
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.ToString(), "Erreur 3", MessageBoxButtons.OK, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1, MessageBoxOptions.RightAlign, true);
+            }
+            return IsRespo;
+
+        }
+        #endregion
+
         #endregion
 
         #region Méthode Compte Employé
         #region Insertion Compte
-        public bool Insert_Compte(string mdp, string matricule, string nom, string prenom)
+        public bool Insert_Compte(string mdp, string matricule, string nom, string prenom, int IsResponsable)
         {
             bool reponse = false;
             try
@@ -473,15 +559,19 @@ namespace App_Bois_Du_Roy.Controller
                 // Supprimer les caractères spéciaux du nom d'utilisateur
                 username = new string(username.Where(c => Char.IsLetterOrDigit(c)).ToArray());
 
-
-
-
-
-                string rqtSql = "INSERT INTO COMPTE (MATRICULE, NOM_UTILISATEUR, MOT_DE_PASSE) VALUES ";
+                string rqtSql = "INSERT INTO COMPTE (MATRICULE, NOM_UTILISATEUR, MOT_DE_PASSE, MOT_DE_PASSE_BACK, EST_RESPONSABLE) VALUES ";
 
                 if (mdp != "" && matricule != "")
                 {
-                    rqtSql += "('" + matricule + "', '" + username + "', '" + mdpHash + "');";
+                    if (IsResponsable == 0)
+                    {
+                        rqtSql += "('" + matricule + "', '" + username + "', '" + mdpHash + "', 1, 0 );";
+                    }
+                    if (IsResponsable == 1)
+                    {
+                        rqtSql += "('" + matricule + "', '" + username + "', '" + mdpHash + "', 1, 1 );";
+                    }
+                   
 
                 }
                 DataTable dtListeCompte_User = new DataTable();
@@ -503,7 +593,7 @@ namespace App_Bois_Du_Roy.Controller
         }
         #endregion
         #region Modification Compte
-        public bool Modify_Compte(string mdp, string matricule, string prenom, string nom, string matricule_correspondant)
+        public bool Modify_Compte(string mdp, string matricule, string prenom, string nom, string matricule_correspondant, int IsResponsable)
         {
             bool reponse = false;
             try
@@ -532,15 +622,24 @@ namespace App_Bois_Du_Roy.Controller
                 if (mdp != "")
                 {
                     string mdpHash = BC.HashPassword(mdp);
-                    rqtSql += "UPDATE COMPTE SET MATRICULE ='" + matricule + "', NOM_UTILISATEUR='" + username + "', MOT_DE_PASSE ='" + mdpHash + "'";
-                    rqtSql += " WHERE MATRICULE ='" + matricule_correspondant + "';";
+                    rqtSql += "UPDATE COMPTE SET MATRICULE ='" + matricule + "', NOM_UTILISATEUR='" + username + "', MOT_DE_PASSE ='" + mdpHash + "', MOT_DE_PASSE_BACK = 1, ";
+                    
                 }
                 if (mdp == "")
                 {
-                    rqtSql += "UPDATE COMPTE SET MATRICULE ='" + matricule + "', NOM_UTILISATEUR='" + username + "'";
-                    rqtSql += " WHERE MATRICULE ='" + matricule_correspondant + "';";
+                    rqtSql += "UPDATE COMPTE SET MATRICULE ='" + matricule + "', NOM_UTILISATEUR='" + username + "', ";
+                    
+                }
+                if (IsResponsable == 0)
+                {
+                    rqtSql += "EST_RESPONSABLE = 0";
+                }
+                if (IsResponsable == 1)
+                {
+                    rqtSql += "EST_RESPONSABLE = 1";
                 }
 
+                rqtSql += " WHERE MATRICULE ='" + matricule_correspondant + "';";
                 DataTable dtListeCompte_User = new DataTable();
 
 
@@ -559,6 +658,8 @@ namespace App_Bois_Du_Roy.Controller
             return reponse;
         }
         #endregion
+
+
 
 
 

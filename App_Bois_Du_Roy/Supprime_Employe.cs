@@ -23,17 +23,18 @@ namespace App_Bois_Du_Roy
             Employe dtviewEmploye = new Employe();
             dvEmploye = new DataView(dtviewEmploye.GetlisteEmploye());
             DGV_Liste_Employe.DataSource = dvEmploye;
-            DGV_Liste_Employe.Columns["Matricule"].Width = 265;
-            DGV_Liste_Employe.Columns["Nom"].Width = 265;
-            DGV_Liste_Employe.Columns["Service"].Width = 265;
-            DGV_Liste_Employe.Columns["Fonction"].Width = 265;
+            DGV_Liste_Employe.Columns["Matricule"].Width = 150;
+            DGV_Liste_Employe.Columns["Nom"].Width = 150;
+            DGV_Liste_Employe.Columns["Service"].Width = 150;
+            DGV_Liste_Employe.Columns["Fonction"].Width = 150;
+            DGV_Liste_Employe.Columns["Congé en attente"].Visible = false;
             DGV_Liste_Employe.EnableHeadersVisualStyles = false;
             DGV_Liste_Employe.ColumnHeadersDefaultCellStyle.ForeColor = Color.FromArgb(87, 128, 64);
             #endregion
 
             #region ajout colonne checkbox
             DataGridViewCheckBoxColumn chkbox = new DataGridViewCheckBoxColumn();
-            chkbox.HeaderText = "Sélectionner";
+            chkbox.HeaderText = "Supp";
             chkbox.Name = "chkbox";
             DGV_Liste_Employe.Columns.Insert(0, chkbox); // insérer la colonne en premier
             DGV_Liste_Employe.Columns["chkbox"].Width = 100;

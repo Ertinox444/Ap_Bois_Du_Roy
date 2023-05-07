@@ -29,28 +29,28 @@ namespace App_Bois_Du_Roy
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel2 = new System.Windows.Forms.Panel();
             this.DGV_Liste_Service = new System.Windows.Forms.DataGridView();
             this.lbl_AddEmploye = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.lbl_Notif = new System.Windows.Forms.Label();
+            this.pb_Notif = new System.Windows.Forms.PictureBox();
             this.pb_LogOut = new System.Windows.Forms.PictureBox();
             this.lbl_ListeFonction = new System.Windows.Forms.Label();
             this.lbl_Service = new System.Windows.Forms.Label();
             this.lbl_Conge = new System.Windows.Forms.Label();
             this.lbl_Employe = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.lbl_Notif = new System.Windows.Forms.Label();
-            this.pb_Notif = new System.Windows.Forms.PictureBox();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DGV_Liste_Service)).BeginInit();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_Notif)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_LogOut)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pb_Notif)).BeginInit();
             this.SuspendLayout();
             // 
             // panel2
@@ -75,29 +75,29 @@ namespace App_Bois_Du_Roy
             this.DGV_Liste_Service.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(247)))), ((int)(((byte)(209)))));
             this.DGV_Liste_Service.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.DGV_Liste_Service.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Arial", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(84)))), ((int)(((byte)(128)))), ((int)(((byte)(67)))));
-            dataGridViewCellStyle3.Padding = new System.Windows.Forms.Padding(5);
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(84)))), ((int)(((byte)(128)))), ((int)(((byte)(67)))));
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.DGV_Liste_Service.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Arial", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(84)))), ((int)(((byte)(128)))), ((int)(((byte)(67)))));
+            dataGridViewCellStyle1.Padding = new System.Windows.Forms.Padding(5);
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(84)))), ((int)(((byte)(128)))), ((int)(((byte)(67)))));
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.DGV_Liste_Service.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.DGV_Liste_Service.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DGV_Liste_Service.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(84)))), ((int)(((byte)(128)))), ((int)(((byte)(67)))));
             this.DGV_Liste_Service.Location = new System.Drawing.Point(51, 112);
             this.DGV_Liste_Service.Name = "DGV_Liste_Service";
             this.DGV_Liste_Service.RowHeadersVisible = false;
             this.DGV_Liste_Service.RowHeadersWidth = 51;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(84)))), ((int)(((byte)(128)))), ((int)(((byte)(67)))));
-            dataGridViewCellStyle4.Padding = new System.Windows.Forms.Padding(2);
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(84)))), ((int)(((byte)(128)))), ((int)(((byte)(67)))));
-            this.DGV_Liste_Service.RowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(84)))), ((int)(((byte)(128)))), ((int)(((byte)(67)))));
+            dataGridViewCellStyle2.Padding = new System.Windows.Forms.Padding(2);
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(84)))), ((int)(((byte)(128)))), ((int)(((byte)(67)))));
+            this.DGV_Liste_Service.RowsDefaultCellStyle = dataGridViewCellStyle2;
             this.DGV_Liste_Service.RowTemplate.Height = 40;
             this.DGV_Liste_Service.RowTemplate.ReadOnly = true;
             this.DGV_Liste_Service.Size = new System.Drawing.Size(1565, 817);
@@ -161,6 +161,28 @@ namespace App_Bois_Du_Roy
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(366, 1083);
             this.panel1.TabIndex = 5;
+            // 
+            // lbl_Notif
+            // 
+            this.lbl_Notif.AutoSize = true;
+            this.lbl_Notif.BackColor = System.Drawing.Color.Red;
+            this.lbl_Notif.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_Notif.ForeColor = System.Drawing.Color.White;
+            this.lbl_Notif.Location = new System.Drawing.Point(317, 436);
+            this.lbl_Notif.Name = "lbl_Notif";
+            this.lbl_Notif.Size = new System.Drawing.Size(31, 19);
+            this.lbl_Notif.TabIndex = 39;
+            this.lbl_Notif.Text = "Nb";
+            // 
+            // pb_Notif
+            // 
+            this.pb_Notif.Image = global::App_Bois_Du_Roy.Properties.Resources.notif_icon;
+            this.pb_Notif.Location = new System.Drawing.Point(308, 425);
+            this.pb_Notif.Name = "pb_Notif";
+            this.pb_Notif.Size = new System.Drawing.Size(38, 40);
+            this.pb_Notif.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pb_Notif.TabIndex = 38;
+            this.pb_Notif.TabStop = false;
             // 
             // pb_LogOut
             // 
@@ -228,6 +250,7 @@ namespace App_Bois_Du_Roy
             // 
             // pictureBox1
             // 
+            this.pictureBox1.BackColor = System.Drawing.Color.White;
             this.pictureBox1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureBox1.Image = global::App_Bois_Du_Roy.Properties.Resources.Logo;
             this.pictureBox1.Location = new System.Drawing.Point(75, 46);
@@ -238,28 +261,6 @@ namespace App_Bois_Du_Roy
             this.pictureBox1.TabIndex = 3;
             this.pictureBox1.TabStop = false;
             this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
-            // 
-            // lbl_Notif
-            // 
-            this.lbl_Notif.AutoSize = true;
-            this.lbl_Notif.BackColor = System.Drawing.Color.Red;
-            this.lbl_Notif.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_Notif.ForeColor = System.Drawing.Color.White;
-            this.lbl_Notif.Location = new System.Drawing.Point(317, 436);
-            this.lbl_Notif.Name = "lbl_Notif";
-            this.lbl_Notif.Size = new System.Drawing.Size(31, 19);
-            this.lbl_Notif.TabIndex = 39;
-            this.lbl_Notif.Text = "Nb";
-            // 
-            // pb_Notif
-            // 
-            this.pb_Notif.Image = global::App_Bois_Du_Roy.Properties.Resources.notif_icon;
-            this.pb_Notif.Location = new System.Drawing.Point(308, 425);
-            this.pb_Notif.Name = "pb_Notif";
-            this.pb_Notif.Size = new System.Drawing.Size(38, 40);
-            this.pb_Notif.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pb_Notif.TabIndex = 38;
-            this.pb_Notif.TabStop = false;
             // 
             // Liste_Service
             // 
@@ -276,9 +277,9 @@ namespace App_Bois_Du_Roy
             ((System.ComponentModel.ISupportInitialize)(this.DGV_Liste_Service)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_Notif)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_LogOut)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pb_Notif)).EndInit();
             this.ResumeLayout(false);
 
         }

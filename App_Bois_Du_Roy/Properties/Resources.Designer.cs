@@ -63,6 +63,16 @@ namespace App_Bois_Du_Roy.Properties {
         /// <summary>
         ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Brand_System {
+            get {
+                object obj = ResourceManager.GetObject("Brand_System", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap cake {
             get {
                 object obj = ResourceManager.GetObject("cake", resourceCulture);
@@ -106,6 +116,16 @@ namespace App_Bois_Du_Roy.Properties {
         internal static System.Drawing.Bitmap Logo {
             get {
                 object obj = ResourceManager.GetObject("Logo", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Logo_with_bg {
+            get {
+                object obj = ResourceManager.GetObject("Logo_with_bg", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

@@ -31,7 +31,7 @@ namespace App_Bois_Du_Roy
 
             #region ajout colonne checkbox
             DataGridViewCheckBoxColumn chkbox = new DataGridViewCheckBoxColumn();
-            chkbox.HeaderText = "Sélectionner";
+            chkbox.HeaderText = "Supp";
             chkbox.Name = "chkbox";
             DGV_Liste_Fonction.Columns.Insert(0, chkbox); // insérer la colonne en premier
             DGV_Liste_Fonction.Columns["chkbox"].Width = 100;

@@ -57,6 +57,7 @@ namespace App_Bois_Du_Roy
             this.tb_Today_Date = new System.Windows.Forms.TextBox();
             this.DGV_Last_Request = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
+            this.tb_NoData = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pb_LogOut)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_Notif)).BeginInit();
@@ -171,6 +172,7 @@ namespace App_Bois_Du_Roy
             // 
             // pictureBox1
             // 
+            this.pictureBox1.BackColor = System.Drawing.Color.White;
             this.pictureBox1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureBox1.Image = global::App_Bois_Du_Roy.Properties.Resources.Logo;
             this.pictureBox1.Location = new System.Drawing.Point(75, 46);
@@ -185,6 +187,7 @@ namespace App_Bois_Du_Roy
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(247)))), ((int)(((byte)(209)))));
+            this.panel2.Controls.Add(this.tb_NoData);
             this.panel2.Controls.Add(this.panel3);
             this.panel2.Controls.Add(this.tb_Birthday);
             this.panel2.Controls.Add(this.tb_Today_Date);
@@ -311,7 +314,7 @@ namespace App_Bois_Du_Roy
             this.tb_Birthday.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.tb_Birthday.Font = new System.Drawing.Font("Arial", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tb_Birthday.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(128)))), ((int)(((byte)(69)))));
-            this.tb_Birthday.Location = new System.Drawing.Point(113, 798);
+            this.tb_Birthday.Location = new System.Drawing.Point(219, 798);
             this.tb_Birthday.Multiline = true;
             this.tb_Birthday.Name = "tb_Birthday";
             this.tb_Birthday.ReadOnly = true;
@@ -325,7 +328,7 @@ namespace App_Bois_Du_Roy
             this.tb_Today_Date.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.tb_Today_Date.Font = new System.Drawing.Font("Arial", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tb_Today_Date.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(128)))), ((int)(((byte)(69)))));
-            this.tb_Today_Date.Location = new System.Drawing.Point(113, 704);
+            this.tb_Today_Date.Location = new System.Drawing.Point(219, 704);
             this.tb_Today_Date.Multiline = true;
             this.tb_Today_Date.Name = "tb_Today_Date";
             this.tb_Today_Date.ReadOnly = true;
@@ -379,8 +382,9 @@ namespace App_Bois_Du_Roy
             this.DGV_Last_Request.RowHeadersVisible = false;
             this.DGV_Last_Request.RowHeadersWidth = 51;
             this.DGV_Last_Request.RowTemplate.Height = 24;
-            this.DGV_Last_Request.Size = new System.Drawing.Size(589, 511);
+            this.DGV_Last_Request.Size = new System.Drawing.Size(897, 511);
             this.DGV_Last_Request.TabIndex = 2;
+            this.DGV_Last_Request.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.DGV_Last_Request_DataBindingComplete);
             // 
             // label1
             // 
@@ -393,6 +397,20 @@ namespace App_Bois_Du_Roy
             this.label1.Size = new System.Drawing.Size(594, 78);
             this.label1.TabIndex = 1;
             this.label1.Text = "Tableau de Bord :";
+            // 
+            // tb_NoData
+            // 
+            this.tb_NoData.BackColor = System.Drawing.Color.White;
+            this.tb_NoData.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.tb_NoData.Font = new System.Drawing.Font("Arial", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tb_NoData.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(128)))), ((int)(((byte)(69)))));
+            this.tb_NoData.Location = new System.Drawing.Point(219, 301);
+            this.tb_NoData.Multiline = true;
+            this.tb_NoData.Name = "tb_NoData";
+            this.tb_NoData.ReadOnly = true;
+            this.tb_NoData.Size = new System.Drawing.Size(717, 88);
+            this.tb_NoData.TabIndex = 6;
+            this.tb_NoData.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // TableauBord
             // 
@@ -448,5 +466,6 @@ namespace App_Bois_Du_Roy
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox textBox_TempsActuel;
         private System.Windows.Forms.PictureBox pb_Weather;
+        private System.Windows.Forms.TextBox tb_NoData;
     }
 }

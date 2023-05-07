@@ -24,6 +24,7 @@ namespace App_Bois_Du_Roy
         private Employe NumSecu = new Employe();
         private Employe MatRespo = new Employe();
         private Employe Embauche = new Employe();
+        private Employe EmpIsRespo = new Employe();
 
         private Service dt_Service;
         private Fonction dt_Fonction;
@@ -44,7 +45,7 @@ namespace App_Bois_Du_Roy
             NumSecu = new Employe();
             MatRespo = new Employe();
             Embauche = new Employe();
-
+            EmpIsRespo = new Employe();
 
 
             string[] nomPrenom = Emp.RecupNameEmploye(matricule).Split(' ');
@@ -75,6 +76,15 @@ namespace App_Bois_Du_Roy
             cbModifEmp_Fonction.Text = Fonc.RecupFoncEmploye(matricule);
             cbModifEmp_Service.Text = Serv.RecupServEmploye(matricule);
             cbModifEmp_MatRespo.Text = MatRespo.RecupRespoEmp(matricule);
+
+            Matricule lastMat = new Matricule();
+            string derniermatricule = lastMat.GetDernierMatricule();
+            tbAddEmp_LastMat.Text = derniermatricule;
+
+            if (EmpIsRespo.RecupIsRespoEmp(matricule) == true)
+            {
+                checkB_IsRespo.Checked = true;
+            }
 
 
             Misc Notif = new Misc();
@@ -166,11 +176,16 @@ namespace App_Bois_Du_Roy
             }
             else
             {
+                int IsResponsable = 0;
+                if (checkB_IsRespo.Checked)
+                {
+                    IsResponsable = 1;
+                }
 
                 Employe Envoie = new Employe();
                 
                 Envoie.ModifyEmploye(tbModifEmp_Nom.Text, tbModifEmp_Prenom.Text, cbModifEmp_Service.Text, cbModifEmp_Fonction.Text, cbModifEmp_MatRespo.Text, adresseEmail, tbModifEmp_NumTel.Text, tbModifEmp_NumSec.Text, formattedDate_Birth, formattedDate_Embauche, tbModifEmp_Mat.Text, mat_recup);
-                Envoie.Modify_Compte(tbModifEmp_MDP.Text, tbModifEmp_Mat.Text, tbModifEmp_Nom.Text, tbModifEmp_Prenom.Text, mat_recup);
+                Envoie.Modify_Compte(tbModifEmp_MDP.Text, tbModifEmp_Mat.Text, tbModifEmp_Nom.Text, tbModifEmp_Prenom.Text, mat_recup, IsResponsable);
                 this.Cursor = Cursors.WaitCursor;
                 SousFormulaire SF = new SousFormulaire((System.Windows.Forms.Application.OpenForms["BaseMenu"] as BaseMenu).pnl_Menu);
                 SF.openChildForm(new Liste_Employe());

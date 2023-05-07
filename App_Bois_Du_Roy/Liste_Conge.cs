@@ -15,6 +15,7 @@ namespace App_Bois_Du_Roy
     {
         private Conge dtviewConge = new Conge();
         public DataView dvConge;
+        private int IndiceType = 0;
         private void DGV_Liste_Conge_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
             if (e.ColumnIndex == DGV_Liste_Conge.Columns["Statut"].Index)
@@ -38,7 +39,8 @@ namespace App_Bois_Du_Roy
             DGV_Liste_Conge.Columns["Statut"].Width = 232;
             DGV_Liste_Conge.Columns["Valideur"].Width = 232;
             DGV_Liste_Conge.Columns["ID_CONGE"].Visible = false;
-            DGV_Liste_Conge.Columns["DATE_DEBUT"].Visible = false;
+            DGV_Liste_Conge.Columns["Date Debut"].Visible = false;
+            DGV_Liste_Conge.Columns["Date Fin"].Visible = false;
             DGV_Liste_Conge.EnableHeadersVisualStyles = false;
             DGV_Liste_Conge.ColumnHeadersDefaultCellStyle.ForeColor = Color.FromArgb(87, 128, 64);
             DGV_Liste_Conge.CellFormatting += DGV_Liste_Conge_CellFormatting;
@@ -55,6 +57,12 @@ namespace App_Bois_Du_Roy
                 pb_Notif.Visible = false;
                 lbl_Notif.Visible = false;
             }
+
+
+            cB_FiltreType.Items.Add("Employe");
+            cB_FiltreType.Items.Add("Service");
+            cB_FiltreType.Items.Add("Fonction");
+
         }
 
         private void DGV_Liste_Conge_CellMouseEnter(object sender, DataGridViewCellEventArgs e)
@@ -146,6 +154,72 @@ namespace App_Bois_Du_Roy
             this.Cursor = Cursors.WaitCursor;
             SousFormulaire SF = new SousFormulaire((System.Windows.Forms.Application.OpenForms["BaseMenu"] as BaseMenu).pnl_Menu);
             SF.openChildForm(new Page_Connection());
+        }
+
+        
+
+        private void lbl_Export_Click(object sender, EventArgs e)
+        {
+            Misc ExportData = new Misc();
+            ExportData.ExportDataGridView(DGV_Liste_Conge, cB_FiltreType.Text, cB_Filtre.Text);
+
+
+        }
+
+        private void cB_FiltreType_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Conge TypeConge = new Conge();
+            cB_Filtre.DataSource = TypeConge.RenvoieFiltreConge(cB_FiltreType.Text);
+            
+            if (cB_FiltreType.Text == "Employe")
+            {
+                IndiceType = 1;
+                cB_Filtre.DisplayMember = "EMPLOYE";
+                cB_Filtre.ValueMember = "MATRICULE";
+            }
+            if (cB_FiltreType.Text == "Service")
+            {
+                IndiceType = 2;
+                cB_Filtre.DisplayMember = "NOMSERVICE";
+                cB_Filtre.ValueMember = "IDSERVICE";
+            }
+            if (cB_FiltreType.Text == "Fonction")
+            {
+                IndiceType = 3;
+                cB_Filtre.DisplayMember = "NOMFONCTION";
+                cB_Filtre.ValueMember = "IDFONCTION";
+            }
+
+            
+        }
+
+        private void cB_Filtre_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            dtviewConge = new Conge();
+            if (cB_Filtre.Text != "")
+            {
+                if (IndiceType == 1)
+                {
+                    dvConge = new DataView(dtviewConge.GetlisteCongeFiltered(IndiceType, cB_Filtre.Text));
+                }
+                if (IndiceType == 2)
+                {
+                    dvConge = new DataView(dtviewConge.GetlisteCongeFiltered(IndiceType, cB_Filtre.Text));
+                }
+                if (IndiceType == 3)
+                {
+                    dvConge = new DataView(dtviewConge.GetlisteCongeFiltered(IndiceType, cB_Filtre.Text));
+                }
+                DGV_Liste_Conge.DataSource = dvConge;
+            }
+            if (cB_Filtre.Text == "")
+            {
+                dvConge = new DataView(dtviewConge.GetlisteConge());
+                DGV_Liste_Conge.DataSource = dvConge;
+            }
+
+            
+
         }
     }
 }

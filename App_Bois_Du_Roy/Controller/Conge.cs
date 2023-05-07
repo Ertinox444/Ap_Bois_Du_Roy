@@ -89,7 +89,7 @@ namespace App_Bois_Du_Roy.Controller
 
             try
             {
-                using (MySqlCommand cmd = new MySqlCommand("SELECT MONTHNAME(DEMANDE_CONGE.DATE_DEBUT) as Mois, DATEDIFF(DEMANDE_CONGE.DATE_FIN, DEMANDE_CONGE.DATE_DEBUT) as Duree, TYPE_CONGE.ID_TYPE_CONGE as Type_Conge FROM DEMANDE_CONGE INNER JOIN STATUT_DEMANDE ON DEMANDE_CONGE.STATUT_DEMANDE_CONGE = STATUT_DEMANDE.id_Statut INNER JOIN TYPE_CONGE ON DEMANDE_CONGE.TYPE_CONGE_DEMANDE = TYPE_CONGE.ID_TYPE_CONGE WHERE STATUT_DEMANDE.libelle_Statut = 'Validé' GROUP BY MONTHNAME(DEMANDE_CONGE.DATE_DEBUT), TYPE_CONGE.NOM_TYPE_CONGE;", conn.connection))
+                using (MySqlCommand cmd = new MySqlCommand("SELECT MONTHNAME(DEMANDE_CONGE.DATE_DEBUT) as Mois, SUM(DATEDIFF(DEMANDE_CONGE.DATE_FIN,DEMANDE_CONGE.DATE_DEBUT)) as Duree, TYPE_CONGE.ID_TYPE_CONGE as Type_Conge FROM DEMANDE_CONGE INNER JOIN STATUT_DEMANDE ON DEMANDE_CONGE.STATUT_DEMANDE_CONGE = STATUT_DEMANDE.id_Statut INNER JOIN TYPE_CONGE ON DEMANDE_CONGE.TYPE_CONGE_DEMANDE = TYPE_CONGE.ID_TYPE_CONGE WHERE STATUT_DEMANDE.libelle_Statut = 'Validé' GROUP BY MONTHNAME(DEMANDE_CONGE.DATE_DEBUT), TYPE_CONGE.NOM_TYPE_CONGE;", conn.connection))
                 {
                     conn.connection.Open();
                     MySqlDataReader reader = cmd.ExecuteReader();
@@ -151,7 +151,6 @@ namespace App_Bois_Du_Roy.Controller
 
 
         }
-
         #endregion
         #region Recup pourcentage conge restant
 
@@ -187,7 +186,7 @@ namespace App_Bois_Du_Roy.Controller
             }
 
 
-            return Math.Round((CongeRestant * 100 / CongeTotalAcquis), 2);
+            return Math.Round(((CongeRestant * 100) / CongeTotalAcquis), 2);
 
 
 
@@ -469,7 +468,7 @@ namespace App_Bois_Du_Roy.Controller
 
             try
             {
-                using (MySqlCommand cmd = new MySqlCommand("SELECT D.DATE_DEBUT,ID_DEMANDE_CONGE as ID_CONGE, concat(E.NOM,' ', E.PRENOM) as Employe, T.NOM_TYPE_CONGE AS 'Type Conge', concat(DATEDIFF( D.DATE_FIN,D.DATE_DEBUT ),' ', 'jours') AS Duree, S.libelle_Statut AS Statut, concat(V.NOM,' ',V.PRENOM) AS Valideur FROM DEMANDE_CONGE D JOIN EMPLOYE E ON D.MATRICULE = E.MATRICULE JOIN TYPE_CONGE T ON D.TYPE_CONGE_DEMANDE = T.ID_TYPE_CONGE JOIN STATUT_DEMANDE S ON D.STATUT_DEMANDE_CONGE = S.id_Statut LEFT JOIN EMPLOYE V ON D.VALIDATEUR = V.MATRICULE ORDER BY CASE WHEN S.libelle_Statut = 'En attente' THEN 1 ELSE 2 END, ID_DEMANDE_CONGE DESC; ", conn.connection))
+                using (MySqlCommand cmd = new MySqlCommand("SELECT DATE_FORMAT(D.DATE_DEBUT, '%d/%m/%Y') as 'Date Debut', DATE_FORMAT(D.DATE_FIN, '%d/%m/%Y') as 'Date Fin', ID_DEMANDE_CONGE as ID_CONGE, concat(E.NOM,' ', E.PRENOM) as Employe, T.NOM_TYPE_CONGE AS 'Type Conge', concat(DATEDIFF(D.DATE_FIN, D.DATE_DEBUT),' ', 'jours') AS Duree, S.libelle_Statut AS Statut, concat(V.NOM,' ',V.PRENOM) AS Valideur FROM DEMANDE_CONGE D JOIN EMPLOYE E ON D.MATRICULE = E.MATRICULE JOIN TYPE_CONGE T ON D.TYPE_CONGE_DEMANDE = T.ID_TYPE_CONGE JOIN STATUT_DEMANDE S ON D.STATUT_DEMANDE_CONGE = S.id_Statut LEFT JOIN EMPLOYE V ON D.VALIDATEUR = V.MATRICULE ORDER BY CASE WHEN S.libelle_Statut = 'En attente' THEN 1 ELSE 2 END, ID_DEMANDE_CONGE DESC;  ", conn.connection))
                 {
 
                     {
@@ -497,7 +496,7 @@ namespace App_Bois_Du_Roy.Controller
             Connexion conn = new Connexion();
             try
             {
-                using (MySqlCommand cmd = new MySqlCommand("SELECT concat(EMPLOYE.NOM,' ',EMPLOYE.PRENOM) AS EMPLOYE, TYPE_CONGE.NOM_TYPE_CONGE CONGE from DEMANDE_CONGE inner join TYPE_CONGE on DEMANDE_CONGE.TYPE_CONGE_DEMANDE = TYPE_CONGE.ID_TYPE_CONGE inner join EMPLOYE on DEMANDE_CONGE.MATRICULE = EMPLOYE.MATRICULE;", conn.connection))
+                using (MySqlCommand cmd = new MySqlCommand("SELECT concat(EMPLOYE.NOM,' ',EMPLOYE.PRENOM) AS EMPLOYE, TYPE_CONGE.NOM_TYPE_CONGE AS CONGE, concat(DATEDIFF(DEMANDE_CONGE.DATE_FIN, DEMANDE_CONGE.DATE_DEBUT),' ', 'jours') AS DUREE from DEMANDE_CONGE inner join TYPE_CONGE on DEMANDE_CONGE.TYPE_CONGE_DEMANDE = TYPE_CONGE.ID_TYPE_CONGE inner join EMPLOYE on DEMANDE_CONGE.MATRICULE = EMPLOYE.MATRICULE INNER JOIN STATUT_DEMANDE ON DEMANDE_CONGE.STATUT_DEMANDE_CONGE = STATUT_DEMANDE.ID_STATUT WHERE STATUT_DEMANDE.LIBELLE_STATUT = 'En attente';", conn.connection))
                 {
                     conn.connection.Open();
                     MySqlDataReader reader = cmd.ExecuteReader();
@@ -513,5 +512,112 @@ namespace App_Bois_Du_Roy.Controller
         }
         #endregion
 
+        public DataTable GetlisteCongeFiltered(int TypeFiltre, string Filtre)
+        {
+            DataTable dtListeConge = new DataTable();
+            Connexion conn = new Connexion();
+
+            if (TypeFiltre == 1)
+            {
+
+                try
+                {
+                    using (MySqlCommand cmd = new MySqlCommand("SELECT DATE_FORMAT(D.DATE_DEBUT, '%d/%m/%Y') as 'Date Debut', DATE_FORMAT(D.DATE_FIN, '%d/%m/%Y') as 'Date Fin', ID_DEMANDE_CONGE as ID_CONGE, concat(E.NOM,' ', E.PRENOM) as Employe, T.NOM_TYPE_CONGE AS 'Type Conge', concat(DATEDIFF(D.DATE_FIN, D.DATE_DEBUT),' ', 'jours') AS Duree, S.libelle_Statut AS Statut, concat(V.NOM,' ',V.PRENOM) AS Valideur FROM DEMANDE_CONGE D JOIN EMPLOYE E ON D.MATRICULE = E.MATRICULE JOIN TYPE_CONGE T ON D.TYPE_CONGE_DEMANDE = T.ID_TYPE_CONGE JOIN STATUT_DEMANDE S ON D.STATUT_DEMANDE_CONGE = S.id_Statut LEFT JOIN EMPLOYE V ON D.VALIDATEUR = V.MATRICULE WHERE CONCAT(E.NOM,' ', E.PRENOM) = '"+Filtre+"' ORDER BY CASE WHEN S.libelle_Statut = 'En attente' THEN 1 ELSE 2 END, ID_DEMANDE_CONGE DESC;   ", conn.connection))
+                    {
+
+                        {
+                            conn.connection.Open();
+                            MySqlDataReader reader = cmd.ExecuteReader();
+                            dtListeConge.Load(reader);
+                        }
+
+                    }
+
+                }
+                catch (Exception e)
+                {
+                    MessageBox.Show(e.ToString(), "Erreur 3", MessageBoxButtons.OK, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1, MessageBoxOptions.RightAlign, true);
+                }
+            
+            }
+
+            if (TypeFiltre == 2)
+            {
+                try
+                {
+                    using (MySqlCommand cmd = new MySqlCommand("SELECT DATE_FORMAT(D.DATE_DEBUT, '%d/%m/%Y') as 'Date Debut', DATE_FORMAT(D.DATE_FIN, '%d/%m/%Y') as 'Date Fin', ID_DEMANDE_CONGE as ID_CONGE, concat(E.NOM,' ', E.PRENOM) as Employe, T.NOM_TYPE_CONGE AS 'Type Conge', concat(DATEDIFF(D.DATE_FIN, D.DATE_DEBUT),' ', 'jours') AS Duree, S.libelle_Statut AS Statut, concat(V.NOM,' ',V.PRENOM) AS Valideur FROM DEMANDE_CONGE D JOIN EMPLOYE E ON D.MATRICULE = E.MATRICULE JOIN TYPE_CONGE T ON D.TYPE_CONGE_DEMANDE = T.ID_TYPE_CONGE JOIN STATUT_DEMANDE S ON D.STATUT_DEMANDE_CONGE = S.id_Statut LEFT JOIN EMPLOYE V ON D.VALIDATEUR = V.MATRICULE INNER JOIN SERVICE ON E.ID_SERVICE = SERVICE.ID_SERVICE WHERE SERVICE.NOM_SERVICE = '"+Filtre+"' ORDER BY CASE WHEN S.libelle_Statut = 'En attente' THEN 1 ELSE 2 END, ID_DEMANDE_CONGE DESC;   ", conn.connection))
+                    {
+
+                        {
+                            conn.connection.Open();
+                            MySqlDataReader reader = cmd.ExecuteReader();
+                            dtListeConge.Load(reader);
+                        }
+
+                    }
+
+                }
+                catch (Exception e)
+                {
+                    MessageBox.Show(e.ToString(), "Erreur 3", MessageBoxButtons.OK, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1, MessageBoxOptions.RightAlign, true);
+                }
+                
+            }
+
+            if (TypeFiltre == 3)
+            {
+                try
+                {
+                    using (MySqlCommand cmd = new MySqlCommand("SELECT DATE_FORMAT(D.DATE_DEBUT, '%d/%m/%Y') as 'Date Debut', DATE_FORMAT(D.DATE_FIN, '%d/%m/%Y') as 'Date Fin', ID_DEMANDE_CONGE as ID_CONGE, concat(E.NOM,' ', E.PRENOM) as Employe, T.NOM_TYPE_CONGE AS 'Type Conge', concat(DATEDIFF(D.DATE_FIN, D.DATE_DEBUT),' ', 'jours') AS Duree, S.libelle_Statut AS Statut, concat(V.NOM,' ',V.PRENOM) AS Valideur FROM DEMANDE_CONGE D JOIN EMPLOYE E ON D.MATRICULE = E.MATRICULE JOIN TYPE_CONGE T ON D.TYPE_CONGE_DEMANDE = T.ID_TYPE_CONGE JOIN STATUT_DEMANDE S ON D.STATUT_DEMANDE_CONGE = S.id_Statut LEFT JOIN EMPLOYE V ON D.VALIDATEUR = V.MATRICULE INNER JOIN FONCTION ON E.ID_FONCTION = FONCTION.ID_FONCTION WHERE FONCTION.NOM_FONCTION = '"+Filtre+"' ORDER BY CASE WHEN S.libelle_Statut = 'En attente' THEN 1 ELSE 2 END, ID_DEMANDE_CONGE DESC;   ", conn.connection))
+                    {
+
+                        {
+                            conn.connection.Open();
+                            MySqlDataReader reader = cmd.ExecuteReader();
+                            dtListeConge.Load(reader);
+                        }
+
+                    }
+
+                }
+                catch (Exception e)
+                {
+                    MessageBox.Show(e.ToString(), "Erreur 3", MessageBoxButtons.OK, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1, MessageBoxOptions.RightAlign, true);
+                }
+               
+            }
+
+            return dtListeConge;
+        }
+
+        public DataTable RenvoieFiltreConge(string TypeFiltre)
+        {
+            DataTable ResultFiltre = new DataTable();
+            if (TypeFiltre == "Employe")
+            {
+                Employe TypeEmp = new Employe();
+                ResultFiltre = TypeEmp.GetListeEmployeCB();
+
+                return ResultFiltre;
+            }
+
+            if (TypeFiltre == "Service")
+            {
+                Service TypeServ = new Service();
+                ResultFiltre = TypeServ.GetListeServiceCB();
+
+                return ResultFiltre;
+
+            }
+            if (TypeFiltre == "Fonction")
+            {
+                Fonction TypeFonc = new Fonction();
+                ResultFiltre = TypeFonc.GetListeFonctionCB();
+
+                return ResultFiltre;
+            }
+
+            return ResultFiltre;
+        }
     }
 }

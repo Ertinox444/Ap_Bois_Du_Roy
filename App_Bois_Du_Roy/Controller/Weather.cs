@@ -13,14 +13,7 @@ using System.Windows.Forms;
 
 namespace App_Bois_Du_Roy.Controller
 {
-    public class Weather
-    {
-        public double Temperature { get; set; }
-        public double Humidity { get; set; }
-        public double WindSpeed { get; set; }
-        public string Description { get; set; }
-    }
-
+  
     public class WeatherService
     {
         private const string API_KEY = "0a5f4637e70811b291a9c040735f596e";

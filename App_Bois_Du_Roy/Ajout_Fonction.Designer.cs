@@ -31,6 +31,7 @@ namespace App_Bois_Du_Roy
         {
             this.panel1 = new System.Windows.Forms.Panel();
             this.pb_LogOut = new System.Windows.Forms.PictureBox();
+            this.pb_Notif = new System.Windows.Forms.PictureBox();
             this.lbl_ListeFonction = new System.Windows.Forms.Label();
             this.lbl_Service = new System.Windows.Forms.Label();
             this.lbl_Conge = new System.Windows.Forms.Label();
@@ -42,12 +43,11 @@ namespace App_Bois_Du_Roy
             this.btn_AddFonc = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.lbl_Notif = new System.Windows.Forms.Label();
-            this.pb_Notif = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pb_LogOut)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_Notif)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pb_Notif)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -76,6 +76,16 @@ namespace App_Bois_Du_Roy
             this.pb_LogOut.TabIndex = 30;
             this.pb_LogOut.TabStop = false;
             this.pb_LogOut.Click += new System.EventHandler(this.pb_LogOut_Click);
+            // 
+            // pb_Notif
+            // 
+            this.pb_Notif.Image = global::App_Bois_Du_Roy.Properties.Resources.notif_icon;
+            this.pb_Notif.Location = new System.Drawing.Point(308, 425);
+            this.pb_Notif.Name = "pb_Notif";
+            this.pb_Notif.Size = new System.Drawing.Size(38, 40);
+            this.pb_Notif.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pb_Notif.TabIndex = 38;
+            this.pb_Notif.TabStop = false;
             // 
             // lbl_ListeFonction
             // 
@@ -131,6 +141,7 @@ namespace App_Bois_Du_Roy
             // 
             // pictureBox1
             // 
+            this.pictureBox1.BackColor = System.Drawing.Color.White;
             this.pictureBox1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureBox1.Image = global::App_Bois_Du_Roy.Properties.Resources.Logo;
             this.pictureBox1.Location = new System.Drawing.Point(75, 46);
@@ -204,16 +215,6 @@ namespace App_Bois_Du_Roy
             this.lbl_Notif.TabIndex = 39;
             this.lbl_Notif.Text = "Nb";
             // 
-            // pb_Notif
-            // 
-            this.pb_Notif.Image = global::App_Bois_Du_Roy.Properties.Resources.notif_icon;
-            this.pb_Notif.Location = new System.Drawing.Point(308, 425);
-            this.pb_Notif.Name = "pb_Notif";
-            this.pb_Notif.Size = new System.Drawing.Size(38, 40);
-            this.pb_Notif.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pb_Notif.TabIndex = 38;
-            this.pb_Notif.TabStop = false;
-            // 
             // Ajout_Fonction
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -229,10 +230,10 @@ namespace App_Bois_Du_Roy
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pb_LogOut)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_Notif)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pb_Notif)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -20,7 +20,6 @@ namespace App_Bois_Du_Roy
 
         List<string> villes = new List<string>()
 {
-        
         "Paris",
         "Marseille",
         "Lyon",
@@ -41,6 +40,7 @@ namespace App_Bois_Du_Roy
         "Nîmes",
         "Villeurbanne",
         "Le Mans"
+    
             };
         Dictionary<string, string> MeteoENFR = new Dictionary<string, string>()
 {
@@ -55,37 +55,34 @@ namespace App_Bois_Du_Roy
     {"mist", "brumeux"},
 };
 
-         
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
         public TableauBord()
         {
             InitializeComponent();
             comboBoxVilles.DataSource = villes;
+            comboBoxVilles.SelectedItem = "Angers";
             Conge dtviewLastRequest = new Conge();
             DataView dv = new DataView(dtviewLastRequest.LastRequest());
             DGV_Last_Request.DataSource = dv;
-           
-            DGV_Last_Request.Columns["EMPLOYE"].Width= 205;
-            DGV_Last_Request.Columns["CONGE"].Width = 205;
-            DGV_Last_Request.ColumnHeadersDefaultCellStyle.ForeColor = Color.FromArgb(87, 128, 64);
-            DGV_Last_Request.DefaultCellStyle.ForeColor = Color.FromArgb(87, 128, 64);
+
+            if (DGV_Last_Request.Rows.Count == 1)
+            {
+
+                DGV_Last_Request.Visible = false;
+                tb_NoData.Visible = true;
+                tb_NoData.Text = "Aucun congé en attente";
+            }
+            else
+            {
+                DGV_Last_Request.Visible = true;
+                tb_NoData.Visible = false;
+                DGV_Last_Request.Columns["EMPLOYE"].Width = 205;
+                DGV_Last_Request.Columns["CONGE"].Width = 205;
+                DGV_Last_Request.Columns["DUREE"].Width = 205;
+                DGV_Last_Request.ColumnHeadersDefaultCellStyle.ForeColor = Color.FromArgb(87, 128, 64);
+                DGV_Last_Request.DefaultCellStyle.ForeColor = Color.FromArgb(87, 128, 64);
+            }
+
             Misc date_of_Today = new Misc();
             Misc date_Birth = new Misc();
             tb_Today_Date.Text = date_of_Today.TodayDate();
@@ -231,6 +228,11 @@ namespace App_Bois_Du_Roy
             textBox_TempsActuel.Text = "Sur " + ville + ", il fait actuellement " + temperature + ", le temps est " + meteoActuelle;
             textBox_TempFeeling.Text = $"{json["main"]["feels_like"]} °C";
             textBox_Humidite.Text = $"{json["main"]["humidity"]} %";
+        }
+
+        private void DGV_Last_Request_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
+        {
+            
         }
     }
 }
