@@ -19,7 +19,7 @@ namespace App_Bois_Du_Roy
         {
             InitializeComponent();
             SousFormulaire SF = new SousFormulaire(pnl_Menu);
-            SF.openChildForm(new TableauBord());
+            SF.openChildForm(new Page_Connection());
         }
 
     }

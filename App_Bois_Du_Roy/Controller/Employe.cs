@@ -470,18 +470,37 @@ namespace App_Bois_Du_Roy.Controller
 
                 string rqtSql = "";
 
-                if (nom != "" && prenom != "" && service != "" && fonction != "" && matricule_Responsable != "")
+                if (nom != "" && prenom != "" && matricule_Responsable != "")
                 {
-                    rqtSql = "UPDATE EMPLOYE SET ";
-                    rqtSql += "NOM ='" + nom + "', PRENOM ='" + prenom + "', NUM_SECU ='" + numsecu + "', TELEPHONE='" + telephone + "', DATE_NAISSANCE = '" + dtBirth + "', DATE_EMBAUCHE ='" + dtEmbauche + "', MATRICULE ='" + matricule + "', ID_FONCTION =" + idFonction + ", ID_SERVICE =" + idService + ", MATRICULE_RESPONSABLE='" + matricule_Responsable + "', MAIL ='" + mail + "'";
-                    rqtSql += " WHERE EMPLOYE.MATRICULE ='" + matricule_correspondant + "';";
+                    if (service == "" && fonction == "")
+                    {
+                        rqtSql = "UPDATE EMPLOYE SET ";
+                        rqtSql += "NOM ='" + nom + "', PRENOM ='" + prenom + "', NUM_SECU ='" + numsecu + "', TELEPHONE='" + telephone + "', DATE_NAISSANCE = '" + dtBirth + "', DATE_EMBAUCHE ='" + dtEmbauche + "', MATRICULE ='" + matricule + "', ID_FONCTION = NULL" +  ", ID_SERVICE = NULL" + ", MATRICULE_RESPONSABLE='" + matricule_Responsable + "', MAIL ='" + mail + "'";
+                        rqtSql += " WHERE EMPLOYE.MATRICULE ='" + matricule_correspondant + "';";
+                    }
+                    if (service != "" && fonction != "")
+                    {
+                        rqtSql = "UPDATE EMPLOYE SET ";
+                        rqtSql += "NOM ='" + nom + "', PRENOM ='" + prenom + "', NUM_SECU ='" + numsecu + "', TELEPHONE='" + telephone + "', DATE_NAISSANCE = '" + dtBirth + "', DATE_EMBAUCHE ='" + dtEmbauche + "', MATRICULE ='" + matricule + "', ID_FONCTION =" + idFonction + ", ID_SERVICE =" + idService + ", MATRICULE_RESPONSABLE='" + matricule_Responsable + "', MAIL ='" + mail + "'";
+                        rqtSql += " WHERE EMPLOYE.MATRICULE ='" + matricule_correspondant + "';";
+                    }
+                    
 
                 }
-                else if (nom != "" && prenom != "" && service != "" && fonction != "" && matricule_Responsable == "")
+                else if (nom != "" && prenom != "" && matricule_Responsable == "")
                 {
-                    rqtSql = "UPDATE EMPLOYE SET ";
-                    rqtSql += "NOM ='" + nom + "', PRENOM ='" + prenom + "', NUM_SECU ='" + numsecu + "', TELEPHONE='" + telephone + "', DATE_NAISSANCE = '" + dtBirth + "', DATE_EMBAUCHE ='" + dtEmbauche + "', MATRICULE ='" + matricule + "', ID_FONCTION =" + idFonction + ", ID_SERVICE =" + idService + "', MAIL ='" + mail + "'";
-                    rqtSql += " WHERE EMPLOYE.MATRICULE ='" + matricule_correspondant + "';";
+                    if (service == "" && fonction == "")
+                    {
+                        rqtSql = "UPDATE EMPLOYE SET ";
+                        rqtSql += "NOM ='" + nom + "', PRENOM ='" + prenom + "', NUM_SECU ='" + numsecu + "', TELEPHONE='" + telephone + "', DATE_NAISSANCE = '" + dtBirth + "', DATE_EMBAUCHE ='" + dtEmbauche + "', MATRICULE ='" + matricule + "', ID_FONCTION = NULL" + ", ID_SERVICE = NULL" + ", MATRICULE_RESPONSABLE='" + matricule_Responsable + "', MAIL ='" + mail + "'";
+                        rqtSql += " WHERE EMPLOYE.MATRICULE ='" + matricule_correspondant + "';";
+                    }
+                    if (service != "" && fonction != "")
+                    {
+                        rqtSql = "UPDATE EMPLOYE SET ";
+                        rqtSql += "NOM ='" + nom + "', PRENOM ='" + prenom + "', NUM_SECU ='" + numsecu + "', TELEPHONE='" + telephone + "', DATE_NAISSANCE = '" + dtBirth + "', DATE_EMBAUCHE ='" + dtEmbauche + "', MATRICULE ='" + matricule + "', ID_FONCTION =" + idFonction + ", ID_SERVICE =" + idService + ", MATRICULE_RESPONSABLE='" + matricule_Responsable + "', MAIL ='" + mail + "'";
+                        rqtSql += " WHERE EMPLOYE.MATRICULE ='" + matricule_correspondant + "';";
+                    }
                 }
 
 

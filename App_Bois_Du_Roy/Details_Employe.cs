@@ -14,7 +14,7 @@ namespace App_Bois_Du_Roy
 {
     public partial class Details_Employe : Form
     {
-        private photoProfil PP = new photoProfil();
+        
         private Service Serv = new Service();
         private Employe Emp = new Employe();
         private Employe Birth = new Employe();
@@ -32,7 +32,7 @@ namespace App_Bois_Du_Roy
             InitializeComponent();
             panel = new Detail_Panel();
             panel.RoundCorners(panel3, 50);
-            PP = new photoProfil();
+            
             Serv = new Service();
             Emp = new Employe();
             Fonc = new Fonction();
@@ -84,12 +84,7 @@ namespace App_Bois_Du_Roy
 
             lbl_PP.Text = initials;
 
-            if (PP.GetImage(matricule) != null)
-          
-            {
-                lbl_PP.Text = "";
-                pb_PP.Image = PP.Convertir(PP.GetImage(matricule));
-            }
+            
 
             Misc Notif = new Misc();
             if (Notif.CheckCongesEnAttente() > 0)

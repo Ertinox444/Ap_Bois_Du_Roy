@@ -166,14 +166,7 @@ namespace App_Bois_Du_Roy
             {
                 MessageBox.Show("Veuillez entrer le numéro de sécurité social", "!!! ERREUR !!! ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
-            else if (cbModifEmp_Service.Text == "")
-            {
-                MessageBox.Show("Veuillez sélectionner un service", "!!! ERREUR !!! ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
-            else if (cbModifEmp_Fonction.Text == "")
-            {
-                MessageBox.Show("Veuillez sélectionner une fonction", "!!! ERREUR !!! ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
+            
             else
             {
                 int IsResponsable = 0;
